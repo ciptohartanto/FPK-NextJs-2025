@@ -105,7 +105,7 @@ const IndexPage = () => {
       <div className="visiMisi">
         <div className="visiMisi-left">
           <div className="visiMisi-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7ol5xD32ylE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/ibee_Em4-TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div className="visiMisi-right">
@@ -133,7 +133,7 @@ const IndexPage = () => {
         </div>
         <div className="kenalKami-right">
           <div className="visiMisi-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
