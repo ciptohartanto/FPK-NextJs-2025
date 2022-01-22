@@ -104,9 +104,9 @@ const IndexPage = () => {
       </nav>
       <div className="visiMisi">
         <div className="visiMisi-left">
-          <video className="visiMisi-video" controls="controls" autoPlay="autoplay" muted="muted">
-            <source src={VideoTop} type="video/mp4" />
-          </video>
+          <div className="visiMisi-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7ol5xD32ylE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
         <div className="visiMisi-right">
           <h2 className="typography-title">{stuff.judulVisiMisi}</h2>
@@ -132,9 +132,9 @@ const IndexPage = () => {
           <p className="typography-subtitle">{renderRichText(stuff.kontenMengenalKami, options)}</p>
         </div>
         <div className="kenalKami-right">
-          <video className="visiMisi-video" controls="controls">
-            <source src={VideoKenalKami} type="video/mp4" />
-          </video>
+          <div className="visiMisi-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
       <div className="programStudi programStudi--1 typography--centerText">
