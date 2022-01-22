@@ -1,0 +1,43 @@
+.gridImage
+  +bp('mobile')
+    display: flex
+    flex-direction: column
+  +bp('tablet')
+    display: grid
+    grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 1fr [last]
+    grid-template-rows: [row-one] 130px [row-two] 130px [row-three] 130px [last]
+    grid-auto-flow: row
+    grid-row-gap: 10px
+    grid-column-gap: 10px
+  +bp('desktop')
+    display: grid
+    grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 1fr [last]
+    grid-template-rows: [row-one] 179px [row-two] 179px [row-three] 210px [last]
+    grid-auto-flow: row
+    grid-row-gap: 10px
+    grid-column-gap: 10px
+  &-item
+    width: 100%
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
+    +bp('mobile')
+      padding-top: 60%
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+      &:nth-child(n+4)
+        padding-top: 0
+        
+    +bp('tablet')
+      &:first-child
+        grid-column: col-one / col-three
+        grid-row: row-one / row-three
+    +bp('desktop')
+      iframe
+        height: 100%
+      &:first-child
+        grid-column: col-one / col-three
+        grid-row: row-one / row-three
+  

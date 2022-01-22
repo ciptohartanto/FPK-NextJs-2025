@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import "./../styles/styles.css";
+import "./../stylesheets/index.sass";
 import { useStaticQuery, graphql } from "gatsby";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";

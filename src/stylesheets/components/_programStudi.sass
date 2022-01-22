@@ -1,0 +1,108 @@
+.programStudi
+  position: relative
+  padding: 41px 20px 80px
+
+  &--1
+    background-color: #EDEDED
+  &--2
+    background-color: #F8F4E4
+  &-list
+    position: relative
+    display: grid
+    @extend %wrapper
+    +bp('mobile')
+      grid-template-columns: 1fr
+      margin-top: 30px
+    +bp('tablet')
+      margin-top: 40px
+      grid-template-columns: 1fr 1fr 1fr
+      grid-column-gap: 40px
+    +bp('desktop')
+      margin-top: 60px
+      grid-template-columns: 1fr 1fr 1fr
+      grid-column-gap: 40px
+  &-head
+    @extend %wrapper
+    +bp('mobile')
+      padding: 0
+      max-width: 100%
+    +bp('tablet')
+      padding: 0 100px
+    +bp('desktop')
+      padding: 0 200px
+  &-item
+    display: flex
+    align-items: center
+    +bp('mobile')
+      flex-direction: row
+      margin-bottom: 18px
+    +bp('tablet')
+      flex-direction: column
+    +bp('desktop')
+      flex-direction: column
+  &-bulet
+    border-radius: 100%
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    margin-bottom: 10px
+    +bp('mobile')
+      padding-right: 10px
+      width: 82px
+      height: 82px
+      flex-shrink: 0
+    +bp('tablet')
+      padding-right: 10px
+      width: 102px
+      height: 102px
+    +bp('desktop')
+      padding-right: 20px
+      width: 152px
+      height: 152px
+    .programStudi-item:nth-child(1) &
+      background-color: #42A288
+    .programStudi-item:nth-child(2) &
+      background-color: #4084C7
+    .programStudi-item:nth-child(3) &
+      background-color: #F0A71D
+  &-buletText
+    font-weight: bold
+    font-size: 100px
+    color: #fff
+    +bp('mobile')
+      font-size: 40px
+    +bp('tablet')
+      font-size: 70px
+    +bp('desktop')
+      font-size: 100px
+  &-content
+    +bp('mobile')
+      text-align: left
+      margin-left: 10px
+  &-subtitle
+    color: #343434
+    font-weight: bold
+    text-transform: uppercase
+    +bp('mobile')
+      margin-bottom: 8px
+      margin-top: 8px
+      font-size: 16px
+    +bp('tablet')
+      margin-bottom: 12px
+      margin-top: 8px
+      font-size: 18px
+    +bp('desktop')
+      margin-bottom: 18px
+      margin-top: 10px
+      font-size: 24px
+
+  &-deskripsi
+    font-size: 24px
+    color: #343434
+    line-height: 1.2
+    +bp('mobile')
+      font-size: 14px
+    +bp('tablet')
+      font-size: 16px
+    +bp('desktop')
+      font-size: 24px
