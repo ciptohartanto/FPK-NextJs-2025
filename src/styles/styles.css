@@ -80,7 +80,8 @@
     font-weight: bold;}
   @media screen and (max-width: 767px) {
     .typography-subtitle {
-      font-size: 14px; } }
+      font-size: 14px; 
+      line-height: 1.4;} }
   @media screen and (min-width: 768px) and (max-width: 1364px) {
     .typography-subtitle {
       font-size: 16px;
@@ -206,7 +207,7 @@
     @media screen and (max-width: 767px) {
       .programStudi-list {
         grid-template-columns: 1fr;
-        margin-top: 20px; } }
+        margin-top: 30px; } }
     @media screen and (min-width: 768px) and (max-width: 1364px) {
       .programStudi-list {
         margin-top: 40px;
@@ -219,7 +220,8 @@
         grid-column-gap: 40px; } }
   @media screen and (max-width: 767px) {
     .programStudi-head {
-      padding: 0 18px; } }
+      padding: 0;
+      max-width: 100%; } }
   @media screen and (min-width: 768px) and (max-width: 1364px) {
     .programStudi-head {
       padding: 0 100px; } }
@@ -416,7 +418,8 @@
     font-size: 24px;
     line-height: 29px;
     margin-top: 1em;
-    margin-bottom: 2em; }
+    margin-bottom: 2em; 
+    white-space: break-spaces;}
     @media screen and (max-width: 767px) {
       .footer-address {
         font-size: 16px; } }
