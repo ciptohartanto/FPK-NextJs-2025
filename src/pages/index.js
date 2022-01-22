@@ -7,8 +7,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import IconPhone from './../img/icon-call.svg'
 import IconEmail from "./../img/icon-email.svg"
-import VideoTop from './../img/vids/video-tentangKami.mp4'
-import VideoKenalKami from "./../img/vids/video-tentangKami.mp4"
+
 const Bold = ({ children }) => <strong>{children}</strong>
 const Text = ({ children }) => <>{children}</>
 
@@ -105,7 +104,7 @@ const IndexPage = () => {
       <div className="visiMisi">
         <div className="visiMisi-left">
           <div className="visiMisi-video">
-          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/ibee_Em4-TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/ibee_Em4-TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div className="visiMisi-right">
@@ -133,7 +132,7 @@ const IndexPage = () => {
         </div>
         <div className="kenalKami-right">
           <div className="visiMisi-video">
-          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
