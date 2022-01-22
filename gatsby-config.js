@@ -1,29 +1,29 @@
 module.exports = {
   siteMetadata: {
-      title: `Yayasan Flores Penuh Kasih`,
+    title: `Yayasan Flores Penuh Kasih`,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "",
-      "spaceId": ""
+      "accessToken": "VYjKLlqc5fNJg2c4tAcNoZjQEcVmrXz8jJBpqqV9okc",
+      "spaceId": "r5986177nqt8"
     }
   }, "gatsby-plugin-sass", {
     resolve: 'gatsby-plugin-google-analytics',
     options: {
-      "trackingId": ""
+      "trackingId": "123"
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
+  }, "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "src/img/icon.png"
     }
   }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": "./src/img/"
     },
     __key: "images"
   }]
