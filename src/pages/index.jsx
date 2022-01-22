@@ -4,9 +4,7 @@ import "./../styles/styles.css";
 import { useStaticQuery, graphql } from "gatsby";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-
-import IconPhone from "icon-call.svg";
-import IconEmail from "icon-email.svg";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Bold = ({ children }) => <strong>{children}</strong>;
 const Text = ({ children }) => <>{children}</>;
@@ -97,7 +95,11 @@ const IndexPage = () => {
           type="text/css"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&display=swap"
           rel="stylesheet"
@@ -115,9 +117,9 @@ const IndexPage = () => {
               height="315"
               src="https://www.youtube.com/embed/ibee_Em4-TQ"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>
@@ -140,37 +142,37 @@ const IndexPage = () => {
                 }}
               />
             ))}
-            <div class="gridImage-item">
+            <div className="gridImage-item">
               <iframe
                 width="100%"
                 height="auto"
                 src="https://www.youtube.com/embed/sF8RFxbco-w"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen=""
+                allowFullScreen
               ></iframe>
             </div>
-            <div class="gridImage-item">
+            <div className="gridImage-item">
               <iframe
                 width="100%"
                 height="auto"
                 src="https://www.youtube.com/embed/sf0CWewHo4w"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen=""
+                allowFullScreen
               ></iframe>
             </div>
-            <div class="gridImage-item">
+            <div className="gridImage-item">
               <iframe
                 width="100%"
                 height="auto"
                 src="https://www.youtube.com/embed/L0zGRNxDrYc"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen=""
+                allowFullScreen
               ></iframe>
             </div>
           </div>
@@ -190,9 +192,9 @@ const IndexPage = () => {
               height="315"
               src="https://www.youtube.com/embed/4OivBqToaQQ"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>
@@ -331,18 +333,16 @@ const IndexPage = () => {
           <ul className="footer-list">
             <li className="footer-item">
               <a href="tel:+6281268317567">
-                <img
-                  className="footer-icon"
-                  src={IconPhone}
+                <StaticImage
+                  src="./img/icon-call.svg"
                   alt="hubungi Yayasan Flores Penuh Kasih"
                 />
               </a>
             </li>
             <li className="footer-item">
               <a href="mailto:yayasan.fpk@hotmail.com">
-                <img
-                  className="footer-icon"
-                  src={IconEmail}
+                <StaticImage
+                  src="./img/icon-email.svg"
                   alt="hubungi Yayasan Flores Penuh Kasih"
                 />
               </a>
