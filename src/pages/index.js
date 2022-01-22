@@ -87,7 +87,7 @@ const IndexPage = () => {
     `
   )
   const { contentfulKontenWebsite: stuff } = data
-  
+
   return (
     <>
       <Helmet>
@@ -104,7 +104,7 @@ const IndexPage = () => {
       <div className="visiMisi">
         <div className="visiMisi-left">
           <div className="visiMisi-video">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/ibee_Em4-TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ibee_Em4-TQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div className="visiMisi-right">
@@ -122,6 +122,9 @@ const IndexPage = () => {
                 backgroundImage: `url("https:${item.file.url}")`
               }} />
             )}
+          <div class="gridImage-item"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/sF8RFxbco-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+          <div class="gridImage-item"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/sf0CWewHo4w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+          <div class="gridImage-item"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/L0zGRNxDrYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
           </div>
         </div>
       </div>
@@ -132,7 +135,7 @@ const IndexPage = () => {
         </div>
         <div className="kenalKami-right">
           <div className="visiMisi-video">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/4OivBqToaQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -195,11 +198,11 @@ const IndexPage = () => {
         </ul>
       </div>
       <div className="koncis">
-        <div className="koncis-left"><div className="koncis-bg" style={{ backgroundImage: `url("https:${stuff.kontenFoto8KunciPenentu.file.url}")`}} /></div>
+        <div className="koncis-left"><div className="koncis-bg" style={{ backgroundImage: `url("https:${stuff.kontenFoto8KunciPenentu.file.url}")` }} /></div>
         <div className="koncis-right">
           <h2 className="typography-title">{stuff.judul8KunciPenentu}</h2>
           <div className="typography-list">
-          {renderRichText(stuff.konten8KunciPenentu, options)}
+            {renderRichText(stuff.konten8KunciPenentu, options)}
           </div>
         </div>
       </div>
@@ -218,13 +221,13 @@ const IndexPage = () => {
           <address className="footer-address">
             {renderRichText(stuff.kontenAlamat, options)}
           </address>
-          <h3 className="footer-subtitle">Contact Us</h3> 
-          
+          <h3 className="footer-subtitle">Contact Us</h3>
+
 
           <ul className="footer-list">
- 
+
             <li className="footer-item"><a href="tel:+6281268317567"><img className="footer-icon" src={IconPhone} alt="hubungi Yayasan Flores Penuh Kasih" /></a></li>
-            <li className="footer-item"><a href="mailto:"><img className="footer-icon" src={IconEmail} alt="hubungi Yayasan Flores Penuh Kasih" /></a></li>
+            <li className="footer-item"><a href="mailto:yayasan.fpk@hotmail.com"><img className="footer-icon" src={IconEmail} alt="hubungi Yayasan Flores Penuh Kasih" /></a></li>
           </ul>
         </div>
       </footer>
