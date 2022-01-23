@@ -20,7 +20,8 @@ const Footer = ({ content }) => {
           <li className="footer-item">
             <a href="tel:+6281268317567">
               <StaticImage
-                src="./img/icon-call.svg"
+                className="footer-icon"
+                src="./../img/icon-call.svg"
                 alt="hubungi Yayasan Flores Penuh Kasih"
               />
             </a>
@@ -28,7 +29,8 @@ const Footer = ({ content }) => {
           <li className="footer-item">
             <a href="mailto:yayasan.fpk@hotmail.com">
               <StaticImage
-                src="./img/icon-email.svg"
+                className="footer-icon"
+                src="./../img/icon-email.svg"
                 alt="hubungi Yayasan Flores Penuh Kasih"
               />
             </a>
