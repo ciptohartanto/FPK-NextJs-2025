@@ -1,0 +1,21 @@
+.koncis
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  margin-top: 45px
+  @extend %wrapper
+  +bp('mobile')
+    grid-template-columns: 1fr
+  &-left
+    display: block
+    width: 100%
+    +bp('mobile')
+      display: none
+  &-right
+    display: block
+  &-bg
+    height: 100%
+    width: 100%
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat

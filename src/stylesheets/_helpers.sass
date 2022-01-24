@@ -1,0 +1,32 @@
+// breakpoints
+
+@mixin bp($breakpoint)
+  @if $breakpoint == 'mobile'
+    @media screen and (max-width: "767px")
+      @content
+  @else if $breakpoint == 'tablet'
+    @media screen and (min-width: "768px") and (max-width: "1364px")
+      @content
+  @else if $breakpoint == 'desktop'
+    @media screen and (min-width: "1365px")
+      @content
+  @else
+    @warn $breakpoint "doesn't exist cuy"
+
+
+// wrappers
+
+%wrapper
+  margin-left: auto
+  margin-right: auto
+  +bp('mobile')
+    width: 100%
+    max-width: 90%
+    padding-left: 18px
+    padding-right: 18px
+  +bp('tablet')
+    width: 80%
+    max-width: 1100px
+  +bp('desktop')  
+    width: 80%
+    width: 1100px

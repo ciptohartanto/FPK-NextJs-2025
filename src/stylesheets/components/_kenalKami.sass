@@ -1,0 +1,14 @@
+.kenalKami
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  margin-top: 85px
+  margin-bottom: 146px
+  @extend %wrapper
+  +bp('mobile')
+    display: grid
+    grid-template-columns: 1fr
+  &-left
+    position: relative
+  &-right
+    position: relative

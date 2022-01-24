@@ -1,0 +1,24 @@
+.founder
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  margin-top: 104px
+  margin-bottom: 152px
+  @extend %wrapper
+  +bp('mobile')
+    grid-template-columns: 1fr
+  &-right
+    position: relative
+  &-left
+    width: 231px
+    height: 231px
+    border-radius: 100%
+    overflow: hidden
+    margin-left: auto
+    +bp('mobile')
+      width: 180px
+      height: 180px
+      margin: 0 auto
+  &-img
+    width: 100%
+    display: block

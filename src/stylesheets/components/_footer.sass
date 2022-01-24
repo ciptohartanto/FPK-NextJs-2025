@@ -1,0 +1,53 @@
+.footer
+  display: grid
+  grid-template-columns: 2fr 4fr
+  height: 416px
+  color: #fff
+  +bp('mobile')
+    grid-template-columns: 1fr
+    height: 300px
+  &-left
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding-right: 50px
+    +bp('mobile')
+      display: none
+  &-right
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    flex-direction: column
+    background-color: #E38D37
+    padding-left: 24px
+  &-logo
+    text-indent: -9000px
+    background-image: url(../img/flores-penuh-kasih-logo.jpg)
+    background-repeat: no-repeat
+    background-size: contain
+    padding-top: 40%
+    width: 40%
+  &-list
+    display: flex
+    flex-direction: row
+    margin-top: 1em
+  &-item
+    margin-right: 10px
+  &-icon
+    width: 40px
+    height: 40px
+  &-title,
+  &-subtitle
+    font-size: 24px
+    font-weight: bold
+    +bp('mobile')
+      font-size: 18px
+
+  &-address
+    font-size: 24px
+    line-height: 29px
+    margin-top: 1em
+    margin-bottom: 2em
+    white-space: break-spaces
+    +bp('mobile')
+      font-size: 16px
