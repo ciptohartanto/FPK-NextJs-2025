@@ -13,8 +13,8 @@ const Founder = ({ content }) => {
         />
       </div>
       <div className="founder-right">
-        <h2 className="typography-title">{content.judulFounder}</h2>
-        <p className="typography-subtitle">
+        <h2 className="typography typography-title">{content.judulFounder}</h2>
+        <p className="typography typography-subtitle">
           {renderRichText(content.kontenFounder, genericOptions)}
         </p>
       </div>

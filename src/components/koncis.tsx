@@ -13,8 +13,10 @@ const Koncis = ({ content }) => {
         />
       </div>
       <div className="koncis-right">
-        <h2 className="typography-title">{content.judul8KunciPenentu}</h2>
-        <div className="typography-list">
+        <h2 className="typography typography-title">
+          {content.judul8KunciPenentu}
+        </h2>
+        <div className="typography">
           {renderRichText(content.konten8KunciPenentu, genericOptions)}
         </div>
       </div>

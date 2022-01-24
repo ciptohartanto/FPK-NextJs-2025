@@ -18,8 +18,8 @@ const VisiMisi = ({ content }) => {
         </div>
       </div>
       <div className="visiMisi-right">
-        <h2 className="typography-title">{content.judulVisiMisi}</h2>
-        <p className="typography-subtitle">
+        <h2 className="typography typography-title">{content.judulVisiMisi}</h2>
+        <p className="typography typography-subtitle">
           {renderRichText(content.kontenVisiMisi, genericOptions)}
         </p>
       </div>

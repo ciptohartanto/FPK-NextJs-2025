@@ -1,4 +1,26 @@
 .typography
+  white-space: pre-line
+  strong
+    font-weight: bold
+  i
+    font-style: italic
+  ul
+    padding-left: 30px
+    padding-top: 1em
+    padding-bottom: 1em
+    color: #867B7B
+    line-height: 1.2
+    +bp('mobile')
+      font-size: 14px
+    +bp('tablet')
+      font-size: 16px
+    +bp('desktop')
+      font-size: 18px
+  li
+    margin-bottom: 1em
+    list-style: decimal
+    &:last-child
+      margin-bottom: 0
   &-title
     letter-spacing: 2px
     border-bottom: 2px solid #BE1111
@@ -41,19 +63,6 @@
       margin-bottom: 34px
       font-size: 40px
 
-  &-list
-    padding-left: 30px
-    color: #867B7B
-    line-height: 1.2
-    +bp('mobile')
-      font-size: 14px
-    +bp('tablet')
-      font-size: 16px
-    +bp('desktop')
-      font-size: 18px
-    li
-      margin-bottom: 1em
-      list-style: decimal
 
   &--centerText
     text-align: center

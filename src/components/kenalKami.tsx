@@ -7,8 +7,10 @@ const KenalKami = ({ content }) => {
   return (
     <div className="kenalKami">
       <div className="kenalKami-left">
-        <h2 className="typography-title">{content.judulMengenalKami}</h2>
-        <p className="typography-subtitle">
+        <h2 className="typography typography-title">
+          {content.judulMengenalKami}
+        </h2>
+        <p className="typography typography-subtitle">
           {renderRichText(content.kontenMengenalKami, genericOptions)}
         </p>
       </div>

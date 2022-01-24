@@ -3,7 +3,7 @@ import React from "react";
 const Aktitivas = ({ content }) => {
   return (
     <div className="aktivitas">
-      <h3 className="typography-title2">{content.judulAktivitas}</h3>
+      <h3 className="typography typography-title2">{content.judulAktivitas}</h3>
       <div className="aktivitas-grid">
         <div className="gridImage">
           {content.kontentFotoAktivitas.map((item) => (

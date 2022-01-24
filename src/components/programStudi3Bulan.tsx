@@ -1,50 +1,72 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { genericOptions } from "../utils/renderSimpleRichText";
 
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+
+const Bold = ({ children }) => <strong>{children}</strong>;
+const Text = ({ children }) => <>{children}</>;
+const ListItem = ({ children }) => <ul className="x">{children}</ul>;
+
+export const specialOptions = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return <Text>{children}</Text>;
+    },
+    [BLOCKS.LIST_ITEM]: (node, children) => {
+      console.log(node);
+      return (
+        <>
+          <li className="programStudi-item">
+            <div className="programStudi-bulet">
+              <span className="programStudi-buletText"></span>
+            </div>
+            <div className="programStudi-content">
+              <p className="programStudi-deskripsi">{children}</p>
+            </div>
+          </li>
+        </>
+      );
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <ul className="programStudi-list">{children}</ul>;
+    },
+  },
+};
 const ProgramStudi3Bulan = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        contentfulSeksiProgram3Bulan {
+          konten {
+            raw
+          }
+          title
+          subtitle {
+            raw
+          }
+        }
+      }
+    `
+  );
   return (
     <div className="programStudi programStudi--2 typography--centerText">
       <div className="programStudi-head">
-        <h2 className="typography-title2">Program Mingguan (Triwulan)</h2>
-        <p className="typography-subtitle">
-          Program Mingguan ditujukan untuk semua kalangan termasuk para pekerja
-          di Industri perhotelan untuk meningkatkan skil, pengetahuan, dan
-          berlatih bersama didalam workshop yang diadakan rutin pada setiap
-          pertemuan.
+        <h2 className="typography typography-title2">
+          Program Mingguan (Triwulan)
+        </h2>
+        <p className="typography typography-subtitle">
+          {renderRichText(
+            data.contentfulSeksiProgram3Bulan.subtitle,
+            genericOptions
+          )}
         </p>
       </div>
-      <ul className="programStudi-list">
-        <li className="programStudi-item">
-          <div className="programStudi-bulet">
-            <span className="programStudi-buletText">1</span>
-          </div>
-          <div className="programStudi-content">
-            <h3 className="programStudi-subtitle">Bulan Pertama</h3>
-            <p className="programStudi-deskripsi">
-              Pengenalan tugas dari setiap posisi dalam sebuah departemen.
-            </p>
-          </div>
-        </li>
-        <li className="programStudi-item">
-          <div className="programStudi-bulet">
-            <span className="programStudi-buletText">2</span>
-          </div>
-          <div className="programStudi-content">
-            <h3 className="programStudi-subtitle">Bulan Kedua</h3>
-            <p className="programStudi-deskripsi">
-              Latihan dan praktek di lapangan.
-            </p>
-          </div>
-        </li>
-        <li className="programStudi-item">
-          <div className="programStudi-bulet">
-            <span className="programStudi-buletText">3</span>
-          </div>
-          <div className="programStudi-content">
-            <h3 className="programStudi-subtitle">Bulan Ketiga</h3>
-            <p className="programStudi-deskripsi">Evaluasi dan coaching</p>
-          </div>
-        </li>
-      </ul>
+      {renderRichText(data.contentfulSeksiProgram3Bulan.konten, specialOptions)}
     </div>
   );
 };

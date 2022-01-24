@@ -1,0 +1,24 @@
+.turutMisi
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  margin-top: 145px
+  @extend %wrapper
+  +bp('mobile')
+    grid-template-columns: 1fr
+    margin-top: 40px
+  &-left
+    display: block
+    width: 100%
+    +bp('mobile')
+      order: 1
+  &-right
+    display: block
+  &-bg
+    height: 100%
+    width: 100%
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    +bp('mobile')
+      height: 350px

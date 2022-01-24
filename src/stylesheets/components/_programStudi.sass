@@ -9,6 +9,7 @@
   &-list
     position: relative
     display: grid
+    counter-reset: angka
     @extend %wrapper
     +bp('mobile')
       grid-template-columns: 1fr
@@ -33,6 +34,7 @@
   &-item
     display: flex
     align-items: center
+    counter-increment: angka
     +bp('mobile')
       flex-direction: row
       margin-bottom: 18px
@@ -69,6 +71,8 @@
     font-weight: bold
     font-size: 100px
     color: #fff
+    &:after
+      content: counter(angka)
     +bp('mobile')
       font-size: 40px
     +bp('tablet')
@@ -100,6 +104,11 @@
     font-size: 24px
     color: #343434
     line-height: 1.2
+    strong
+      font-weight: bold
+      text-transform: uppercase
+      display: block
+      margin-bottom: 10px
     +bp('mobile')
       font-size: 14px
     +bp('tablet')
