@@ -66,13 +66,11 @@ const IndexPage = () => {
               url
             }
           }
-          contentfulKontenWebsite {
-            kontenVideoVideoRekomendasi {
-              file {
-                url
-              }
-              description
+          kontenVideoVideoRekomendasi {
+            file {
+              url
             }
+            description
           }
         }
       }
@@ -80,7 +78,6 @@ const IndexPage = () => {
   );
   const { contentfulKontenWebsite: isi } = data;
 
-  console.log(data);
   return (
     <>
       <Head />
