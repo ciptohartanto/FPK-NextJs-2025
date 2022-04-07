@@ -25,6 +25,7 @@ const IndexPage = () => {
           judulProgramStudi3Tahun
           judulVisiMisi
           judul8KunciPenentu
+          judulRekomendasi
           subtitleProgramStudi3Tahun {
             raw
           }
@@ -65,12 +66,21 @@ const IndexPage = () => {
               url
             }
           }
+          contentfulKontenWebsite {
+            kontenVideoVideoRekomendasi {
+              file {
+                url
+              }
+              description
+            }
+          }
         }
       }
     `
   );
   const { contentfulKontenWebsite: isi } = data;
 
+  console.log(data);
   return (
     <>
       <Head />
