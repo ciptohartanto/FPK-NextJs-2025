@@ -1,0 +1,24 @@
+.rekomendasi
+	margin-top: 100px
+	@extend %wrapper
+	&-grid
+		position: relative
+		display: grid
+		+bp('tablet')
+			grid-template-columns: repeat(3, calc(100% / 3 - 12px))
+			grid-column-gap: 18px
+		+bp('desktop')
+			grid-template-columns: repeat(3, calc(100% / 3 - 12px))
+			grid-column-gap: 18px
+	&-gridItem
+		+bp('mobile')
+			margin-bottom: 18px
+			&:last-child
+				margin-bottom: 0
+	&-video
+		width: 100%
+		display: block
+		height: auto
+	&-title
+		margin-top: 12px
+		line-height: 1.4

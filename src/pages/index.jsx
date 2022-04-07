@@ -13,6 +13,7 @@ import TurutMisi from "../components/turutMisi";
 import Footer from "../components/footer";
 import ProgramStudi3Tahun from "../components/programStudi3Tahun";
 import ProgramStudi3Bulan from "../components/programStudi3Bulan";
+import Rekomendasi from "../components/rekomendasi";
 
 const IndexPage = () => {
   const data = useStaticQuery(
@@ -84,6 +85,7 @@ const IndexPage = () => {
       <Navigation />
       <VisiMisi content={isi} />
       <Aktitivas content={isi} />
+      <Rekomendasi content={isi} />
       <KenalKami content={isi} />
       <ProgramStudi3Tahun />
       <ProgramStudi3Bulan />
