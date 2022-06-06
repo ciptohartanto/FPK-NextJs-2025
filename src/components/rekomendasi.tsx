@@ -10,7 +10,7 @@ const Rekomendasi = ({ content }) => {
         {content.kontenVideoVideoRekomendasi.map((item) => (
           <div className="rekomendasi-gridItem">
             <video className="rekomendasi-video" controls>
-              <source src={item.file.url} type="video/mp4" />
+              <source src={item.file.url + "#t=0.5"} type="video/mp4" />
             </video>
             <h3 className="rekomendasi-title">{item.description}</h3>
           </div>
