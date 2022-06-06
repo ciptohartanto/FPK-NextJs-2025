@@ -7,6 +7,7 @@ import Navigation from "../components/navigation";
 import VisiMisi from "../components/visiMisi";
 import Aktitivas from "../components/aktivitas";
 import KenalKami from "../components/kenalKami";
+import Prestasi from "../components/prestasi";
 import Koncis from "../components/koncis";
 import Founder from "../components/founder";
 import TurutMisi from "../components/turutMisi";
@@ -56,6 +57,15 @@ const IndexPage = () => {
           kontenMengenalKami {
             raw
           }
+          judulPrestasi
+          kontenPrestasi {
+            description
+            file {
+              url
+              fileName
+              contentType
+            }
+          }
           kontenProgramStudi3Tahun {
             raw
           }
@@ -87,6 +97,7 @@ const IndexPage = () => {
       <Aktitivas content={isi} />
       <Rekomendasi content={isi} />
       <KenalKami content={isi} />
+      <Prestasi content={isi} />
       <ProgramStudi3Tahun />
       <ProgramStudi3Bulan />
       <Koncis content={isi} />
