@@ -16,6 +16,17 @@
     grid-auto-flow: row
     grid-row-gap: 10px
     grid-column-gap: 10px
+  
+  &--layout2
+    +bp('tablet')
+      display: grid
+      grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 1fr [last]
+      grid-template-rows: [row-one] 130px [row-two] 130px [row-three] 130px [last] 190px
+    +bp('desktop')
+      display: grid
+      grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 1fr [last]
+      grid-template-rows: [row-one] 179px [row-two] 179px [row-three] 210px [last] 390px
+
   &-item
     width: 100%
     background-size: cover
@@ -40,4 +51,7 @@
       &:first-child
         grid-column: col-one / col-three
         grid-row: row-one / row-three
-  
+
+    &--large
+      grid-column: col-one / last
+      grid-row: row-three
