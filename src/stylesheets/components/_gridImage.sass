@@ -42,3 +42,18 @@
       &:first-child
         grid-column: col-one / col-three
         grid-row: row-one / row-three
+
+
+  &--layout2
+    +bp('tablet')
+      display: grid
+      grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 1fr 
+      grid-template-rows: [row-one] 140px [row-two] 140px [row-three]
+    +bp('desktop')
+      display: grid
+      grid-template-columns: [col-one] 1fr [col-two] 1fr [col-three] 
+      grid-template-rows: [row-one] 179px [row-two] 179px [row-three] 310px
+    &:first-child
+      +bp('tablet')
+        grid-column: col-one / last
+        grid-row: row-one

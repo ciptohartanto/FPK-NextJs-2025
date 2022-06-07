@@ -7,15 +7,12 @@ const Aktitivas = ({ content }) => {
     <div className="prestasi">
       <h3 className="typography typography-title2">{judulPrestasi}</h3>
 
-      <div className="prestasi-video">
+      <>
         {kontenPrestasi.map((item) => {
           return (
             <>
               {item.file.contentType === "video/mp4" && (
-                <div
-                  className="gridImage-item gridImage-item--large"
-                  key={item.file.url}
-                >
+                <div className="prestasi-video" key={item.file.url}>
                   <video className="rekomendasi-video" controls>
                     <source src={item.file.url + "#t=1"} type="video/mp4" />
                   </video>
@@ -26,7 +23,7 @@ const Aktitivas = ({ content }) => {
             </>
           );
         })}
-      </div>
+      </>
       <div className="prestasi-grid">
         <div className="gridImage gridImage--layout2">
           {kontenPrestasi.map((item) => {
