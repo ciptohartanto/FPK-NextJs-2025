@@ -18,7 +18,6 @@ export const specialOptions = {
       return <Text>{children}</Text>;
     },
     [BLOCKS.LIST_ITEM]: (node, children) => {
-      console.log(node);
       return (
         <>
           <li className="programStudi-item">
