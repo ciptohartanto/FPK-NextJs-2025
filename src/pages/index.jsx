@@ -83,6 +83,12 @@ const IndexPage = () => {
             }
             description
           }
+          kontenVideoVideoAktivitas {
+            file {
+              url
+            }
+            description
+          }
         }
       }
     `

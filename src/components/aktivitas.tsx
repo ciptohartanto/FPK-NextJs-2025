@@ -1,11 +1,13 @@
 import React from "react";
 
 const Aktitivas = ({ content }) => {
+  const { kontenVideoVideoAktivitas } = content;
+
   return (
     <div className="aktivitas">
       <h3 className="typography typography-title2">{content.judulAktivitas}</h3>
       <div className="aktivitas-grid">
-        <div className="gridImage">
+        <div className="gridImage gridImage--4Cols">
           {content.kontentFotoAktivitas.map((item) => (
             <div
               className="gridImage-item"
@@ -47,6 +49,15 @@ const Aktitivas = ({ content }) => {
               allowFullScreen
             ></iframe>
           </div>
+
+          {kontenVideoVideoAktivitas.map((item) => (
+            <div className="gridImage-item" key={item}>
+              <video className="rekomendasi-video" controls>
+                <source src={item.file.url + "#t=0.5"} type="video/mp4" />
+              </video>
+              <h3 className="rekomendasi-title">{item.description}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </div>

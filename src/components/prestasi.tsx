@@ -8,21 +8,23 @@ const Aktitivas = ({ content }) => {
       <h3 className="typography typography-title2">{judulPrestasi}</h3>
 
       <>
-        {kontenPrestasi.map((item) => {
-          return (
-            <>
-              {item.file.contentType === "video/mp4" && (
-                <div className="prestasi-video" key={item.file.url}>
-                  <video className="rekomendasi-video" controls>
-                    <source src={item.file.url + "#t=1"} type="video/mp4" />
-                  </video>
+        <div className="rekomendasi-grid">
+          {kontenPrestasi.map((item) => {
+            return (
+              <>
+                {item.file.contentType === "video/mp4" && (
+                  <div className="rekomendasi-gridItem" key={item.file.url}>
+                    <video className="rekomendasi-video" controls>
+                      <source src={item.file.url + "#t=1"} type="video/mp4" />
+                    </video>
 
-                  <h3 className="rekomendasi-title">{item.description}</h3>
-                </div>
-              )}
-            </>
-          );
-        })}
+                    <h3 className="rekomendasi-title">{item.description}</h3>
+                  </div>
+                )}
+              </>
+            );
+          })}
+        </div>
       </>
       <div className="prestasi-grid">
         <div className="gridImage gridImage--layout2">
