@@ -50,6 +50,18 @@ const Aktitivas = ({ content }) => {
             ></iframe>
           </div>
 
+          <div className="gridImage-item">
+            <iframe
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/t0VAhO1Snmw?si=UBLP0bFv5mSgXDYQ"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+
           {kontenVideoVideoAktivitas.map((item) => (
             <div className="gridImage-item" key={item}>
               <video className="rekomendasi-video" controls>
