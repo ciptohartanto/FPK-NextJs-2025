@@ -70,6 +70,29 @@ const Aktitivas = ({ content }) => {
               <h3 className="rekomendasi-title">{item.description}</h3>
             </div>
           ))}
+
+          <div className="gridImage-item">
+            <iframe
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/jm537BL_Giw?si=Hd8ss1AGitKlMP0s"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="gridImage-item">
+            <iframe
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/GYPGuMOnx2g?si=qGVf4lIfJJ00g0AD"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
