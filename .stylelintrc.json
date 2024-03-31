@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-property-sort-order-smacss"
+  ],
+  "plugins": ["stylelint-use-nesting", "stylelint-plugin-defensive-css"],
+  "rules": {
+    "csstools/use-nesting": "always",
+    "plugin/use-defensive-css": [
+      true,
+      {
+        "background-repeat": true,
+        "custom-property-fallbacks": true,
+        "flex-wrapping": true,
+        "vendor-prefix-grouping": true
+      }
+    ]
+  }
+}
