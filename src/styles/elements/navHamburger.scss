@@ -1,0 +1,62 @@
+$main-class-name: '.navHamburger';
+
+#{$main-class-name} {
+  @extend %inline-flex, %flex-center;
+
+  position: relative;
+
+  @include desktop-view {
+    cursor: pointer;
+  }
+
+  &--large {
+    width: 26px;
+    height: 26px;
+  }
+
+  &--small {
+    width: 25px;
+    height: 25px;
+  }
+
+  &-line {
+    transition: 0.3s ease-in-out transform;
+    background-color: $color-nav-hamburger;
+
+    #{$main-class-name}--large & {
+      width: 30px;
+      height: 5px;
+      margin-bottom: 5px;
+    }
+
+    #{$main-class-name}--small & {
+      width: 30px;
+      height: 4px;
+      margin-bottom: 3px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    // when mouse hover
+    #{$main-class-name}:hover & {
+      &:first-of-type {
+        transform: rotate(45deg) translateX(7px) translateY(7px);
+        transform-origin: center;
+        transition: 0.3s ease-in-out transform;
+      }
+
+      &:nth-of-type(2) {
+        transform: scale(0);
+        transition: 0.3s ease-in-out transform;
+      }
+
+      &:last-of-type {
+        transform: rotate(-45deg) translateX(7px) translateY(-7px);
+        transform-origin: center;
+        transition: 0.3s ease-in-out transform;
+      }
+    }
+  }
+}
