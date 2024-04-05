@@ -7,6 +7,12 @@
   "plugins": ["stylelint-use-nesting", "stylelint-plugin-defensive-css"],
   "rules": {
     "csstools/use-nesting": "always",
+    "selector-class-pattern": [
+      "^([a-z][a-zA-Z0-9]+)((-?|--)?[a-z0-9]+[a-zA-Z0-9]*)*$",
+      {
+        "resolveNestedSelectors": true
+      }
+    ],
     "plugin/use-defensive-css": [
       true,
       {
