@@ -1,0 +1,9 @@
+%inline-flex {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+%flex-center {
+  align-items: center;
+  justify-content: center;
+}
