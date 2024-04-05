@@ -8,3 +8,8 @@ body {
   letter-spacing: 0.07em;
   line-height: 1.6em;
 }
+
+input:active,
+input:focus {
+  outline: none;
+}
