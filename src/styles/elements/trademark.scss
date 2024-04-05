@@ -1,0 +1,30 @@
+.trademark {
+  @extend %inline-flex, %flex-center;
+
+  position: relative;
+  width: 139px;
+  height: 82px;
+  @include desktop-view {
+    width: 183px;
+    height: 104px;
+  }
+
+  &-line1 {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    line-height: 1em;
+    text-transform: uppercase;
+    @extend %typography-special;
+  }
+
+  &-line2 {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    line-height: 1em;
+    text-transform: uppercase;
+
+    @extend %typography-special-tight;
+  }
+}

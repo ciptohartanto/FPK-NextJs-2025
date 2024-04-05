@@ -13,9 +13,10 @@
     font-size: 28px;
     font-weight: 700;
     letter-spacing: -0.05em;
+    line-height: normal;
     @include desktop-view {
       font-size: 36px;
-      letter-spacing: -0.172em;
+      letter-spacing: -0.0172em;
     }
   }
 
