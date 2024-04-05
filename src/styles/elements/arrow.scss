@@ -1,4 +1,6 @@
-.arrow {
+$main-class-name: '.arrow';
+
+#{$main-class-name} {
   @extend %inline-flex, %flex-center;
 
   width: 18px;
@@ -29,7 +31,7 @@
       transition-property: transform, background;
       @include background-image('./../../../assets/icons/arrow-default.svg');
 
-      .arrow:hover & {
+      #{$main-class-name}:hover & {
         @include background-image(
           './../../../assets/icons/arrow-default-white.svg'
         );
