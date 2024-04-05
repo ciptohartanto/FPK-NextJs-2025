@@ -1,0 +1,68 @@
+$css-class-name: '.iconX';
+
+#{$css-class-name} {
+  @extend %inline-flex, %flex-center;
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: $color-nav-hamburger;
+  }
+
+  &--large {
+    width: 26px;
+    height: 26px;
+
+    &::before,
+    &::after {
+      width: 32px;
+      height: 5px;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateX(5px) translateY(4px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateX(5px) translateY(-4px);
+    }
+  }
+
+  &--light {
+    width: 24px;
+    height: 24px;
+
+    &::before,
+    &::after {
+      width: 25px;
+      height: 3px;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateX(4px) translateY(4px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateX(4px) translateY(-4px);
+    }
+  }
+
+  &--small {
+    width: 25px;
+    height: 25px;
+
+    &::before,
+    &::after {
+      width: 31px;
+      height: 4px;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateX(5px) translateY(5px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateX(4px) translateY(-4px);
+    }
+  }
+}
