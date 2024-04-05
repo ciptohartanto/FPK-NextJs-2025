@@ -1,0 +1,112 @@
+%typography {
+  &-special {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    @include desktop-view {
+      font-size: 64px;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &-special-tight {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    @include desktop-view {
+      font-size: 36px;
+      letter-spacing: -0.172em;
+    }
+  }
+
+  &-special-counter {
+    font-size: 36px;
+    font-weight: 100;
+    @include desktop-view {
+      font-size: 48px;
+    }
+  }
+
+  &-section-title {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.32em;
+    @include desktop-view {
+      font-size: 36px;
+      letter-spacing: 0.38em;
+    }
+  }
+
+  &-section-title-normal {
+    font-size: 22px;
+    font-weight: 500;
+    @include desktop-view {
+      font-size: 36px;
+      font-weight: 300;
+    }
+  }
+
+  &-section-description {
+    font-style: 13px;
+    font-weight: 300;
+    @include desktop-view {
+      font-size: 16px;
+    }
+  }
+
+  &-card-title {
+    font-style: 17px;
+    font-weight: 500;
+    @include desktop-view {
+      font-size: 20px;
+    }
+  }
+
+  &-link-title {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+    text-decoration: underline;
+    text-transform: uppercase;
+    @include desktop-view {
+      font-size: 16px;
+    }
+  }
+
+  &-link-description {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    text-decoration: underline;
+    @include desktop-view {
+      font-size: 12px;
+    }
+  }
+
+  &-tag-text {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    @include desktop-view {
+      font-size: 14px;
+      font-weight: 200;
+    }
+  }
+
+  &-card-caption {
+    font-size: 14px;
+    font-weight: 400;
+    @include desktop-view {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  &-card-description {
+    font-size: 15px;
+    font-weight: 400;
+    @include desktop-view {
+      font-size: 14px;
+    }
+  }
+}
