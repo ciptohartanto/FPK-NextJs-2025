@@ -1,0 +1,23 @@
+.tableOfContentText {
+  @extend %inline-flex, %flex-center;
+
+  position: relative;
+  opacity: $opacity-50;
+
+  &::before {
+    content: '';
+    position: relative;
+    width: 2px;
+    height: 18px;
+    margin-right: 16px;
+    background-color: $black;
+  }
+
+  &--active {
+    opacity: $opacity-100;
+  }
+
+  &-text {
+    @extend %typography-section-description;
+  }
+}
