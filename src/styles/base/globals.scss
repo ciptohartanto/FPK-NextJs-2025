@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   letter-spacing: 0.07em;
   line-height: 1.6em;
