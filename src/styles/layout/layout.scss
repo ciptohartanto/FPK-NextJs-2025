@@ -1,0 +1,9 @@
+.layout {
+  width: calc(100% - $layout-margin-mobile * 2);
+  margin-right: auto;
+  margin-left: auto;
+  @include desktop-view {
+    width: calc(100% - $layout-margin-desktop * 2);
+    max-width: 1440px;
+  }
+}
