@@ -1,24 +1,3 @@
-.popup {
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-  inset: 0;
-}
-
-a {
-  display: block;
-  position: absolute;
-  top: 0;
-  color: black;
-}
-
-div {
-  display: flex;
-  flex-wrap: nowrap;
-  background-image: url('https://placehold.co/600x400');
-  background-repeat: no-repeat;
-}
-
-section {
-  color: var(--color-primary, 'red');
+body {
+  line-height: 1.6em;
 }
