@@ -1,27 +1,45 @@
 .nav {
-  @extend %inline-flex, %flex-center;
-
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  background-color: $white;
-  filter: drop-shadow(-35px 0 40px rgba($black, $opacity-5));
-  @include desktop-view {
-    width: auto;
-    padding: 0 172px;
+
+  &-wrapper {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+
+    @include desktop-view {
+      width: auto;
+    }
   }
 
   &-icon {
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 69px;
     right: 81.5px;
     @extend %inline-flex, %flex-center;
   }
 
   &-navigation {
-    @extend %inline-flex, %flex-start-column;
+    @extend %inline-flex, %flex-center;
+
+    filter: drop-shadow(-35px 0 40px rgba($black, $opacity-5));
+    background-color: $white;
+    @include desktop-view {
+      width: auto;
+      height: 100%;
+      padding: 0 176px;
+    }
+  }
+
+  &-list {
+    width: 100%;
   }
 
   &-item {
@@ -41,5 +59,6 @@
     @extend %typography-section-title-normal;
 
     text-transform: uppercase;
+    white-space: nowrap;
   }
 }
