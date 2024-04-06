@@ -3,9 +3,8 @@
 @import './../functions/columnMaker';
 
 %grid-wrapper {
-  @extend %inline-flex;
+  @extend %inline-flex, %flex-start-row;
 
-  justify-content: flex-start;
   width: calc(100% + $gutter-mobile);
   margin-right: -$gutter-mobile / 2;
   margin-left: -$gutter-mobile / 2;
