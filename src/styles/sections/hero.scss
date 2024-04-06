@@ -1,0 +1,23 @@
+.hero {
+  @extend %inline-flex, %flex-center;
+
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+
+  &-subtitle {
+    @extend %typography-section-title-normal;
+
+    margin-bottom: 5px;
+  }
+
+  &-caption {
+    @extend %typography-section-description;
+
+    margin-bottom: 5px;
+  }
+
+  &-link {
+    @extend %typography-link-title;
+  }
+}

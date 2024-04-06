@@ -1,12 +1,13 @@
-import PageHead from '@/component/PageHead'
+import PageHead from '@/components/PageHead'
+import Hero from '@/sections/Hero'
 
 export default function HomePage() {
   return (
     <>
       <PageHead />
-      <div>
-        <h1>Boilerplate</h1>
-      </div>
+      <>
+        <Hero />
+      </>
     </>
   )
 }
