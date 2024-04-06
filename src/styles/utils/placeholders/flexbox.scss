@@ -7,3 +7,20 @@
   align-items: center;
   justify-content: center;
 }
+
+%flex-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+%flex-start-column {
+  @extend %flex-start;
+
+  flex-direction: column;
+}
+
+%flex-start-row {
+  @extend %flex-start;
+
+  flex-direction: row;
+}
