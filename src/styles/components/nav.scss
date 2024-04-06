@@ -26,6 +26,11 @@
     @extend %inline-flex, %flex-center;
   }
 
+  &-iconWrapper {
+    position: absolute;
+    @extend %inline-flex, %flex-center;
+  }
+
   &-navigation {
     @extend %inline-flex, %flex-center;
 

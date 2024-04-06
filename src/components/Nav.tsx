@@ -4,14 +4,44 @@ import { useState } from 'react'
 import IconHamburger, { IconHamburgerTypes } from '@/elements/IconHamburger'
 import IconX, { IconXTypes } from '@/elements/IconX'
 
+const NAV_LINKS = [
+  {
+    link: 'https://example.com',
+    text: 'Projects',
+  },
+  {
+    link: 'https://example.com',
+    text: 'Writings',
+  },
+  {
+    link: 'https://example.com',
+    text: 'Projects',
+  },
+  {
+    link: 'https://example.com',
+    text: 'About This Website',
+  },
+  {
+    link: 'https://example.com',
+    text: 'Resume',
+  },
+]
+
 export default function Nav() {
   const [isFolded, setIsFolded] = useState(true)
-  console.log(isFolded)
+
   return (
     <div className="nav">
       <button onClick={() => setIsFolded(!isFolded)} className="nav-icon">
-        <IconHamburger type={IconHamburgerTypes.LARGE} />
-        <IconX type={IconXTypes.LARGE} />
+        {/* display IconHamburger when isFolded */}
+        <span className="nav-iconWrapper">
+          <IconHamburger isActive={isFolded} type={IconHamburgerTypes.LARGE} />
+        </span>
+
+        {/* display IconHamburger when !isFolded */}
+        <span className="nav-iconWrapper">
+          <IconX isActive={!isFolded} type={IconXTypes.LARGE} />
+        </span>
       </button>
       <AnimatePresence>
         {!isFolded && (
@@ -47,87 +77,37 @@ export default function Nav() {
               }}
             >
               <ul className="nav-list">
-                <motion.li
-                  className="nav-item"
-                  initial="hide"
-                  animate="animate"
-                  transition={{ type: 'tween', delay: 0.2, duration: 0.2 }}
-                  variants={{
-                    hide: {
-                      opacity: 0,
-                      filter: 'blur(2px)',
-                      y: -10,
-                    },
-                    animate: {
-                      opacity: 1,
-                      filter: 'blur(0px)',
-                      y: 0,
-                    },
-                  }}
-                >
-                  <span className="nav-text">Projects</span>
-                </motion.li>
-                <motion.li
-                  className="nav-item"
-                  initial="hide"
-                  animate="animate"
-                  transition={{ type: 'tween', delay: 0.5, duration: 0.2 }}
-                  variants={{
-                    hide: {
-                      opacity: 0,
-                      filter: 'blur(2px)',
-                      y: -10,
-                    },
-                    animate: {
-                      opacity: 1,
-                      filter: 'blur(0px)',
-                      y: 0,
-                    },
-                  }}
-                >
-                  <span className="nav-text">Writings</span>
-                </motion.li>
-                <motion.li
-                  className="nav-item"
-                  initial="hide"
-                  animate="animate"
-                  transition={{ type: 'tween', delay: 0.8, duration: 0.2 }}
-                  variants={{
-                    hide: {
-                      opacity: 0,
-                      filter: 'blur(2px)',
-                      y: -10,
-                    },
-                    animate: {
-                      opacity: 1,
-                      filter: 'blur(0px)',
-
-                      y: 0,
-                    },
-                  }}
-                >
-                  <span className="nav-text">About This Website</span>
-                </motion.li>
-                <motion.li
-                  className="nav-item"
-                  initial="hide"
-                  animate="animate"
-                  transition={{ type: 'tween', delay: 1.1, duration: 0.2 }}
-                  variants={{
-                    hide: {
-                      opacity: 0,
-                      filter: 'blur(2px)',
-                      y: -10,
-                    },
-                    animate: {
-                      opacity: 1,
-                      filter: 'blur(0px)',
-                      y: 0,
-                    },
-                  }}
-                >
-                  <span className="nav-text">Resume</span>
-                </motion.li>
+                {NAV_LINKS.map((item, idx) => (
+                  <motion.li
+                    key={item.text}
+                    className="nav-item"
+                    initial="hide"
+                    animate="animate"
+                    transition={{ type: 'tween' }}
+                    whileHover={{
+                      x: 10,
+                      transition: { delay: 0, duration: 0.2 },
+                    }}
+                    variants={{
+                      hide: {
+                        opacity: 0,
+                        filter: 'blur(2px)',
+                        y: -10,
+                      },
+                      animate: {
+                        opacity: 1,
+                        filter: 'blur(0px)',
+                        y: 0,
+                        transition: {
+                          delay: 0.27 * idx,
+                          duration: 0.3,
+                        },
+                      },
+                    }}
+                  >
+                    <span className="nav-text">{item.text}</span>
+                  </motion.li>
+                ))}
               </ul>
             </motion.nav>
           </motion.div>
