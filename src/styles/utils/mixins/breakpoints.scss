@@ -3,3 +3,8 @@
     @content;
   }
 }
+@mixin mobile-view {
+  @media screen and (max-width: ($breakpoint-desktop - 1px)) {
+    @content;
+  }
+}
