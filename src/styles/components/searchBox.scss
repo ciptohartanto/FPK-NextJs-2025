@@ -46,6 +46,11 @@
     @include desktop-view {
       padding: 12px 48px 12px 12px;
     }
+
+    &:focus.searchBox,
+    &:not(:placeholder-shown) {
+      opacity: $opacity-100;
+    }
   }
 
   &-icon {
@@ -58,6 +63,7 @@
     @include desktop-view {
       right: 12px;
       transform: scale((16/24));
+      cursor: pointer;
     }
   }
 }
