@@ -1,11 +1,14 @@
-$css-class-name: '.iconX';
+$name: '.iconX';
 
-#{$css-class-name} {
+#{$name} {
   @extend %inline-flex, %flex-center;
+
+  cursor: pointer;
 
   &::before,
   &::after {
     content: '';
+    transition: 0.3s $transition-style height;
     background-color: $color-nav-hamburger;
   }
 
@@ -17,6 +20,14 @@ $css-class-name: '.iconX';
     &::after {
       width: 32px;
       height: 5px;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        height: 3px;
+        transition: 0.3s $transition-style height;
+      }
     }
 
     &::before {
@@ -45,6 +56,14 @@ $css-class-name: '.iconX';
     &::after {
       transform: rotate(-45deg) translateX(4px) translateY(-4px);
     }
+
+    &:hover {
+      &::before,
+      &::after {
+        height: 1px;
+        transition: 0.3s $transition-style height;
+      }
+    }
   }
 
   &--small {
@@ -63,6 +82,14 @@ $css-class-name: '.iconX';
 
     &::after {
       transform: rotate(-45deg) translateX(4px) translateY(-4px);
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        height: 2px;
+        transition: 0.3s $transition-style height;
+      }
     }
   }
 }
