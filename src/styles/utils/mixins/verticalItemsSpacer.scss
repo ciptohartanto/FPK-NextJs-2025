@@ -1,0 +1,14 @@
+@mixin vertical-items-spacer($spacer-mobile: null, $spacer-desktop: null) {
+  @if $spacer-desktop != '' and $spacer-desktop != '' {
+    margin-bottom: $spacer-mobile;
+    @include desktop-view {
+      margin-bottom: $spacer-desktop;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  } @else {
+    @error '$spacer-mobile: #{$spacer-mobile} and $spacer-desktop: #{$spacer-desktop} should have values';
+  }
+}

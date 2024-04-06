@@ -1,0 +1,19 @@
+@mixin push-me($view, $horizontal-direction) {
+  @if $horizontal-direction == 'left' or $horizontal-direction == 'right' {
+    @if $view == 'mobile' or $view== 'desktop' {
+      @if #{$view} == 'mobile' {
+        @include mobile-view {
+          margin-#{$horizontal-direction}: auto;
+        }
+      } @else {
+        @include desktop-view {
+          margin-#{$horizontal-direction}: auto;
+        }
+      }
+    } @else {
+      @error '$view: #{$view} is incorrect. $view can only be mobile | desktop.';
+    }
+  } @else {
+    @error ' $horizontal-direction: #{$horizontal-direction} == ''  is incorrect.';
+  }
+}
