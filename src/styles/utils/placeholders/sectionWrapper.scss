@@ -1,0 +1,12 @@
+%section-wrapper {
+  @extend %inline-flex;
+
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  padding: 36px 0;
+
+  @include desktop-view {
+    padding: 72px 0;
+  }
+}
