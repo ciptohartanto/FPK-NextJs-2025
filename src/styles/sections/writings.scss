@@ -1,4 +1,6 @@
-.writings {
+$css-class-name: '.writings';
+
+#{$css-class-name} {
   @extend %section-wrapper;
 
   &-row {
@@ -17,6 +19,12 @@
 
   &-searchBoxWrapper {
     @extend %col-mobile--6, %col-desktop--4;
+
+    margin-bottom: 24px;
+
+    @include desktop-view {
+      margin-bottom: 48px;
+    }
   }
 
   &-listWrapper {
@@ -32,5 +40,30 @@
 
   &-listItem {
     @include vertical-items-spacer($spacer-mobile: 16px, $spacer-desktop: 22px);
+
+    width: 100%;
+    @include desktop-view {
+      cursor: pointer;
+
+      #{$css-class-name}-listWrapper:hover & {
+        padding-left: 0;
+        transition:
+          0.3s ease-in-out opacity,
+          0.2s ease-in-out padding-left,
+          0.2s ease-in-out background-color;
+        opacity: $opacity-50;
+        background-color: transparent;
+
+        &:hover {
+          padding-left: 4px;
+          transition:
+            0.3s ease-in-out opacity,
+            0.2s ease-in-out padding-left,
+            0.2s ease-in-out background-color;
+          opacity: $opacity-100;
+          background-color: rgba($gray-1, $opacity-40);
+        }
+      }
+    }
   }
 }
