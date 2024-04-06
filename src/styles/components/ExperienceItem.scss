@@ -1,6 +1,6 @@
-$css-class-name: '.experienceItem';
+$name: '.experienceItem';
 
-#{$css-class-name} {
+#{$name} {
   @extend %inline-flex;
 
   flex-direction: row;
@@ -32,7 +32,7 @@ $css-class-name: '.experienceItem';
       }
     }
 
-    #{$css-class-name}--lastItem & {
+    #{$name}--lastItem & {
       &::before {
         display: none;
       }
@@ -56,7 +56,7 @@ $css-class-name: '.experienceItem';
     border-radius: 100%;
     background-color: $golden;
 
-    #{$css-class-name}--previous & {
+    #{$name}--previous & {
       border: 1px solid $golden;
       background-color: $white;
     }

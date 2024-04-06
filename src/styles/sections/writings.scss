@@ -1,6 +1,6 @@
-$css-class-name: '.writings';
+$name: '.writings';
 
-#{$css-class-name} {
+#{$name} {
   @extend %section-wrapper;
 
   &-row {
@@ -45,7 +45,7 @@ $css-class-name: '.writings';
     @include desktop-view {
       cursor: pointer;
 
-      #{$css-class-name}-listWrapper:hover & {
+      #{$name}-listWrapper:hover & {
         padding-left: 0;
         transition:
           0.3s ease-in-out opacity,
