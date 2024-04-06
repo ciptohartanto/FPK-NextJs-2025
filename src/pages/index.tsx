@@ -1,5 +1,6 @@
 import PageHead from '@/components/PageHead'
 import Hero from '@/sections/Hero'
+import Writings from '@/sections/Writings'
 
 export default function HomePage() {
   return (
@@ -7,6 +8,7 @@ export default function HomePage() {
       <PageHead />
       <>
         <Hero />
+        <Writings />
       </>
     </>
   )
