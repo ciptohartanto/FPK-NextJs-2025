@@ -1,4 +1,4 @@
-import IconX, { IconXTypes } from '@/elements/iconX'
+import IconX, { IconXTypes } from '@/elements/IconX'
 
 export default function SearchBox() {
   return (
