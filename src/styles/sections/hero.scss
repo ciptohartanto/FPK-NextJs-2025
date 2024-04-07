@@ -25,6 +25,6 @@
   }
 
   &-link {
-    @extend %typography-link-title;
+    @extend %typography-link-title, %hover;
   }
 }

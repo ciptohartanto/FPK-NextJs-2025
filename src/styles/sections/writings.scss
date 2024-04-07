@@ -58,7 +58,7 @@ $name: '.writings';
   }
 
   &-loadMore {
-    @extend %typography-link-description;
+    @extend %typography-link-description, %hover;
 
     margin-top: 24px;
     @include desktop-view {
