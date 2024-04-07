@@ -21,6 +21,10 @@
         "flex-wrapping": true,
         "vendor-prefix-grouping": true
       }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      { "ignoreShorthands": ["inset"] }
     ]
   }
 }
