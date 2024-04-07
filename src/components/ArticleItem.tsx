@@ -1,15 +1,34 @@
+import { motion } from 'framer-motion'
+
 import Tag from '@/elements/Tag'
 
-export default function ArticleItem() {
+interface ArticleItemProps {
+  title: string
+  date: string
+  tags: { text: string }[]
+}
+
+export default function ArticleItem({ title, date, tags }: ArticleItemProps) {
   return (
-    <div className="articleItem">
-      <h3 className="articleItem-title">title</h3>
-      <span className="articleItem-date">Jan 01, 2024</span>
+    <motion.div className="articleItem" whileHover={{ x: 10, opacity: 1 }}>
+      <h3 className="articleItem-title">
+        <span className="articleItem-titleText">{title}</span>
+        <div className="articleItem-iconArrow" />
+      </h3>
+      <span className="articleItem-date">{date}</span>
       <ul className="articleItem-tagList">
-        <li className="articleItem-tagItem">
-          <Tag text="Tag 1" />
-        </li>
+        {tags.map((item) => (
+          <li key={item.text} className="articleItem-tagItem">
+            <Tag text={item.text} />
+          </li>
+        ))}
       </ul>
-    </div>
+    </motion.div>
   )
+}
+
+ArticleItem.defaultProps = {
+  title: 'missing data',
+  date: 'missing data',
+  tags: [{ text: 'missing data' }],
 }

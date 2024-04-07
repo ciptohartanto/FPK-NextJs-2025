@@ -1,24 +1,19 @@
-$name: '.arrow';
-
-#{$name} {
+@mixin arrow($parent-css) {
   @extend %inline-flex, %flex-center;
 
   width: 18px;
   height: 18px;
+  margin-left: 10px;
   border-radius: 100%;
   background-color: $gray-1;
 
   @include desktop-view {
     width: 24px;
     height: 24px;
-
-    &:hover {
-      background-color: $black;
-      cursor: pointer;
-    }
   }
 
-  &-icon {
+  &::after {
+    content: '';
     @include background-image('./../../../assets/icons/arrow-static.svg');
 
     width: 9.5px;
@@ -27,19 +22,24 @@ $name: '.arrow';
       width: 11.5px;
       height: 11.5px;
       transform: translateY(2px) translateX(-2px);
-      transition: 0.15s ease-in-out;
+      transition: 0.2s $transition-style;
       transition-property: transform, background;
       @include background-image('./../../../assets/icons/arrow-default.svg');
+    }
+  }
 
-      #{$name}:hover & {
-        @include background-image(
-          './../../../assets/icons/arrow-default-white.svg'
-        );
+  #{$parent-css}:hover & {
+    background-color: $black;
+    cursor: pointer;
 
-        transform: translateY(-2px) translateX(2px);
-        transition: 0.2s ease-in-out;
-        transition-property: transform, background;
-      }
+    &::after {
+      @include background-image(
+        './../../../assets/icons/arrow-default-white.svg'
+      );
+
+      transform: translateY(-2px) translateX(2px);
+      transition: 0.5s $transition-style;
+      transition-property: transform, background;
     }
   }
 }

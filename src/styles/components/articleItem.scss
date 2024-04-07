@@ -1,16 +1,24 @@
-.articleItem {
+$css: '.articleItem';
+
+#{$css} {
   @extend %inline-flex;
 
   flex-direction: column;
   width: 100%;
 
   &-title {
-    @extend %typography-card-title;
-
     margin-bottom: 3px;
     @include desktop-view {
       margin-bottom: 8px;
     }
+
+    &Text {
+      @extend %typography-card-title;
+    }
+  }
+
+  &-iconArrow {
+    @include arrow($parent-css: #{$css});
   }
 
   &-date {

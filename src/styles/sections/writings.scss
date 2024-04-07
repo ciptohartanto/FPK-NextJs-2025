@@ -46,24 +46,39 @@ $name: '.writings';
       cursor: pointer;
 
       #{$name}-listWrapper:hover & {
-        padding-left: 0;
-        transition:
-          0.3s ease-in-out opacity,
-          0.2s ease-in-out padding-left,
-          0.2s ease-in-out background-color;
+        transition: 0.3s ease-in-out opacity;
         opacity: $opacity-50;
-        background-color: transparent;
 
         &:hover {
-          padding-left: 4px;
-          transition:
-            0.3s ease-in-out opacity,
-            0.2s ease-in-out padding-left,
-            0.2s ease-in-out background-color;
+          transition: 0.3s ease-in-out opacity;
           opacity: $opacity-100;
-          background-color: rgba($gray-1, $opacity-40);
         }
       }
+    }
+  }
+
+  &-loadMore {
+    @extend %typography-link-description;
+
+    margin-top: 24px;
+    @include desktop-view {
+      margin-top: 22px;
+      cursor: pointer;
+    }
+  }
+
+  &-counter {
+    margin-top: 24px;
+    @include desktop-view {
+      margin-top: 48px;
+    }
+
+    &Text {
+      @extend %typography-special-counter;
+
+      display: block;
+      opacity: 0.3;
+      text-align: right;
     }
   }
 }
