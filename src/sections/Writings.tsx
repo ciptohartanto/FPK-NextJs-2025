@@ -1,9 +1,16 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
 
-const DATA = [
+interface WritingDataType {
+  title: string
+  date: string
+  tags: { text: string }[]
+  url: string
+}
+
+const DATA: WritingDataType[] = [
   {
     title: 'i18n with Next.js on A Static Web Server',
     date: 'Jan 01, 2024',
@@ -52,28 +59,64 @@ const DATA = [
 const LOAD_MORE_MULTIPLIER = 3
 
 export default function Writings() {
-  const [currentArticleTotal, setCurrentArticleTotal] = useState(3)
+  const [currentArticleTotal, setCurrentArticleTotal] =
+    useState(LOAD_MORE_MULTIPLIER)
+  const [searchValue, setSearchValue] = useState<undefined | string>(undefined)
+  const [articleData, setArticleData] = useState<[] | WritingDataType[]>([]) // todo: proper type!
 
-  const totalArticles = useMemo(() => DATA.length, [])
+  // 1. set articleData on first render
+  useEffect(() => {
+    const viewableData = DATA.slice(0, currentArticleTotal)
+    setArticleData(viewableData)
+  }, [currentArticleTotal])
+
+  // 2. when there's update from search bar, update searchable
+  const updatedData = useMemo(() => {
+    let newArticleData
+
+    // when search value is empty -> keep the original viewable data
+    if (!searchValue) newArticleData = articleData
+    // otherwise filter the articleData
+    else {
+      newArticleData = articleData.filter((item) =>
+        item.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      )
+    }
+
+    return newArticleData
+  }, [searchValue, articleData])
 
   const handleClickLoadMore = useCallback(() => {
     const nextTotalArticle = currentArticleTotal + LOAD_MORE_MULTIPLIER
+    const totalArticles = DATA.length
     if (nextTotalArticle >= totalArticles) {
-      setCurrentArticleTotal(totalArticles)
+      setCurrentArticleTotal(DATA.length)
     } else {
       setCurrentArticleTotal(nextTotalArticle)
     }
-  }, [currentArticleTotal, totalArticles])
+  }, [currentArticleTotal])
+
+  const computedSearchData = useMemo(() => {
+    let setup = { shouldDisplayLoadMore: false, counterText: '' }
+    if (!searchValue) {
+      setup.shouldDisplayLoadMore = updatedData.length !== DATA.length
+      setup.counterText = `${updatedData.length}/${DATA.length}`
+    } else {
+      setup.shouldDisplayLoadMore = DATA.length !== currentArticleTotal
+      setup.counterText = `${updatedData.length} / ${updatedData.length}`
+    }
+    return setup
+  }, [searchValue, updatedData, currentArticleTotal])
 
   return (
     <section className="writings">
       <h2 className="writings-title">Writings</h2>
       <div className="writings-row">
         <div className="writings-searchBoxWrapper">
-          <SearchBox />
+          <SearchBox handleUpdate={(e) => setSearchValue(e)} />
         </div>
         <ul className="writings-listWrapper">
-          {DATA.slice(0, currentArticleTotal).map((item) => (
+          {updatedData.map((item) => (
             <li key={item.title} className="writings-listItem">
               <ArticleItem
                 title={item.title}
@@ -82,7 +125,8 @@ export default function Writings() {
               />
             </li>
           ))}
-          {currentArticleTotal !== totalArticles && (
+
+          {computedSearchData.shouldDisplayLoadMore && (
             <span className="writings-loadMore" onClick={handleClickLoadMore}>
               Load More
             </span>
@@ -91,7 +135,7 @@ export default function Writings() {
       </div>
       <div className="writings-counter">
         <span className="writings-counterText">
-          {currentArticleTotal}/{totalArticles}
+          {computedSearchData.counterText}
         </span>
       </div>
     </section>
