@@ -5,7 +5,7 @@ export default function SearchBox() {
     <div className="searchBox">
       <input className="searchBox-input" placeholder="Search an article" />
       <span className="searchBox-icon">
-        <IconX type={IconXTypes.LIGHT} />
+        <IconX type={IconXTypes.LIGHT} isActive />
       </span>
     </div>
   )
