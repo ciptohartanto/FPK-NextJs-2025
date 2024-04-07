@@ -99,7 +99,7 @@ export default function Nav() {
                         filter: 'blur(0px)',
                         y: 0,
                         transition: {
-                          delay: 0.27 * idx,
+                          delay: 0.285 * (idx + 1),
                           duration: 0.3,
                         },
                       },
