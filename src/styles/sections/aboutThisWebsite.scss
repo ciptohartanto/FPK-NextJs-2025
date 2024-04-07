@@ -14,8 +14,10 @@
   &-listWrapper {
     @extend %grid-wrapper;
 
+    margin-bottom: 60px;
     @include desktop-view {
       margin-top: 48px;
+      margin-bottom: 80px;
     }
   }
 

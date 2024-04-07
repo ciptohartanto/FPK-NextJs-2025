@@ -19,6 +19,7 @@ $css: '.projects';
       position: relative;
       margin-right: -15px;
       margin-left: -15px;
+      overflow-x: hidden;
 
       &::before,
       &::after {
@@ -84,7 +85,7 @@ $css: '.projects';
       @extend %inline-flex, %flex-start-column;
 
       visibility: hidden;
-      margin-top: 2.5px;
+      margin-top: 10px;
       @include desktop-view {
         margin-top: 2.5px;
       }
@@ -98,7 +99,11 @@ $css: '.projects';
       @extend %cover-background-image;
 
       width: 100%;
-      height: 622px;
+      padding-top: (192 / 278 * 100%);
+      @include desktop-view {
+        padding-top: (415 / 622 * 100%);
+      }
+
       border-radius: 12px;
     }
 
@@ -106,10 +111,10 @@ $css: '.projects';
       @extend %typography-card-title;
     }
 
-    &Subtitle {
+    &Date {
       @extend %typography-card-caption;
 
-      margin-top: 10px;
+      margin-top: 4px;
       @include desktop-view {
         margin-top: 10px;
       }
@@ -118,7 +123,7 @@ $css: '.projects';
     &Tags {
       @extend %inline-flex, %flex-start-row;
 
-      margin-top: 10px;
+      margin-top: 4px;
       @include desktop-view {
         margin-top: 10px;
       }
