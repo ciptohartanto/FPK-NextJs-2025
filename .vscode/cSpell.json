@@ -6,6 +6,7 @@
     "stylelint",
     "svgr",
     "estree",
-    "smacss"
+    "smacss",
+    "csstools"
   ]
 }
