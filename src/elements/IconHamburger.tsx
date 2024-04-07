@@ -50,3 +50,8 @@ export default function IconHamburger({ type, isActive }: IconHamburgerProps) {
     </AnimatePresence>
   )
 }
+
+IconHamburger.defaultProps = {
+  type: IconHamburgerTypes.LARGE,
+  isActive: true,
+}

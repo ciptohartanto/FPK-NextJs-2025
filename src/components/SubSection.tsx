@@ -13,3 +13,8 @@ export default function SubSection({ title, children }: SubSectionProps) {
     </div>
   )
 }
+
+SubSection.defaultProps = {
+  title: 'missing data',
+  children: <span>missing data</span>,
+}

@@ -59,3 +59,8 @@ export default function IconX({ type, isActive }: IconXProps) {
     </AnimatePresence>
   )
 }
+
+IconX.defaultProps = {
+  isActive: true,
+  type: IconXTypes.LARGE,
+}
