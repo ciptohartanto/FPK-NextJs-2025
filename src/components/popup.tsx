@@ -57,62 +57,61 @@ export default function Popup({ handleClick, shouldDisplayPopup }: PopupProps) {
                   <li className="popup-tag">
                     <Tag text="Tag 1" />
                   </li>
-                  <div className="popup-wrapperDescription">
-                    <span className="popup-description">
-                      Late 2017 - Early 2019
-                    </span>
-                    <Link
-                      href="https://example.com"
-                      className="popup-externalLink"
-                    >
-                      https://today.line.me
-                    </Link>
-                  </div>
-                  <div className="popup-section">
-                    <SubSection title="Role">
-                      <p className="popup-paragraph">
-                        Markup Engineer, Fixing issues
-                      </p>
-                    </SubSection>
-                  </div>
-                  <div className="popup-section">
-                    <SubSection title="Role">
-                      <p className="popup-paragraph">
-                        Markup Engineer, Fixing issues
-                        <br />
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Sit nesciunt error ad illo, iusto pariatur maxime.
-                        Voluptates quo quas provident obcaecati perferendis,
-                        velit praesentium, consequuntur excepturi expedita harum
-                        quos officia?
-                        <br />
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Nobis quis dolor architecto magni commodi,
-                        delectus consequatur nemo minima nisi blanditiis
-                        pariatur dolorem ad fuga voluptatem eveniet quidem illo,
-                        at ea?
-                        <br />
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Nobis quis dolor architecto magni commodi,
-                        delectus consequatur nemo minima nisi blanditiis
-                        pariatur dolorem ad fuga voluptatem eveniet quidem illo,
-                        at ea?
-                        <br />
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Nobis quis dolor architecto magni commodi,
-                        delectus consequatur nemo minima nisi blanditiis
-                        pariatur dolorem ad fuga voluptatem eveniet quidem illo,
-                        at ea?
-                        <br />
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Nobis quis dolor architecto magni commodi,
-                        delectus consequatur nemo minima nisi blanditiis
-                        pariatur dolorem ad fuga voluptatem eveniet quidem illo,
-                        at ea?
-                      </p>
-                    </SubSection>
-                  </div>
+                  <li className="popup-tag">
+                    <Tag text="Tag 1" />
+                  </li>
                 </ul>
+                <div className="popup-wrapperDescription">
+                  <span className="popup-description">
+                    Late 2017 - Early 2019
+                  </span>
+                  <Link
+                    href="https://example.com"
+                    className="popup-externalLink"
+                  >
+                    https://today.line.me
+                  </Link>
+                </div>
+                <div className="popup-section">
+                  <SubSection title="Role">
+                    <p className="popup-paragraph">
+                      Markup Engineer, Fixing issues
+                    </p>
+                  </SubSection>
+                </div>
+                <div className="popup-section">
+                  <SubSection title="Role">
+                    <p className="popup-paragraph">
+                      Markup Engineer, Fixing issues
+                      <br />
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Sit nesciunt error ad illo, iusto pariatur maxime.
+                      Voluptates quo quas provident obcaecati perferendis, velit
+                      praesentium, consequuntur excepturi expedita harum quos
+                      officia?
+                      <br />
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Nobis quis dolor architecto magni commodi, delectus
+                      consequatur nemo minima nisi blanditiis pariatur dolorem
+                      ad fuga voluptatem eveniet quidem illo, at ea?
+                      <br />
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Nobis quis dolor architecto magni commodi, delectus
+                      consequatur nemo minima nisi blanditiis pariatur dolorem
+                      ad fuga voluptatem eveniet quidem illo, at ea?
+                      <br />
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Nobis quis dolor architecto magni commodi, delectus
+                      consequatur nemo minima nisi blanditiis pariatur dolorem
+                      ad fuga voluptatem eveniet quidem illo, at ea?
+                      <br />
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Nobis quis dolor architecto magni commodi, delectus
+                      consequatur nemo minima nisi blanditiis pariatur dolorem
+                      ad fuga voluptatem eveniet quidem illo, at ea?
+                    </p>
+                  </SubSection>
+                </div>
               </div>
             </motion.div>
           </div>
