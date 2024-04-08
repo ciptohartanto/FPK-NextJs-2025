@@ -12,8 +12,6 @@ interface PopupProps {
 }
 
 export default function Popup({ handleClick, shouldDisplayPopup }: PopupProps) {
-  console.log({ shouldDisplayPopup })
-
   return (
     <AnimatePresence>
       {shouldDisplayPopup && (
