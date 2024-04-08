@@ -7,6 +7,7 @@
     "svgr",
     "estree",
     "smacss",
-    "csstools"
+    "csstools",
+    "lerp"
   ]
 }
