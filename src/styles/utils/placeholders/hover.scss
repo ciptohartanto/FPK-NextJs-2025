@@ -1,8 +1,8 @@
 %hover {
   position: relative;
+  z-index: 1;
   padding: 0 5px;
   overflow: hidden;
-  mix-blend-mode: difference;
   color: $black;
 
   &::before,
