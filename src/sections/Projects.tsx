@@ -48,7 +48,11 @@ const DATA = [
   },
 ]
 
-export default function Projects() {
+interface ProjectsProps {
+  handleClick: (val: boolean) => void
+}
+
+export default function Projects({ handleClick }: ProjectsProps) {
   const [currentSlideId, setCurrentSlideId] = useState(0)
   const totalSlides = DATA.length
   return (
@@ -74,6 +78,7 @@ export default function Projects() {
                 key={item.title}
                 tag="li"
                 className="projects-swiperSlide"
+                onClick={() => handleClick(true)}
               >
                 {({ isActive }) => (
                   <div
@@ -111,4 +116,8 @@ export default function Projects() {
       </div>
     </section>
   )
+}
+
+Projects.defaultProps = {
+  handleClick: () => false,
 }
