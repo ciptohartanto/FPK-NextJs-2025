@@ -1,13 +1,22 @@
 import '../styles/index.scss'
 
+import { ReactLenis } from '@studio-freight/react-lenis'
 import type { AppProps } from 'next/app'
 
 import Layout from '@/layout/Layout'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const lenisOptions = {
+    lerp: 0.1,
+    duration: 1.5,
+    smoothTouch: false, //smooth scroll for touch devices
+    smooth: true,
+  }
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ReactLenis root options={lenisOptions}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ReactLenis>
   )
 }
