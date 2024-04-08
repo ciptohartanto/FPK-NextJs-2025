@@ -2,10 +2,12 @@
 import 'swiper/css'
 
 import classNames from 'classnames'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants'
 import Tag from '@/elements/Tag'
 
 const DATA = [
@@ -47,7 +49,6 @@ const DATA = [
     tags: [{ text: 'HTML' }, { text: 'SCSS' }],
   },
 ]
-
 interface ProjectsProps {
   handleClick: (val: boolean) => void
 }
@@ -58,8 +59,14 @@ export default function Projects({ handleClick }: ProjectsProps) {
   return (
     <section className="projects">
       <div className="projects-wrapper">
-        <h3 className="projects-title">Projects</h3>
-        <div className="projects-swiperWrapper">
+        <motion.h3 className="projects-title" {...FRAMER_SUB_SECTION_ANIMATION}>
+          Projects
+        </motion.h3>
+        <motion.div
+          className="projects-swiperWrapper"
+          {...FRAMER_SUB_SECTION_ANIMATION}
+          viewport={{ margin: '-300px 0px 0px 0px' }}
+        >
           <Swiper
             wrapperTag="ul"
             slidesPerView={1}
@@ -78,13 +85,15 @@ export default function Projects({ handleClick }: ProjectsProps) {
                 key={item.title}
                 tag="li"
                 className="projects-swiperSlide"
-                onClick={() => handleClick(true)}
               >
                 {({ isActive }) => (
                   <div
                     className={classNames('projects-swiperContentWrapper', {
                       'projects-swiperContentWrapper--active': isActive,
                     })}
+                    onClick={() => {
+                      if (isActive) handleClick(true)
+                    }}
                   >
                     <div
                       className="projects-swiperThumbnail"
@@ -106,13 +115,17 @@ export default function Projects({ handleClick }: ProjectsProps) {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
 
-        <div className="projects-counter">
+        <motion.div
+          className="projects-counter"
+          {...FRAMER_SUB_SECTION_ANIMATION}
+          initial={{ x: 40, opacity: 0 }}
+        >
           <span className="projects-counterText">
             {currentSlideId}/{totalSlides}
           </span>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

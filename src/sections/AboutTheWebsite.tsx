@@ -1,11 +1,22 @@
+import { motion } from 'framer-motion'
+
 import SubSection from '@/components/SubSection'
+import { FRAMER_SUB_SECTION_ANIMATION_BOTTOM } from '@/constants'
 
 export default function AboutTheWebsite() {
   return (
     <section className="aboutTheWebsite">
-      <h2 className="aboutTheWebsite-title">About This Website</h2>
+      <motion.h2
+        className="aboutTheWebsite-title"
+        {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+      >
+        About This Website
+      </motion.h2>
       <div className="aboutTheWebsite-listWrapper">
-        <ul className="aboutTheWebsite-itemsWrapper">
+        <motion.ul
+          className="aboutTheWebsite-itemsWrapper"
+          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+        >
           <li className="aboutTheWebsite-item">
             <SubSection title="FrontEnd">
               <h3 className="aboutTheWebsite-subsectionText">
@@ -23,8 +34,11 @@ export default function AboutTheWebsite() {
               <h3 className="aboutTheWebsite-subsectionText">Netlify</h3>
             </SubSection>
           </li>
-        </ul>
-        <ul className="aboutTheWebsite-itemsWrapper">
+        </motion.ul>
+        <motion.ul
+          className="aboutTheWebsite-itemsWrapper"
+          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+        >
           <li className="aboutTheWebsite-item">
             <SubSection title="User Interface">
               <h3 className="aboutTheWebsite-subsectionText">
@@ -44,14 +58,17 @@ export default function AboutTheWebsite() {
               </h3>
             </SubSection>
           </li>
-        </ul>
-        <ul className="aboutTheWebsite-itemsWrapper">
+        </motion.ul>
+        <motion.ul
+          className="aboutTheWebsite-itemsWrapper"
+          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+        >
           <li className="aboutTheWebsite-item">
             <SubSection title="Source Code">
               <h3 className="aboutTheWebsite-subsectionText">Github, Figma</h3>
             </SubSection>
           </li>
-        </ul>
+        </motion.ul>
       </div>
     </section>
   )
