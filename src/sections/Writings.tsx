@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
+import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants'
 
 interface WritingDataType {
   title: string
@@ -110,34 +112,53 @@ export default function Writings() {
 
   return (
     <section className="writings">
-      <h2 className="writings-title">Writings</h2>
+      <motion.h2 className="writings-title" {...FRAMER_SUB_SECTION_ANIMATION}>
+        Writings
+      </motion.h2>
       <div className="writings-row">
-        <div className="writings-searchBoxWrapper">
+        <motion.div
+          className="writings-searchBoxWrapper"
+          {...FRAMER_SUB_SECTION_ANIMATION}
+        >
           <SearchBox handleUpdate={(e) => setSearchValue(e)} />
-        </div>
+        </motion.div>
         <ul className="writings-listWrapper">
           {updatedData.map((item) => (
-            <li key={item.title} className="writings-listItem">
+            <motion.li
+              key={item.title}
+              className="writings-listItem"
+              {...FRAMER_SUB_SECTION_ANIMATION}
+              initial={{ x: 40, opacity: 0 }}
+            >
               <ArticleItem
                 title={item.title}
                 date={item.date}
                 tags={item.tags}
               />
-            </li>
+            </motion.li>
           ))}
 
           {computedSearchData.shouldDisplayLoadMore && (
-            <span className="writings-loadMore" onClick={handleClickLoadMore}>
+            <motion.span
+              className="writings-loadMore"
+              onClick={handleClickLoadMore}
+              {...FRAMER_SUB_SECTION_ANIMATION}
+              initial={{ x: 40, opacity: 0 }}
+            >
               Load More
-            </span>
+            </motion.span>
           )}
         </ul>
       </div>
-      <div className="writings-counter">
+      <motion.div
+        className="writings-counter"
+        {...FRAMER_SUB_SECTION_ANIMATION}
+        initial={{ x: 40, opacity: 0 }}
+      >
         <span className="writings-counterText">
           {computedSearchData.counterText}
         </span>
-      </div>
+      </motion.div>
     </section>
   )
 }

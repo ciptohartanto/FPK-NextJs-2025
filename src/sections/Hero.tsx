@@ -9,26 +9,21 @@ export default function Hero() {
   const refHero = useRef<null | HTMLElement>(null)
   return (
     <section className="hero" ref={refHero}>
-      <div className="hero-row">
+      <motion.div className="hero-row" {...FRAMER_SUB_SECTION_ANIMATION}>
         <div className="hero-colWrapper">
           <Trademark />
-          <motion.h2
-            className="hero-subtitle"
-            {...FRAMER_SUB_SECTION_ANIMATION}
-          >
+          <h2 className="hero-subtitle" {...FRAMER_SUB_SECTION_ANIMATION}>
             Senior Web Developer
-          </motion.h2>
-          <motion.h3 className="hero-caption" {...FRAMER_SUB_SECTION_ANIMATION}>
+          </h2>
+          <h3 className="hero-caption">
             8+ years of problem solving, strong communication skills, and making
             websites
-          </motion.h3>
+          </h3>
           <Link className="hero-link" href="/resume">
-            <motion.span {...FRAMER_SUB_SECTION_ANIMATION}>
-              Read More
-            </motion.span>
+            <span>Read More</span>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
