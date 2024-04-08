@@ -1,0 +1,74 @@
+.popup {
+  position: fixed;
+  z-index: $z-root-popup;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+
+  @extend %inline-flex, %flex-center;
+
+  &-wrapper {
+    @extend %inline-flex, %flex-center;
+
+    flex-direction: row-reverse;
+
+    &Tags {
+      margin-top: 8px;
+    }
+
+    &Description {
+      margin-top: 8px;
+      @extend %inline-flex, %flex-start-column;
+    }
+  }
+
+  &-iconClose {
+    margin-left: 46px;
+  }
+
+  &-body {
+    @extend %inline-flex, %flex-start-row;
+
+    justify-content: space-between;
+    width: 1199px;
+    height: 730px;
+    padding: 81px 19px 60px 163px;
+    border-radius: 18px;
+    background-color: $white;
+    box-shadow: 0 3px 17.8px 3px rgba($black, $opacity-7);
+  }
+
+  &-background {
+    @extend %cover-background-image;
+
+    width: 320px;
+    height: 320px;
+  }
+
+  &-content {
+    @extend %inline-flex, %flex-start-row;
+
+    position: relative; // must be explicitly defined so %hover can work
+    width: 530px;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  &-title {
+    @extend %typography-section-title-normal;
+  }
+
+  &-description {
+    @extend %typography-card-caption;
+  }
+
+  &-externalLink {
+    @extend %typography-card-caption, %hover;
+  }
+
+  &-section {
+    margin-top: 8px;
+  }
+}

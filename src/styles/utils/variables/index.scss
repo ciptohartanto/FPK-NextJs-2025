@@ -18,6 +18,7 @@ $opacity-100: 1;
 $opacity-40: 0.4;
 $opacity-50: 0.5;
 $opacity-70: 0.7;
+$opacity-7: 0.07;
 $opacity-5: 0.05;
 
 // grays
@@ -25,6 +26,10 @@ $gray-1: #d9d9d9;
 
 // cubic-bezier styling
 $transition-style: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// z indices
+$z-root-nav: 5;
+$z-root-popup: 6;
 
 /*
   *****
