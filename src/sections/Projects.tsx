@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants'
+import { FRAMER } from '@/constants'
 import Tag from '@/elements/Tag'
 
 const DATA = [
@@ -59,12 +59,15 @@ export default function Projects({ handleClick }: ProjectsProps) {
   return (
     <section className="projects">
       <div className="projects-wrapper">
-        <motion.h3 className="projects-title" {...FRAMER_SUB_SECTION_ANIMATION}>
+        <motion.h3
+          className="projects-title"
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+        >
           Projects
         </motion.h3>
         <motion.div
           className="projects-swiperWrapper"
-          {...FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
           viewport={{ margin: '-300px 0px 0px 0px' }}
         >
           <Swiper
@@ -119,7 +122,7 @@ export default function Projects({ handleClick }: ProjectsProps) {
 
         <motion.div
           className="projects-counter"
-          {...FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
           initial={{ x: 40, opacity: 0 }}
         >
           <span className="projects-counterText">

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRef } from 'react'
 
-import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants'
+import { FRAMER } from '@/constants'
 import Trademark from '@/elements/Trademark'
 
 export default function Hero() {
@@ -15,9 +15,9 @@ export default function Hero() {
           <Trademark />
           <motion.h2
             className="hero-subtitle"
-            {...FRAMER_SUB_SECTION_ANIMATION}
+            {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
             whileInView={{
-              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
               transition: {
                 delay: 0.2,
               },
@@ -27,9 +27,9 @@ export default function Hero() {
           </motion.h2>
           <motion.h3
             className="hero-caption"
-            {...FRAMER_SUB_SECTION_ANIMATION}
+            {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
             whileInView={{
-              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
               transition: {
                 delay: 0.5,
               },
@@ -41,9 +41,9 @@ export default function Hero() {
           <Link className="hero-link" href="/resume">
             <motion.span
               className="hero-linkText"
-              {...FRAMER_SUB_SECTION_ANIMATION}
+              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
               whileInView={{
-                ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+                ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
                 transition: {
                   delay: 0.7,
                 },

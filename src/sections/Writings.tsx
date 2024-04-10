@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
-import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants'
+import { FRAMER } from '@/constants'
 
 interface WritingDataType {
   title: string
@@ -112,13 +112,16 @@ export default function Writings() {
 
   return (
     <section className="writings">
-      <motion.h2 className="writings-title" {...FRAMER_SUB_SECTION_ANIMATION}>
+      <motion.h2
+        className="writings-title"
+        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+      >
         Writings
       </motion.h2>
       <div className="writings-row">
         <motion.div
           className="writings-searchBoxWrapper"
-          {...FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
         >
           <SearchBox handleUpdate={(e) => setSearchValue(e)} />
         </motion.div>
@@ -127,7 +130,7 @@ export default function Writings() {
             <motion.li
               key={item.title}
               className="writings-listItem"
-              {...FRAMER_SUB_SECTION_ANIMATION}
+              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
               initial={{ x: 40, opacity: 0 }}
             >
               <ArticleItem
@@ -142,7 +145,7 @@ export default function Writings() {
             <motion.span
               className="writings-loadMore"
               onClick={handleClickLoadMore}
-              {...FRAMER_SUB_SECTION_ANIMATION}
+              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
               initial={{ x: 40, opacity: 0 }}
             >
               Load More
@@ -152,7 +155,7 @@ export default function Writings() {
       </div>
       <motion.div
         className="writings-counter"
-        {...FRAMER_SUB_SECTION_ANIMATION}
+        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
         initial={{ x: 40, opacity: 0 }}
       >
         <span className="writings-counterText">

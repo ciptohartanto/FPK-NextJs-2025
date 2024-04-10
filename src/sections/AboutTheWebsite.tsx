@@ -1,21 +1,21 @@
 import { motion } from 'framer-motion'
 
 import SubSection from '@/components/SubSection'
-import { FRAMER_SUB_SECTION_ANIMATION_BOTTOM } from '@/constants'
+import { FRAMER } from '@/constants'
 
 export default function AboutTheWebsite() {
   return (
     <section className="aboutTheWebsite">
       <motion.h2
         className="aboutTheWebsite-title"
-        {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
       >
         About This Website
       </motion.h2>
       <div className="aboutTheWebsite-listWrapper">
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="FrontEnd">
@@ -37,7 +37,7 @@ export default function AboutTheWebsite() {
         </motion.ul>
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="User Interface">
@@ -61,7 +61,7 @@ export default function AboutTheWebsite() {
         </motion.ul>
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="Source Code">
