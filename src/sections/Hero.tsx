@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useRef } from 'react'
 
+import AnchorLink from '@/components/AnchorLink'
 import { FRAMER } from '@/constants'
 import Trademark from '@/elements/Trademark'
 
@@ -38,9 +38,9 @@ export default function Hero() {
             8+ years of problem solving, strong communication skills, and making
             websites
           </motion.h3>
-          <Link className="hero-link" href="/resume">
+          <AnchorLink href="/resume">
             <motion.span
-              className="hero-linkText"
+              className="hero-link"
               {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
               whileInView={{
                 ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
@@ -51,7 +51,7 @@ export default function Hero() {
             >
               Read More
             </motion.span>
-          </Link>
+          </AnchorLink>
         </div>
       </div>
     </section>

@@ -106,7 +106,7 @@
   }
 
   &-externalLink {
-    @extend %typography-card-caption, %hover;
+    @extend %inline-flex, %flex-center, %typography-card-caption, %hover;
   }
 
   &-section {

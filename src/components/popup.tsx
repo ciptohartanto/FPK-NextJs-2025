@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 
 import IconX, { IconXTypes } from '@/elements/IconX'
 import Tag from '@/elements/Tag'
 
+import AnchorLink from './AnchorLink'
 import SubSection from './SubSection'
 
 interface PopupProps {
@@ -63,12 +63,11 @@ export default function Popup({ handleClick, shouldDisplayPopup }: PopupProps) {
                   <span className="popup-description">
                     Late 2017 - Early 2019
                   </span>
-                  <Link
-                    href="https://example.com"
-                    className="popup-externalLink"
-                  >
-                    https://today.line.me
-                  </Link>
+                  <AnchorLink href="https://example.com">
+                    <span className="popup-externalLink">
+                      https://today.line.me
+                    </span>
+                  </AnchorLink>
                 </div>
                 <div className="popup-section">
                   <SubSection title="Role">
