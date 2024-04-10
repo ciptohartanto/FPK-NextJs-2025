@@ -8,6 +8,7 @@
     "estree",
     "smacss",
     "csstools",
-    "lerp"
+    "lerp",
+    "scrollbars"
   ]
 }
