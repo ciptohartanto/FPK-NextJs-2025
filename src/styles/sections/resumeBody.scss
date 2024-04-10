@@ -1,0 +1,104 @@
+.resumeBody {
+  @extend %inline-flex, %flex-start-column;
+
+  margin-top: 111px;
+  margin-bottom: 98px;
+  @include desktop-view {
+    width: 1171px;
+    margin-top: 134px;
+    margin-bottom: 132px;
+  }
+
+  &-wrapperTop {
+    @extend %inline-flex, %flex-center;
+
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-iconPdf {
+    position: relative;
+    z-index: 1;
+    width: 45px;
+    height: 45px;
+    font-size: 10px;
+    font-weight: 700;
+    @include push-me($view: 'desktop', $horizontal-direction: 'left');
+    @extend %inline-flex, %flex-center;
+
+    @include desktop-view {
+      width: 82px;
+      height: 82px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 35px;
+      height: 40px;
+      border: 2px solid $black;
+      border-radius: 4px;
+      background-color: $white;
+
+      @include desktop-view {
+        width: 60px;
+        height: 70px;
+        border: 3px solid $black;
+        border-radius: 6px;
+      }
+    }
+
+    &::before {
+      top: 7px;
+      left: 0;
+      @include desktop-view {
+        top: 12px;
+        left: 5px;
+      }
+    }
+
+    &:hover {
+      &::before {
+        transform: translateX(-1px) translateY(3px);
+        animation: zooming alternate linear 1s infinite;
+      }
+    }
+  }
+
+  &-wrapperSection {
+    margin-top: 40px;
+    @include desktop-view {
+      width: 624px;
+    }
+  }
+
+  &-subsection {
+    margin-bottom: 32px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &-paragraph {
+    @extend %typography-section-description;
+
+    margin-bottom: 20px;
+    @include vertical-items-spacer($spacer-mobile: 24px, $spacer-desktop: 20px);
+  }
+}
+
+@keyframes zooming {
+  0% {
+    transform: translateX(-1px) translateY(1px);
+  }
+
+  100% {
+    transform: translateX(4px) translateY(-4px);
+  }
+}
