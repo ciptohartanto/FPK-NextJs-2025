@@ -20,12 +20,14 @@ $name: '.experienceItem';
     &::before {
       content: '';
       position: absolute;
-      top: 12px;
-      width: 0.7px;
-      height: 100%;
+      width: 0.8px;
+      height: calc(100% - 13px);
+      transform: translateY(13px);
       background-color: $golden;
       @include desktop-view {
         width: 1px;
+        height: calc(100% - 11px);
+        transform: translateY(4px);
       }
     }
 
@@ -66,7 +68,7 @@ $name: '.experienceItem';
 
     #{$name}--previous & {
       border: 1px solid $golden;
-      background-color: $white;
+      background-color: transparent;
     }
 
     @include desktop-view {
