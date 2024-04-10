@@ -21,9 +21,12 @@ $name: '.experienceItem';
       content: '';
       position: absolute;
       top: 12px;
-      width: 1px;
+      width: 0.7px;
       height: 100%;
       background-color: $golden;
+      @include desktop-view {
+        width: 1px;
+      }
     }
 
     @include desktop-view {
@@ -45,14 +48,19 @@ $name: '.experienceItem';
     flex: 1;
     flex-flow: column wrap;
     width: auto;
+    padding-bottom: 40px;
+
+    @include desktop-view {
+      padding-bottom: 30px;
+    }
   }
 
   &-bullet {
     @extend %inline-flex, %flex-center;
 
     position: relative;
-    width: 8px;
-    height: 8px;
+    width: 13px;
+    height: 13px;
     border-radius: 100%;
     background-color: $golden;
 
