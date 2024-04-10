@@ -25,6 +25,6 @@
   }
 
   &-link {
-    @extend %inline-flex, %flex-center, %hover, %typography-link-title;
+    @extend %inline-flex, %flex-center, %link-hover, %typography-link-title;
   }
 }

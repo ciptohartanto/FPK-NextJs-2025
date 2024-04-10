@@ -90,7 +90,7 @@
     padding: 0 18px 40px;
     overflow-y: scroll;
     @include desktop-view {
-      position: relative; // must be explicitly defined so %hover can work
+      position: relative; // must be explicitly defined so %link-hover can work
       width: 530px;
       height: 100%;
       margin-top: 0;
@@ -107,7 +107,7 @@
   }
 
   &-externalLink {
-    @extend %inline-flex, %flex-center, %typography-card-caption, %hover;
+    @extend %inline-flex, %flex-center, %typography-card-caption, %link-hover;
   }
 
   &-section {
