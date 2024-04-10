@@ -14,7 +14,7 @@ const urbanist = Urbanist({
 })
 
 const BACKGROUND_IMAGE =
-  'radial-gradient(rgba(0,0,0,0.5) 8.8%, transparent 8.8%), radial-gradient(rgba(0,0,0,0.5) 8.8%, transparent 8.8%)'
+  'radial-gradient(rgba(14,210,230,0.4) 8.8%, transparent 8.8%), radial-gradient(rgba(121,39,255,0.3) 8.8%, transparent 8.8%)'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -32,8 +32,8 @@ export default function Layout({ children }: { children: ReactNode }) {
             y: 0,
             backgroundImage: BACKGROUND_IMAGE,
             transition: { delay: 0.5, duration: 0.5 },
-            backgroundPosition: '0 0, 2px 2px',
-            backgroundSize: '2px 2px',
+            backgroundPosition: '0 0, 11px 11px',
+            backgroundSize: '18px 18px',
           },
 
           animate: {
@@ -41,9 +41,9 @@ export default function Layout({ children }: { children: ReactNode }) {
             width: 'calc(100% - 189px)',
             y: 72,
             backgroundImage: BACKGROUND_IMAGE,
-            backgroundPosition: '0 0, 4px 4px',
-            backgroundSize: '8px 8px',
-            transition: { delay: 0.3, duration: 1 },
+            backgroundPosition: '0 0, 11px 11px',
+            backgroundSize: '22px 22px',
+            transition: { delay: 2, duration: 1 },
           },
         }}
       />
