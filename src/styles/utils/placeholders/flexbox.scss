@@ -3,6 +3,12 @@
   flex-wrap: wrap;
 }
 
+%full-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 %flex-center {
   align-items: center;
   justify-content: center;
