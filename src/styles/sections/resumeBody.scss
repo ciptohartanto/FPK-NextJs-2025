@@ -9,6 +9,8 @@
   }
 
   &-iconPdf {
+    @extend %inline-flex, %flex-center;
+
     position: relative;
     z-index: 1;
     width: 45px;
@@ -16,7 +18,6 @@
     font-size: 10px;
     font-weight: 700;
     @include push-me($view: 'desktop', $horizontal-direction: 'left');
-    @extend %inline-flex, %flex-center;
 
     @include desktop-view {
       width: 82px;

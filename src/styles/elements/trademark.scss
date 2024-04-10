@@ -10,21 +10,22 @@
   }
 
   &-line1 {
+    @extend %typography-special;
+
     position: absolute;
     top: 5px;
     left: 0;
     line-height: 1em;
     text-transform: uppercase;
-    @extend %typography-special;
   }
 
   &-line2 {
+    @extend %typography-special-tight;
+
     position: absolute;
     bottom: 5px;
     left: 0;
     line-height: 1em;
     text-transform: uppercase;
-
-    @extend %typography-special-tight;
   }
 }

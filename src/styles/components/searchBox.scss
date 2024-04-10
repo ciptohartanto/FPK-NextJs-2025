@@ -1,9 +1,9 @@
 .searchBox {
+  @extend %inline-flex;
+
   position: relative;
   align-items: center;
   width: 100%;
-
-  @extend %inline-flex;
 
   &::before {
     content: '';

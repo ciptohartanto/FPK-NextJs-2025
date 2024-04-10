@@ -1,10 +1,9 @@
 $name: '.experienceItem';
 
 #{$name} {
-  @extend %inline-flex;
+  @extend %full-flex;
 
   flex-direction: row;
-  width: 100%;
   padding: 0 16px;
 
   &-wrapperLeft {

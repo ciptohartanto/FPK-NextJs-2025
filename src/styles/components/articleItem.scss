@@ -1,10 +1,7 @@
 $css: '.articleItem';
 
 #{$css} {
-  @extend %inline-flex;
-
-  flex-direction: column;
-  width: 100%;
+  @extend %full-flex, %flex-start-column;
 
   &-title {
     margin-bottom: 3px;

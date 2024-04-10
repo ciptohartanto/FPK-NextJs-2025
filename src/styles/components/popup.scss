@@ -1,4 +1,6 @@
 .popup {
+  @extend %inline-flex, %flex-center;
+
   position: fixed;
   z-index: $z-root-popup;
   top: 0;
@@ -6,8 +8,6 @@
   bottom: 0;
   left: 0;
   background-color: $white;
-
-  @extend %inline-flex, %flex-center;
 
   &-wrapper {
     @extend %inline-flex, %flex-center;
@@ -41,10 +41,11 @@
   }
 
   &-iconClose {
+    @extend %inline-flex, %flex-center;
+
     position: absolute;
     top: 16px;
     right: 21px;
-    @extend %inline-flex, %flex-center;
 
     @include desktop-view {
       position: relative;
