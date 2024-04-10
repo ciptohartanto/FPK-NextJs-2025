@@ -5,7 +5,7 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body,
@@ -29,4 +29,30 @@ button {
   outline: none;
   background: none;
   box-shadow: none;
+}
+
+// CSS scrollbars
+
+/* Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $black $white;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba($black, $opacity-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $black;
 }
