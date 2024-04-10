@@ -6,7 +6,7 @@ export const FRAMER_SUB_SECTION_ANIMATION = {
     transition: { duration: 0.5 },
   },
   initial: { opacity: 0, x: -40, y: 10, transition: { duration: 0.5 } },
-  viewport: { margin: '-100px 0px 0px 0px' },
+  viewport: { margin: '-100px 0px 100px 0px' },
 }
 
 export const FRAMER_SUB_SECTION_ANIMATION_BOTTOM = {

@@ -25,6 +25,12 @@
   }
 
   &-link {
-    @extend %typography-link-title, %hover;
+    @extend %typography-link-title;
+
+    &Text {
+      display: block;
+      position: rel;
+      @extend %inline-flex, %flex-center, %hover;
+    }
   }
 }

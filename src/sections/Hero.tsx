@@ -7,23 +7,53 @@ import Trademark from '@/elements/Trademark'
 
 export default function Hero() {
   const refHero = useRef<null | HTMLElement>(null)
+
   return (
     <section className="hero" ref={refHero}>
-      <motion.div className="hero-row" {...FRAMER_SUB_SECTION_ANIMATION}>
+      <div className="hero-row">
         <div className="hero-colWrapper">
           <Trademark />
-          <h2 className="hero-subtitle" {...FRAMER_SUB_SECTION_ANIMATION}>
+          <motion.h2
+            className="hero-subtitle"
+            {...FRAMER_SUB_SECTION_ANIMATION}
+            whileInView={{
+              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              transition: {
+                delay: 0.2,
+              },
+            }}
+          >
             Senior Web Developer
-          </h2>
-          <h3 className="hero-caption">
+          </motion.h2>
+          <motion.h3
+            className="hero-caption"
+            {...FRAMER_SUB_SECTION_ANIMATION}
+            whileInView={{
+              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              transition: {
+                delay: 0.5,
+              },
+            }}
+          >
             8+ years of problem solving, strong communication skills, and making
             websites
-          </h3>
+          </motion.h3>
           <Link className="hero-link" href="/resume">
-            <span>Read More</span>
+            <motion.span
+              className="hero-linkText"
+              {...FRAMER_SUB_SECTION_ANIMATION}
+              whileInView={{
+                ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
+                transition: {
+                  delay: 0.7,
+                },
+              }}
+            >
+              Read More
+            </motion.span>
           </Link>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
