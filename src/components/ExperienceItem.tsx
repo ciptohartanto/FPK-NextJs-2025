@@ -10,7 +10,7 @@ export enum ExPerienceItemTypes {
 interface ExperienceItemData {
   title: string
   date: string
-  tags: string[]
+  tags: { text: string }[]
   content: string
   links: string[]
 }
@@ -44,9 +44,9 @@ export default function ExperienceItem({
         <h3 className="experienceItem-title">{title}</h3>
         <span className="experienceItem-date">{date}</span>
         <ul className="experienceItem-tagList">
-          {tags.map((i) => (
-            <li className="experienceItem-tag" key={i}>
-              <Tag text={i} />
+          {tags.map((i, idx) => (
+            <li className="experienceItem-tag" key={idx}>
+              <Tag text={i.text} />
             </li>
           ))}
         </ul>
