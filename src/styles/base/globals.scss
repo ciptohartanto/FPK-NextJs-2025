@@ -64,3 +64,10 @@ a:hover {
   color: inherit;
   text-decoration: unset;
 }
+
+// selections
+
+::selection {
+  background: $select-highlight-background;
+  color: $white;
+}
