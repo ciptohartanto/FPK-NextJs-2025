@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <>
-      <PageHead />
+      <PageHead pageTitle="Home" />
       <>
         <Hero />
         <Projects handleClick={(val) => setIsPopupActive(val)} />
