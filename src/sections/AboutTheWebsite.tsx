@@ -16,6 +16,12 @@ export default function AboutTheWebsite() {
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
           {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          whileInView={{
+            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
+            transition: {
+              delay: 0.2,
+            },
+          }}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="FrontEnd">
@@ -38,6 +44,12 @@ export default function AboutTheWebsite() {
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
           {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          whileInView={{
+            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
+            transition: {
+              delay: 0.4,
+            },
+          }}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="User Interface">
@@ -62,6 +74,12 @@ export default function AboutTheWebsite() {
         <motion.ul
           className="aboutTheWebsite-itemsWrapper"
           {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+          whileInView={{
+            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
+            transition: {
+              delay: 0.6,
+            },
+          }}
         >
           <li className="aboutTheWebsite-item">
             <SubSection title="Source Code">
