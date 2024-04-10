@@ -47,11 +47,11 @@ $name: '.writings';
 
       #{$name}-listWrapper:hover & {
         transition: 0.3s ease-in-out opacity;
-        opacity: $opacity-50;
+        opacity: $opacity-40 !important;
 
         &:hover {
           transition: 0.3s ease-in-out opacity;
-          opacity: $opacity-100;
+          opacity: $opacity-100 !important;
         }
       }
     }
