@@ -111,7 +111,7 @@ export default function Writings() {
   }, [searchValue, updatedData, currentArticleTotal])
 
   return (
-    <section className="writings">
+    <section className="writings" id="writings">
       <motion.h2
         className="writings-title"
         {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}

@@ -4,26 +4,29 @@ import { useState } from 'react'
 import IconHamburger, { IconHamburgerTypes } from '@/elements/IconHamburger'
 import IconX, { IconXTypes } from '@/elements/IconX'
 
+import AnchorLink from './AnchorLink'
+
 const NAV_LINKS = [
   {
-    link: 'https://example.com',
+    link: '/',
+    text: 'Home',
+  },
+  {
+    link: '#projects',
     text: 'Projects',
   },
   {
-    link: 'https://example.com',
+    link: '#writings',
     text: 'Writings',
   },
+
   {
-    link: 'https://example.com',
-    text: 'Projects',
-  },
-  {
-    link: 'https://example.com',
+    link: '#about',
     text: 'About This Website',
   },
   {
-    link: 'https://example.com',
-    text: 'Resume',
+    link: '/resume',
+    text: 'Résumé',
   },
 ]
 
@@ -126,7 +129,9 @@ export default function Nav() {
                         },
                       }}
                     >
-                      <span className="nav-text">{item.text}</span>
+                      <AnchorLink href={item.link}>
+                        <span className="nav-text">{item.text}</span>
+                      </AnchorLink>
                     </motion.li>
                   ))}
                 </ul>

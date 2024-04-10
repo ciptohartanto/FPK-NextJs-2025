@@ -5,7 +5,7 @@ import { FRAMER } from '@/constants'
 
 export default function AboutTheWebsite() {
   return (
-    <section className="aboutTheWebsite">
+    <section className="aboutTheWebsite" id="about">
       <motion.h2
         className="aboutTheWebsite-title"
         {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}

@@ -57,7 +57,7 @@ export default function Projects({ handleClick }: ProjectsProps) {
   const [currentSlideId, setCurrentSlideId] = useState(0)
   const totalSlides = DATA.length
   return (
-    <section className="projects">
+    <section className="projects" id="projects">
       <div className="projects-wrapper">
         <motion.h3
           className="projects-title"
