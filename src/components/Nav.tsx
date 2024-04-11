@@ -12,20 +12,20 @@ const NAV_LINKS = [
     text: 'Home',
   },
   {
-    link: '#projects',
+    link: './#projects',
     text: 'Projects',
   },
   {
-    link: '#writings',
+    link: './#writings',
     text: 'Writings',
   },
 
   {
-    link: '#about',
+    link: './#about',
     text: 'About This Website',
   },
   {
-    link: '/resume',
+    link: './resume',
     text: 'Résumé',
   },
 ]
