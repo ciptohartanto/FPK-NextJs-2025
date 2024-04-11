@@ -5,25 +5,32 @@ import { useState } from 'react'
 import client from '@/apollo/client'
 import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
-import { HomesQuery } from '@/gql/graphql'
+import { Home, HomesQuery } from '@/gql/graphql'
 import QUERY_HOME from '@/queries/home'
 import AboutTheWebsite from '@/sections/AboutTheWebsite'
 import Hero from '@/sections/Hero'
 import Projects from '@/sections/Projects'
 import Writings from '@/sections/Writings'
 
-export default function HomePage({ home }: HomesQuery) {
-  console.log(home)
+export default function HomePage({ home }: { home: Home }) {
   const [isPopupActive, setIsPopupActive] = useState(false)
+
+  const heroContent = { ...home.sectionHero }
+  const projectContent = { ...home.sectionProject }
+  const writingsContent = { ...home.sectionWritings }
+  const aboutContent = { ...home.sectionAbout }
 
   return (
     <>
       <PageHead pageTitle="Home" />
       <>
-        <Hero />
-        <Projects handleClick={(val) => setIsPopupActive(val)} />
-        <Writings />
-        <AboutTheWebsite />
+        <Hero content={heroContent} />
+        <Projects
+          handleClick={(val) => setIsPopupActive(val)}
+          content={projectContent}
+        />
+        <Writings content={writingsContent} />
+        <AboutTheWebsite content={aboutContent} />
         <Popup
           handleClick={(val) => setIsPopupActive(val)}
           shouldDisplayPopup={isPopupActive}

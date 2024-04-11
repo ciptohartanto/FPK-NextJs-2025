@@ -1,92 +1,73 @@
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 
 import SubSection from '@/components/SubSection'
 import { FRAMER } from '@/constants'
+import { SectionAbout } from '@/gql/graphql'
 
-export default function AboutTheWebsite() {
+type AboutThisWebsiteProps = {
+  content: Pick<SectionAbout, 'title' | 'listOfIngredients'>
+}
+
+export default function AboutTheWebsite({ content }: AboutThisWebsiteProps) {
+  const { title, listOfIngredients } = content
+
+  const memoIngredients = useMemo(() => {
+    // add new id
+    const arrayWithNewId = listOfIngredients.map((item, idx) => ({
+      ...item,
+      id: String(idx + 1),
+    }))
+
+    /*
+     ref: https://medium.com/@drdDavi/split-a-javascript-array-into-chunks-d90c90de3a2d
+    */
+
+    const chunkSize = 3
+    const splitIngredients = []
+
+    for (let i = 0; i < arrayWithNewId.length; i += chunkSize) {
+      const chunk = arrayWithNewId.slice(i, i + chunkSize)
+
+      splitIngredients.push(chunk)
+    }
+
+    return splitIngredients
+  }, [listOfIngredients])
+
   return (
     <section className="aboutTheWebsite" id="about">
       <motion.h2
         className="aboutTheWebsite-title"
         {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
       >
-        About This Website
+        {title}
       </motion.h2>
       <div className="aboutTheWebsite-listWrapper">
-        <motion.ul
-          className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
-          whileInView={{
-            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
-            transition: {
-              delay: 0.2,
-            },
-          }}
-        >
-          <li className="aboutTheWebsite-item">
-            <SubSection title="FrontEnd">
-              <h3 className="aboutTheWebsite-subsectionText">
-                Next.js, Framer Motion, GraphQL
-              </h3>
-            </SubSection>
-          </li>
-          <li className="aboutTheWebsite-item">
-            <SubSection title="Backend">
-              <h3 className="aboutTheWebsite-subsectionText">GraphCMS</h3>
-            </SubSection>
-          </li>
-          <li className="aboutTheWebsite-item">
-            <SubSection title="Deployment">
-              <h3 className="aboutTheWebsite-subsectionText">Netlify</h3>
-            </SubSection>
-          </li>
-        </motion.ul>
-        <motion.ul
-          className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
-          whileInView={{
-            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
-            transition: {
-              delay: 0.4,
-            },
-          }}
-        >
-          <li className="aboutTheWebsite-item">
-            <SubSection title="User Interface">
-              <h3 className="aboutTheWebsite-subsectionText">
-                Figma Google Naturalist font
-              </h3>
-            </SubSection>
-          </li>
-          <li className="aboutTheWebsite-item">
-            <SubSection title="Image Assets">
-              <h3 className="aboutTheWebsite-subsectionText">Next.js</h3>
-            </SubSection>
-          </li>
-          <li className="aboutTheWebsite-item">
-            <SubSection title="Source Code">
-              <h3 className="aboutTheWebsite-subsectionText">
-                Next.js, Framer Motion
-              </h3>
-            </SubSection>
-          </li>
-        </motion.ul>
-        <motion.ul
-          className="aboutTheWebsite-itemsWrapper"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
-          whileInView={{
-            ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
-            transition: {
-              delay: 0.6,
-            },
-          }}
-        >
-          <li className="aboutTheWebsite-item">
-            <SubSection title="Source Code">
-              <h3 className="aboutTheWebsite-subsectionText">Github, Figma</h3>
-            </SubSection>
-          </li>
-        </motion.ul>
+        {memoIngredients.map((list, idx) => (
+          <ul key={`${idx}${list}`} className="aboutTheWebsite-itemsWrapper">
+            {list.map((item) => (
+              <motion.li
+                key={item.id}
+                className="aboutTheWebsite-item"
+                {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+                whileInView={{
+                  ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
+                  transition: {
+                    delay: 0.05 * (Number(item.id) + 1),
+                  },
+                }}
+              >
+                <SubSection title={item.title}>
+                  <h3
+                    className="aboutTheWebsite-subsectionText"
+                    dangerouslySetInnerHTML={{ __html: item.content.html }}
+                  />
+                </SubSection>
+              </motion.li>
+            ))}
+          </ul>
+        ))}
       </div>
     </section>
   )

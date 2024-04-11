@@ -28,6 +28,10 @@ const QUERY_HOME = gql`
           projectUrl
           date
           tags
+          thumbnail {
+            url(transformation: { document: { output: { format: jpg } } })
+          }
+          title
         }
       }
       sectionWritings {

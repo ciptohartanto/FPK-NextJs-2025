@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
 import { FRAMER } from '@/constants'
+import { LOAD_MORE_MULTIPLIER } from '@/constants/project'
+import { SectionWriting } from '@/gql/graphql'
 
 interface WritingDataType {
   title: string
@@ -58,13 +60,17 @@ const DATA: WritingDataType[] = [
   },
 ]
 
-const LOAD_MORE_MULTIPLIER = 3
+type WritingsProps = {
+  content: Pick<SectionWriting, 'title'>
+}
 
-export default function Writings() {
+export default function Writings({ content }: WritingsProps) {
   const [currentArticleTotal, setCurrentArticleTotal] =
     useState(LOAD_MORE_MULTIPLIER)
   const [searchValue, setSearchValue] = useState<undefined | string>(undefined)
   const [articleData, setArticleData] = useState<[] | WritingDataType[]>([]) // todo: proper type!
+
+  const { title } = content
 
   // 1. set articleData on first render
   useEffect(() => {
@@ -116,7 +122,7 @@ export default function Writings() {
         className="writings-title"
         {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
       >
-        Writings
+        {title}
       </motion.h2>
       <div className="writings-row">
         <motion.div

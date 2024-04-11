@@ -31,4 +31,14 @@
   &-item {
     @include items-spacer($mobile: 24px, $desktop: 40px, $direction: 'bottom');
   }
+
+  &-subsectionText {
+    @extend %typography-section-description;
+
+    a {
+      @extend %inline-flex, %flex-center, %link-hover, %typography-link-title;
+
+      position: relative;
+    }
+  }
 }

@@ -4,9 +4,14 @@ import { useRef } from 'react'
 import AnchorLink from '@/components/AnchorLink'
 import { FRAMER } from '@/constants'
 import Trademark from '@/elements/Trademark'
+import { SectionHero } from '@/gql/graphql'
 
-export default function Hero() {
+type HeroProps = Pick<SectionHero, 'subtitle' | 'caption'>
+
+export default function Hero({ content }: { content: HeroProps }) {
   const refHero = useRef<null | HTMLElement>(null)
+
+  const { subtitle, caption } = content
 
   return (
     <section className="hero" ref={refHero}>
@@ -23,7 +28,7 @@ export default function Hero() {
               },
             }}
           >
-            Senior Web Developer
+            {subtitle}
           </motion.h2>
           <motion.h3
             className="hero-caption"
@@ -35,8 +40,7 @@ export default function Hero() {
               },
             }}
           >
-            8+ years of problem solving, strong communication skills, and making
-            websites
+            {caption}
           </motion.h3>
           <AnchorLink href="/resume">
             <motion.span
