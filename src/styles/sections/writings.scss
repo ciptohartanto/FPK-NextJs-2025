@@ -30,7 +30,7 @@ $name: '.writings';
   &-listWrapper {
     @extend %col-mobile--6, %col-desktop--6, %flex-start-column;
 
-    @include push-me($view: 'desktop', $horizontal-direction: 'left');
+    @include push-me($view: 'desktop', $direction: 'left');
 
     margin-top: 18px;
     @include desktop-view {

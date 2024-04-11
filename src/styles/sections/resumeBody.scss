@@ -17,7 +17,7 @@
     height: 45px;
     font-size: 10px;
     font-weight: 700;
-    @include push-me($view: 'desktop', $horizontal-direction: 'left');
+    @include push-me($view: 'desktop', $direction: 'left');
 
     @include desktop-view {
       width: 82px;
