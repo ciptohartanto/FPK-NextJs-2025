@@ -1,24 +1,17 @@
 import classNames from 'classnames'
 
 import Tag from '@/elements/Tag'
+import { ExperienceItem as CmsExperienceItem } from '@/gql/graphql'
 
 export enum ExPerienceItemTypes {
   PREVIOUS = 'previous',
   CURRENT = 'current',
 }
 
-interface ExperienceItemData {
-  title: string
-  date: string
-  tags: { text: string }[]
-  content: string
-  links: string[]
-}
-
-interface ExperienceItemProps {
+type ExperienceItemProps = {
   type: ExPerienceItemTypes
   isLastItem: boolean
-  data: ExperienceItemData
+  data: CmsExperienceItem
 }
 
 export default function ExperienceItem({
@@ -26,7 +19,7 @@ export default function ExperienceItem({
   isLastItem,
   data,
 }: ExperienceItemProps) {
-  const { title, date, tags, content, links } = data
+  const { title, date, tags, content, links, location } = data
   return (
     <div
       className={classNames(
@@ -42,17 +35,22 @@ export default function ExperienceItem({
       </div>
       <div className="experienceItem-wrapperRight">
         <h3 className="experienceItem-title">{title}</h3>
-        <span className="experienceItem-date">{date}</span>
+        <span className="experienceItem-date">
+          {location} | {date}
+        </span>
         <ul className="experienceItem-tagList">
-          {tags.map((i, idx) => (
-            <li className="experienceItem-tag" key={idx}>
-              <Tag text={i.text} />
+          {tags.split(',').map((text) => (
+            <li className="experienceItem-tag" key={text}>
+              <Tag text={text} />
             </li>
           ))}
         </ul>
-        <p className="experienceItem-content">{content}</p>
+        <div
+          className="experienceItem-content"
+          dangerouslySetInnerHTML={{ __html: content.html }}
+        />
         <div className="experienceItem-linksWrapper">
-          <span className="experienceItem-link">{links}</span>
+          {links && <div dangerouslySetInnerHTML={{ __html: links.html }} />}
         </div>
       </div>
     </div>
