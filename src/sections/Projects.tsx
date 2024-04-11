@@ -13,10 +13,15 @@ import { SectionProject } from '@/gql/graphql'
 
 type ProjectsProps = {
   handleClick: (val: boolean) => void
+  handleUpdatePopupData: (val: number) => void
   content: Pick<SectionProject, 'title' | 'listOfProjects'>
 }
 
-export default function Projects({ handleClick, content }: ProjectsProps) {
+export default function Projects({
+  handleClick,
+  content,
+  handleUpdatePopupData,
+}: ProjectsProps) {
   const [currentSlideId, setCurrentSlideId] = useState(0)
 
   const { title, listOfProjects } = content
@@ -49,7 +54,7 @@ export default function Projects({ handleClick, content }: ProjectsProps) {
               setCurrentSlideId(swiper.realIndex + 1)
             }}
           >
-            {listOfProjects.map((item) => (
+            {listOfProjects.map((item, id) => (
               <SwiperSlide
                 key={item.title}
                 tag="li"
@@ -61,7 +66,10 @@ export default function Projects({ handleClick, content }: ProjectsProps) {
                       'projects-swiperContentWrapper--active': isActive,
                     })}
                     onClick={() => {
-                      if (isActive) handleClick(true)
+                      if (isActive) {
+                        handleClick(true)
+                        handleUpdatePopupData(id)
+                      }
                     }}
                   >
                     <div

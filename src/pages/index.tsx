@@ -5,7 +5,7 @@ import { useState } from 'react'
 import client from '@/apollo/client'
 import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
-import { Home, HomesQuery } from '@/gql/graphql'
+import { Home, HomesQuery, ProjectItem } from '@/gql/graphql'
 import QUERY_HOME from '@/queries/home'
 import AboutTheWebsite from '@/sections/AboutTheWebsite'
 import Hero from '@/sections/Hero'
@@ -14,6 +14,7 @@ import Writings from '@/sections/Writings'
 
 export default function HomePage({ home }: { home: Home }) {
   const [isPopupActive, setIsPopupActive] = useState(false)
+  const [popupData, setPopupData] = useState<null | ProjectItem>(null)
 
   const heroContent = { ...home.sectionHero }
   const projectContent = { ...home.sectionProject }
@@ -23,19 +24,26 @@ export default function HomePage({ home }: { home: Home }) {
   return (
     <>
       <PageHead pageTitle="Home" />
-      <>
-        <Hero content={heroContent} />
-        <Projects
-          handleClick={(val) => setIsPopupActive(val)}
-          content={projectContent}
-        />
-        <Writings content={writingsContent} />
-        <AboutTheWebsite content={aboutContent} />
+      <Hero content={heroContent} />
+      <Projects
+        handleClick={(val) => {
+          setIsPopupActive(val)
+        }}
+        handleUpdatePopupData={(id) => {
+          const data = projectContent.listOfProjects[id]
+          setPopupData(data)
+        }}
+        content={projectContent}
+      />
+      <Writings content={writingsContent} />
+      <AboutTheWebsite content={aboutContent} />
+      {popupData && (
         <Popup
           handleClick={(val) => setIsPopupActive(val)}
           shouldDisplayPopup={isPopupActive}
+          projectData={popupData}
         />
-      </>
+      )}
     </>
   )
 }

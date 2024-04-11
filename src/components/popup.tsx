@@ -2,16 +2,36 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import IconX, { IconXTypes } from '@/elements/IconX'
 import Tag from '@/elements/Tag'
+import { ProjectItem } from '@/gql/graphql'
 
 import AnchorLink from './AnchorLink'
 import SubSection from './SubSection'
 
-interface PopupProps {
+export type PopupContentProp = {
+  projectData: Pick<
+    ProjectItem,
+    'title' | 'tags' | 'thumbnail' | 'date' | 'content' | 'projectUrl'
+  >
+}
+type PopupProps = {
   handleClick: (val: boolean) => void
   shouldDisplayPopup: boolean
-}
+} & PopupContentProp
 
-export default function Popup({ handleClick, shouldDisplayPopup }: PopupProps) {
+export default function Popup({
+  handleClick,
+  shouldDisplayPopup,
+  projectData,
+}: PopupProps) {
+  const {
+    title,
+    thumbnail,
+    tags,
+    date,
+    content: popupContent,
+    projectUrl,
+  } = projectData
+
   return (
     <AnimatePresence>
       {shouldDisplayPopup && (
@@ -45,69 +65,34 @@ export default function Popup({ handleClick, shouldDisplayPopup }: PopupProps) {
               <div
                 className="popup-background"
                 style={{
-                  backgroundImage:
-                    'url("https://asset.kompas.com/crops/m8q0O4LsGzHI6gYgczcVqWpJ7cw=/199x44:1583x966/750x500/data/photo/2022/06/02/629850dd5e5ad.png")',
+                  backgroundImage: `url(${thumbnail.url})`,
                 }}
               />
               <div className="popup-content">
-                <h3 className="popup-title">UI Project</h3>
+                <h3 className="popup-title">{title}</h3>
                 <ul className="popup-wrapperTags">
-                  <li className="popup-tag">
-                    <Tag text="Tag 1" />
-                  </li>
-                  <li className="popup-tag">
-                    <Tag text="Tag 1" />
-                  </li>
+                  {tags.split(',').map((text) => (
+                    <li key={text} className="popup-tag">
+                      <Tag text={text} />
+                    </li>
+                  ))}
                 </ul>
                 <div className="popup-wrapperDescription">
-                  <span className="popup-description">
-                    Late 2017 - Early 2019
-                  </span>
+                  <span className="popup-description">{date}</span>
                   <AnchorLink href="https://example.com">
-                    <span className="popup-externalLink">
-                      https://today.line.me
-                    </span>
+                    <span className="popup-externalLink">{projectUrl}</span>
                   </AnchorLink>
                 </div>
+
                 <div className="popup-section">
-                  <SubSection title="Role">
-                    <p className="popup-paragraph">
-                      Markup Engineer, Fixing issues
-                    </p>
-                  </SubSection>
-                </div>
-                <div className="popup-section">
-                  <SubSection title="Role">
-                    <p className="popup-paragraph">
-                      Markup Engineer, Fixing issues
-                      <br />
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Sit nesciunt error ad illo, iusto pariatur maxime.
-                      Voluptates quo quas provident obcaecati perferendis, velit
-                      praesentium, consequuntur excepturi expedita harum quos
-                      officia?
-                      <br />
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nobis quis dolor architecto magni commodi, delectus
-                      consequatur nemo minima nisi blanditiis pariatur dolorem
-                      ad fuga voluptatem eveniet quidem illo, at ea?
-                      <br />
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nobis quis dolor architecto magni commodi, delectus
-                      consequatur nemo minima nisi blanditiis pariatur dolorem
-                      ad fuga voluptatem eveniet quidem illo, at ea?
-                      <br />
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nobis quis dolor architecto magni commodi, delectus
-                      consequatur nemo minima nisi blanditiis pariatur dolorem
-                      ad fuga voluptatem eveniet quidem illo, at ea?
-                      <br />
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Nobis quis dolor architecto magni commodi, delectus
-                      consequatur nemo minima nisi blanditiis pariatur dolorem
-                      ad fuga voluptatem eveniet quidem illo, at ea?
-                    </p>
-                  </SubSection>
+                  {popupContent.map((item) => (
+                    <SubSection key={item.title} title={item.title}>
+                      <div
+                        className="popup-paragraph"
+                        dangerouslySetInnerHTML={{ __html: item.content.html }}
+                      />
+                    </SubSection>
+                  ))}
                 </div>
               </div>
             </motion.div>
