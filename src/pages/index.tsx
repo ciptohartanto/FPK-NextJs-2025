@@ -46,7 +46,7 @@ export async function getStaticProps(): Promise<
   const { data }: ApolloQueryResult<HomesQuery> = await client.query({
     query: QUERY_HOME,
     variables: {
-      id: process.env.HOME_ID,
+      id: process.env.ID_HOME,
     },
   })
 
