@@ -103,11 +103,7 @@ $name: '.experienceItem';
   }
 
   &-tag {
-    margin-right: 5px;
-    margin-bottom: 7px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
+    @include items-spacer($mobile: 7px, $desktop: 7px, $direction: 'bottom');
+    @include items-spacer($mobile: 5px, $desktop: 5px, $direction: 'right');
   }
 }

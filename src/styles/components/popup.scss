@@ -115,10 +115,6 @@
   }
 
   &-tag {
-    margin-right: 8px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
+    @include items-spacer($mobile: 8px, $desktop: 8px, $direction: 'right');
   }
 }

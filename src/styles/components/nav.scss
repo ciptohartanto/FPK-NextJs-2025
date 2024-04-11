@@ -57,7 +57,7 @@
   }
 
   &-item {
-    @include vertical-items-spacer($spacer-mobile: 20px, $spacer-desktop: 20px);
+    @include items-spacer($mobile: 20px, $desktop: 20px, $direction: 'bottom');
 
     transform: translateX(0);
     transition: 0.3s $transition-style transform;

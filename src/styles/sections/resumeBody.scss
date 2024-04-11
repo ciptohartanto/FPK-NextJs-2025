@@ -71,18 +71,13 @@
   }
 
   &-subsection {
-    margin-bottom: 32px;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    @include items-spacer($mobile: 32px, $desktop: 32px, $direction: 'bottom');
   }
 
   &-paragraph {
     @extend %typography-section-description;
 
-    margin-bottom: 20px;
-    @include vertical-items-spacer($spacer-mobile: 24px, $spacer-desktop: 20px);
+    @include items-spacer($mobile: 24px, $desktop: 20px, $direction: 'bottom');
   }
 }
 

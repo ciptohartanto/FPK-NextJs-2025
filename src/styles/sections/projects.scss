@@ -130,11 +130,7 @@ $css: '.projects';
     }
 
     &Tag {
-      margin-right: 10px;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+      @include items-spacer($mobile: 10px, $desktop: 10px, $direction: 'right');
     }
   }
 

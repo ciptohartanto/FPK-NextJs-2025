@@ -34,11 +34,7 @@
   }
 
   &-tag {
-    margin-right: 10px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
+    @include items-spacer($mobile: 10px, $desktop: 10px, $direction: 'right');
   }
 
   &-tableOfContent {
@@ -51,9 +47,10 @@
     &Item {
       @extend %inline-flex, %flex-start-column;
 
-      @include vertical-items-spacer(
-        $spacer-mobile: 10px,
-        $spacer-desktop: 10px
+      @include items-spacer(
+        $mobile: 10px,
+        $desktop: 10px,
+        $direction: 'bottom'
       );
     }
   }

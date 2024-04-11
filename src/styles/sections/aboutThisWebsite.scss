@@ -25,10 +25,10 @@
     @extend %col-mobile--6, %col-desktop--4;
 
     flex-flow: column wrap;
-    @include vertical-items-spacer($spacer-mobile: 24px, $spacer-desktop: 0);
+    @include items-spacer($mobile: 24px, $desktop: 0, $direction: 'bottom');
   }
 
   &-item {
-    @include vertical-items-spacer($spacer-mobile: 24px, $spacer-desktop: 40px);
+    @include items-spacer($mobile: 24px, $desktop: 40px, $direction: 'bottom');
   }
 }

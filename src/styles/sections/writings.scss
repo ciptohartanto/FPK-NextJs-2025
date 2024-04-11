@@ -39,7 +39,7 @@ $name: '.writings';
   }
 
   &-listItem {
-    @include vertical-items-spacer($spacer-mobile: 16px, $spacer-desktop: 22px);
+    @include items-spacer($mobile: 16px, $desktop: 22px, $direction: 'bottom');
 
     width: 100%;
     @include desktop-view {
