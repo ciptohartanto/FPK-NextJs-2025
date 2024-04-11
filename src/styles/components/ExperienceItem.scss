@@ -94,8 +94,18 @@ $name: '.experienceItem';
     margin-bottom: 7px;
   }
 
-  &-link {
-    @extend %typography-link-description;
+  &-wrapperLinks {
+    ul {
+      @extend %inline-flex, %flex-start-row;
+
+      @include items-spacer($mobile: 5px, $desktop: 10px, $direction: 'right');
+    }
+
+    a {
+      @extend %inline-flex, %link-hover, %typography-link-title;
+
+      position: relative;
+    }
   }
 
   &-tagList {

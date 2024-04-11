@@ -49,7 +49,7 @@ export default function ExperienceItem({
           className="experienceItem-content"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
-        <div className="experienceItem-linksWrapper">
+        <div className="experienceItem-wrapperLinks">
           {links && <div dangerouslySetInnerHTML={{ __html: links.html }} />}
         </div>
       </div>
