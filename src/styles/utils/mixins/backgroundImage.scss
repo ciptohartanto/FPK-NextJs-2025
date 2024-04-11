@@ -1,10 +1,10 @@
 @mixin background-image($file) {
-  @if $file == '' {
-    @error '#{$file} is undefined';
+  @if $file and $file != '' {
+    background-image: url('#{$file}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  } @else {
+    @error '$file: `#{$file}` should have a value';
   }
-
-  background-image: url('#{$file}');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
