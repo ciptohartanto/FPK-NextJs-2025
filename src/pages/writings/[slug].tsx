@@ -8,8 +8,8 @@ import {
   WritingOrderByInput,
   WritingsQuery,
 } from '@/gql/graphql'
-import QUERY_WRITING_ITEM from '@/queries/writingItem'
-import QUERY_WRITINGS from '@/queries/writings'
+import QUERY_WRITING_ITEM from '@/queries/queryWritingItem'
+import QUERY_WRITINGS from '@/queries/queryWritings'
 import ArticleBody from '@/sections/ArticleBody'
 
 type ArticleItemParams = {
