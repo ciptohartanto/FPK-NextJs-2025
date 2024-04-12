@@ -26,8 +26,3 @@ export default function AnchorLink({ href, children }: AnchorLinkProps) {
     </Link>
   )
 }
-
-AnchorLink.defaultProps = {
-  href: '#',
-  children: <>missing data..</>,
-}

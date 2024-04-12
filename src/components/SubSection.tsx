@@ -19,8 +19,3 @@ export default function SubSection({
     </div>
   )
 }
-
-SubSection.defaultProps = {
-  title: 'missing data',
-  children: <span>missing data</span>,
-}

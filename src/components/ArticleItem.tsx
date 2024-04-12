@@ -26,9 +26,3 @@ export default function ArticleItem({ title, date, tags }: ArticleItemProps) {
     </motion.div>
   )
 }
-
-ArticleItem.defaultProps = {
-  title: 'missing data',
-  date: 'missing data',
-  tags: [{ text: 'missing data' }],
-}

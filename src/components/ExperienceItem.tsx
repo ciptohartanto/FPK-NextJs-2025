@@ -56,15 +56,3 @@ export default function ExperienceItem({
     </div>
   )
 }
-
-ExperienceItem.defaultProps = {
-  type: ExPerienceItemTypes,
-  isLastItem: false,
-  data: {
-    title: 'missing data',
-    date: 'missing data',
-    tags: [{ text: 'missing data' }],
-    content: 'missing data',
-    links: [{ text: 'missing data' }],
-  },
-}

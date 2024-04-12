@@ -102,8 +102,3 @@ export default function Popup({
     </AnimatePresence>
   )
 }
-
-Popup.defaultProps = {
-  shouldDisplayPopup: false,
-  handleClick: () => false,
-}
