@@ -2,19 +2,21 @@ import classNames from 'classnames'
 
 import TableOfContentText from '@/elements/TableOfContentText'
 import Tag from '@/elements/Tag'
+import { Writing } from '@/gql/graphql'
 
-export default function ArticleBody() {
+export default function ArticleBody({ content }: { content: Writing }) {
+  const { title, tags, publishTime, articleContent } = content
   return (
     <div className="articleBody">
       <div className="articleBody-wrapperTop">
-        <h2 className="articleBody-title">Title</h2>
+        <h2 className="articleBody-title">{title}</h2>
+        <span>{publishTime}</span>
         <ul className="articleBody-wrapperTags">
-          <li className="articleBody-tag">
-            <Tag text="Tag1" />
-          </li>
-          <li className="articleBody-tag">
-            <Tag text="Tag2" />
-          </li>
+          {tags.split(',').map((text) => (
+            <li key={text} className="articleBody-tag">
+              <Tag text={text} />
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -28,54 +30,14 @@ export default function ArticleBody() {
           </li>
         </ol>
 
-        <section
+        <div
           className={classNames(
             'articleBody-wrapperSection',
             'articleBody-section'
           )}
         >
-          <h3>What are Heading Anchors</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-
-          <h3>What are Heading Anchors</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-
-          <h3>What are Heading Anchors</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            sed quo voluptatum omnis perferendis optio eaque praesentium
-            possimus nostrum doloremque facere, consequatur vero illum incidunt
-            illo blanditiis! Iste, voluptates cupiditate.
-          </p>
-        </section>
+          {articleContent}
+        </div>
       </div>
     </div>
   )
