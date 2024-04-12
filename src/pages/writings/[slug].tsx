@@ -1,7 +1,6 @@
-import { ApolloQueryResult } from '@apollo/client'
 import { GetStaticPathsResult, GetStaticPropsResult } from 'next'
 
-import client from '@/apollo/client'
+import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import {
   Writing,
@@ -21,7 +20,6 @@ type ArticleItemParams = {
 }
 
 export default function WritingsPage({ writing }: { writing: Writing }) {
-  console.log(writing)
   return (
     <>
       <PageHead pageTitle="Writings" />
@@ -31,11 +29,9 @@ export default function WritingsPage({ writing }: { writing: Writing }) {
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const { data }: ApolloQueryResult<WritingsQuery> = await client.query({
+  const data = await clientQuery<WritingsQuery>({
     query: QUERY_WRITINGS,
-    variables: {
-      orderBy: WritingOrderByInput.PublishTimeDesc,
-    },
+    variableObject: { orderBy: WritingOrderByInput.PublishTimeDesc },
   })
 
   const { writings } = data
@@ -54,13 +50,10 @@ export async function getStaticProps(
 ): Promise<GetStaticPropsResult<WritingArticleItemQuery>> {
   const { slug } = context.params
 
-  const { data }: ApolloQueryResult<WritingArticleItemQuery> =
-    await client.query({
-      query: QUERY_WRITING_ITEM,
-      variables: {
-        slug,
-      },
-    })
+  const data = await clientQuery<WritingArticleItemQuery>({
+    query: QUERY_WRITING_ITEM,
+    variableObject: { slug },
+  })
 
   const { writing } = data
   return {

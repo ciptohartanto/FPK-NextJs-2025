@@ -1,8 +1,7 @@
-import { ApolloQueryResult } from '@apollo/client'
 import { GetStaticPropsResult } from 'next'
 import { useState } from 'react'
 
-import client from '@/apollo/client'
+import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
 import { Home, HomesQuery, ProjectItem } from '@/gql/graphql'
@@ -51,11 +50,9 @@ export default function HomePage({ home }: { home: Home }) {
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<HomesQuery>
 > {
-  const { data }: ApolloQueryResult<HomesQuery> = await client.query({
+  const data = await clientQuery<HomesQuery>({
     query: QUERY_HOME,
-    variables: {
-      id: process.env.ID_HOME,
-    },
+    variableObject: { id: process.env.ID_HOME },
   })
 
   const { home } = data

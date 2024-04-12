@@ -1,7 +1,6 @@
-import { ApolloQueryResult } from '@apollo/client'
 import { GetStaticPropsResult } from 'next'
 
-import client from '@/apollo/client'
+import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import { Resume, ResumeQuery } from '@/gql/graphql'
 import QUERY_RESUME from '@/queries/resume'
@@ -21,11 +20,9 @@ export default function ResumePage({ resume }: { resume: Resume }) {
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<ResumeQuery>
 > {
-  const { data }: ApolloQueryResult<ResumeQuery> = await client.query({
+  const data = await clientQuery<ResumeQuery>({
     query: QUERY_RESUME,
-    variables: {
-      id: process.env.ID_RESUME,
-    },
+    variableObject: { id: process.env.ID_RESUME },
   })
 
   const { resume } = data
