@@ -8,7 +8,7 @@ import AnchorLink from './AnchorLink'
 import SubSection from './SubSection'
 
 export type PopupContentProp = {
-  projectData: Pick<
+  componentData: Pick<
     ProjectItem,
     'title' | 'tags' | 'thumbnail' | 'date' | 'content' | 'projectUrl'
   >
@@ -21,7 +21,7 @@ type PopupProps = {
 export default function Popup({
   handleClick,
   shouldDisplayPopup,
-  projectData,
+  componentData,
 }: PopupProps) {
   const {
     title,
@@ -30,7 +30,7 @@ export default function Popup({
     date,
     content: popupContent,
     projectUrl,
-  } = projectData
+  } = componentData
 
   return (
     <AnimatePresence>

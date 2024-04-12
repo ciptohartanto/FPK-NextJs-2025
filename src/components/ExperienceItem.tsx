@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 
 import Tag from '@/elements/Tag'
-import { ExperienceItem as CmsExperienceItem } from '@/gql/graphql'
+import { ExperienceItem as ExperienceItemDataProps } from '@/gql/graphql'
 
 export enum ExPerienceItemTypes {
   PREVIOUS = 'previous',
@@ -11,15 +11,15 @@ export enum ExPerienceItemTypes {
 type ExperienceItemProps = {
   type: ExPerienceItemTypes
   isLastItem: boolean
-  data: CmsExperienceItem
+  componentData: ExperienceItemDataProps
 }
 
 export default function ExperienceItem({
   type,
   isLastItem,
-  data,
+  componentData,
 }: ExperienceItemProps) {
-  const { title, date, tags, content, links, location } = data
+  const { title, date, tags, content, links, location } = componentData
   return (
     <div
       className={classNames(

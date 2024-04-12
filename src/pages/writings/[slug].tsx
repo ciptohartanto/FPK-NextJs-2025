@@ -3,7 +3,7 @@ import { GetStaticPathsResult, GetStaticPropsResult } from 'next'
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import {
-  Writing,
+  Writing as WritingArticleBodyProp,
   WritingArticleItemQuery,
   WritingOrderByInput,
   WritingsQuery,
@@ -19,11 +19,15 @@ type ArticleItemParams = {
   fallback: boolean
 }
 
-export default function WritingsPage({ writing }: { writing: Writing }) {
+export default function WritingsPage({
+  writing: articleBodyData,
+}: {
+  writing: WritingArticleBodyProp
+}) {
   return (
     <>
       <PageHead pageTitle="Writings" />
-      <ArticleBody content={writing} />
+      <ArticleBody componentData={articleBodyData} />
     </>
   )
 }

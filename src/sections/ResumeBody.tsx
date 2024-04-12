@@ -6,11 +6,11 @@ import Trademark from '@/elements/Trademark'
 import { EntityTypeName, SectionResume } from '@/gql/graphql'
 
 type ResumeBodyProps = {
-  content: SectionResume
+  componentData: SectionResume
 }
 
-export default function ResumeBody({ content }: ResumeBodyProps) {
-  const resumeData = content.content
+export default function ResumeBody({ componentData }: ResumeBodyProps) {
+  const resumeData = componentData.content
 
   return (
     <div className="resumeBody">
@@ -52,7 +52,7 @@ export default function ResumeBody({ content }: ResumeBodyProps) {
                           ? ExPerienceItemTypes.CURRENT
                           : ExPerienceItemTypes.PREVIOUS
                       }
-                      data={experienceItemData}
+                      componentData={experienceItemData}
                     />
                   ))}
                 </SubSection>

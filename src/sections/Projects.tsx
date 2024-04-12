@@ -14,17 +14,17 @@ import { SectionProject } from '@/gql/graphql'
 type ProjectsProps = {
   handleClick: (val: boolean) => void
   handleUpdatePopupData: (val: number) => void
-  content: Pick<SectionProject, 'title' | 'listOfProjects'>
+  componentData: Pick<SectionProject, 'title' | 'listOfProjects'>
 }
 
 export default function Projects({
   handleClick,
-  content,
+  componentData,
   handleUpdatePopupData,
 }: ProjectsProps) {
   const [currentSlideId, setCurrentSlideId] = useState(0)
 
-  const { title, listOfProjects } = content
+  const { title, listOfProjects } = componentData
   const totalSlides = listOfProjects.length
 
   return (

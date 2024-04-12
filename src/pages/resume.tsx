@@ -2,17 +2,17 @@ import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
-import { Resume, ResumeQuery } from '@/gql/graphql'
+import { Resume as ResumePageProps, ResumeQuery } from '@/gql/graphql'
 import QUERY_RESUME from '@/queries/queryResume'
 import ResumeBody from '@/sections/ResumeBody'
 
-export default function ResumePage({ resume }: { resume: Resume }) {
-  const { sectionResume } = resume
+export default function ResumePage({ resume }: { resume: ResumePageProps }) {
+  const { sectionResume: resumeBodyData } = resume
 
   return (
     <>
       <PageHead pageTitle="Résumé" />
-      <ResumeBody content={sectionResume} />
+      <ResumeBody componentData={resumeBodyData} />
     </>
   )
 }

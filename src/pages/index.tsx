@@ -4,16 +4,20 @@ import { useState } from 'react'
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
-import { Home, HomesQuery, ProjectItem } from '@/gql/graphql'
+import {
+  Home as HomePageProps,
+  HomesQuery,
+  ProjectItem as ProjectItemProps,
+} from '@/gql/graphql'
 import QUERY_HOME from '@/queries/queryHome'
 import AboutTheWebsite from '@/sections/AboutTheWebsite'
 import Hero from '@/sections/Hero'
 import Projects from '@/sections/Projects'
 import Writings from '@/sections/Writings'
 
-export default function HomePage({ home }: { home: Home }) {
+export default function HomePage({ home }: { home: HomePageProps }) {
   const [isPopupActive, setIsPopupActive] = useState(false)
-  const [popupData, setPopupData] = useState<null | ProjectItem>(null)
+  const [popupData, setPopupData] = useState<null | ProjectItemProps>(null)
 
   const heroContent = { ...home.sectionHero }
   const projectContent = { ...home.sectionProject }
@@ -23,7 +27,7 @@ export default function HomePage({ home }: { home: Home }) {
   return (
     <>
       <PageHead pageTitle="Home" />
-      <Hero content={heroContent} />
+      <Hero componentData={heroContent} />
       <Projects
         handleClick={(val) => {
           setIsPopupActive(val)
@@ -32,15 +36,15 @@ export default function HomePage({ home }: { home: Home }) {
           const data = projectContent.listOfProjects[id]
           setPopupData(data)
         }}
-        content={projectContent}
+        componentData={projectContent}
       />
-      <Writings content={writingsContent} />
-      <AboutTheWebsite content={aboutContent} />
+      <Writings componentData={writingsContent} />
+      <AboutTheWebsite componentData={aboutContent} />
       {popupData && (
         <Popup
           handleClick={(val) => setIsPopupActive(val)}
           shouldDisplayPopup={isPopupActive}
-          projectData={popupData}
+          componentData={popupData}
         />
       )}
     </>

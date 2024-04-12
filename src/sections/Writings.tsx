@@ -61,16 +61,16 @@ const DATA: WritingDataType[] = [
 ]
 
 type WritingsProps = {
-  content: Pick<SectionWriting, 'title'>
+  componentData: Pick<SectionWriting, 'title'>
 }
 
-export default function Writings({ content }: WritingsProps) {
+export default function Writings({ componentData }: WritingsProps) {
   const [currentArticleTotal, setCurrentArticleTotal] =
     useState(LOAD_MORE_MULTIPLIER)
   const [searchValue, setSearchValue] = useState<undefined | string>(undefined)
   const [articleData, setArticleData] = useState<[] | WritingDataType[]>([]) // todo: proper type!
 
-  const { title } = content
+  const { title } = componentData
 
   // 1. set articleData on first render
   useEffect(() => {

@@ -8,10 +8,10 @@ import { SectionHero } from '@/gql/graphql'
 
 type HeroProps = Pick<SectionHero, 'subtitle' | 'caption'>
 
-export default function Hero({ content }: { content: HeroProps }) {
+export default function Hero({ componentData }: { componentData: HeroProps }) {
   const refHero = useRef<null | HTMLElement>(null)
 
-  const { subtitle, caption } = content
+  const { subtitle, caption } = componentData
 
   return (
     <section className="hero" ref={refHero}>

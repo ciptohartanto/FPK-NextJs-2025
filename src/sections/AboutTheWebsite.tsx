@@ -6,11 +6,13 @@ import { FRAMER } from '@/constants'
 import { SectionAbout } from '@/gql/graphql'
 
 type AboutThisWebsiteProps = {
-  content: Pick<SectionAbout, 'title' | 'listOfIngredients'>
+  componentData: Pick<SectionAbout, 'title' | 'listOfIngredients'>
 }
 
-export default function AboutTheWebsite({ content }: AboutThisWebsiteProps) {
-  const { title, listOfIngredients } = content
+export default function AboutTheWebsite({
+  componentData,
+}: AboutThisWebsiteProps) {
+  const { title, listOfIngredients } = componentData
 
   const memoIngredients = useMemo(() => {
     // add new id

@@ -4,8 +4,12 @@ import TableOfContentText from '@/elements/TableOfContentText'
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
 
-export default function ArticleBody({ content }: { content: Writing }) {
-  const { title, tags, publishTime, articleContent } = content
+export default function ArticleBody({
+  componentData,
+}: {
+  componentData: Writing
+}) {
+  const { title, tags, publishTime, articleContent } = componentData
   return (
     <div className="articleBody">
       <div className="articleBody-wrapperTop">
