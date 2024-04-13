@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
@@ -9,12 +10,24 @@ interface ArticleItemProps {
 
 export default function ArticleItem({ componentData }: ArticleItemProps) {
   const { title, tags, publishTime } = componentData
+
+  const memoArticleTitle = useMemo(() => {
+    const wholeTitleArray = title.trim().split(' ')
+    const titleLength = wholeTitleArray.length
+    const lastWord = wholeTitleArray[titleLength - 1]
+    return (
+      <>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `<span class="articleItem-title">${wholeTitleArray.splice(0, titleLength - 1).join(' ')}<!-- --> <span class='articleItem-title--last'>${lastWord}<span class="articleItem-iconArrow"></span></span>`,
+          }}
+        />
+      </>
+    )
+  }, [title])
   return (
     <motion.div className="articleItem" whileHover={{ x: 10, opacity: 1 }}>
-      <h3 className="articleItem-title">
-        <span className="articleItem-titleText">{title}</span>
-        <div className="articleItem-iconArrow" />
-      </h3>
+      {memoArticleTitle}
       <span className="articleItem-date">{publishTime}</span>
       <ul className="articleItem-tagList">
         {tags.split(',').map((text) => (

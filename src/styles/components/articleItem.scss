@@ -4,17 +4,23 @@ $css: '.articleItem';
   @extend %full-flex, %flex-start-column;
 
   &-title {
+    @extend %typography-card-title;
+
+    display: inline-block;
     margin-bottom: 3px;
+
     @include desktop-view {
       margin-bottom: 8px;
     }
 
-    &Text {
-      @extend %typography-card-title;
+    &--last {
+      display: inline-block;
     }
   }
 
   &-iconArrow {
+    margin-left: 10px;
+    @extend %inline-flex;
     @include arrow($parent-css: #{$css});
   }
 
