@@ -85,4 +85,8 @@ $name: '.writings';
       text-align: right;
     }
   }
+
+  &-noArticles {
+    @extend %typography-card-title;
+  }
 }
