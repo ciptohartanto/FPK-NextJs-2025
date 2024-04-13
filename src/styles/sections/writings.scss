@@ -38,14 +38,18 @@ $name: '.writings';
     }
   }
 
+  &-list {
+    position: relative;
+    width: auto;
+  }
+
   &-listItem {
     @include items-spacer($mobile: 16px, $desktop: 22px, $direction: 'bottom');
 
     width: 100%;
     @include desktop-view {
       cursor: pointer;
-
-      #{$name}-listWrapper:hover & {
+      #{$name}-list:hover & {
         transition: 0.3s ease-in-out opacity;
         opacity: $opacity-40 !important;
 
@@ -58,7 +62,7 @@ $name: '.writings';
   }
 
   &-loadMore {
-    @extend %typography-link-description, %link-hover;
+    @extend %inline-flex, %typography-link-description, %link-hover;
 
     margin-top: 24px;
     @include desktop-view {

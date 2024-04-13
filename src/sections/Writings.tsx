@@ -88,35 +88,37 @@ export default function Writings({
         >
           <SearchBox handleUpdate={(e) => setSearchValue(e)} />
         </motion.div>
-        <ul className="writings-listWrapper">
-          {updatedData.map((item) => (
-            <motion.li
-              key={item.title}
-              className="writings-listItem"
-              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
-              initial={{ x: 40, opacity: 0 }}
-            >
-              <AnchorLink href={`/writings/${item.slug}`}>
-                <ArticleItem
-                  title={item.title}
-                  date={item.publishTime}
-                  tags={item.tags}
-                />
-              </AnchorLink>
-            </motion.li>
-          ))}
+        <div className="writings-listWrapper">
+          <ul className="writings-list">
+            {updatedData.map((item) => (
+              <motion.li
+                key={item.title}
+                className="writings-listItem"
+                {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+                initial={{ x: 40, opacity: 0 }}
+              >
+                <AnchorLink href={`/writings/${item.slug}`}>
+                  <ArticleItem
+                    title={item.title}
+                    date={item.publishTime}
+                    tags={item.tags}
+                  />
+                </AnchorLink>
+              </motion.li>
+            ))}
 
-          {computedSearchData.shouldDisplayLoadMore && (
-            <motion.span
-              className="writings-loadMore"
-              onClick={handleClickLoadMore}
-              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
-              initial={{ x: 40, opacity: 0 }}
-            >
-              Load More
-            </motion.span>
-          )}
-        </ul>
+            {computedSearchData.shouldDisplayLoadMore && (
+              <motion.span
+                className="writings-loadMore"
+                onClick={handleClickLoadMore}
+                {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+                initial={{ x: 40, opacity: 0 }}
+              >
+                Load More
+              </motion.span>
+            )}
+          </ul>
+        </div>
       </div>
       <motion.div
         className="writings-counter"
