@@ -1,34 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
+import { NAV_LINKS } from '@/constants'
 import IconHamburger, { IconHamburgerTypes } from '@/elements/IconHamburger'
 import IconX, { IconXTypes } from '@/elements/IconX'
 
 import AnchorLink from './AnchorLink'
-
-const NAV_LINKS = [
-  {
-    link: '/',
-    text: 'Home',
-  },
-  {
-    link: '../#projects',
-    text: 'Projects',
-  },
-  {
-    link: '../#writings',
-    text: 'Writings',
-  },
-
-  {
-    link: '../#about',
-    text: 'About This Website',
-  },
-  {
-    link: '../resume',
-    text: 'Résumé',
-  },
-]
 
 export default function Nav() {
   const [isFolded, setIsFolded] = useState(true)
@@ -101,7 +78,7 @@ export default function Nav() {
                 }}
               >
                 <ul className="nav-list">
-                  {NAV_LINKS.map((item, idx) => (
+                  {NAV_LINKS.NAV_SUB_LINKS.map((item, idx) => (
                     <motion.li
                       key={item.text}
                       className="nav-item"
@@ -128,6 +105,7 @@ export default function Nav() {
                           },
                         },
                       }}
+                      onClick={() => setIsFolded(true)}
                     >
                       <AnchorLink href={item.link}>
                         <span className="nav-text">{item.text}</span>
