@@ -99,11 +99,7 @@ export default function Writings({
                   initial={{ x: 40, opacity: 0 }}
                 >
                   <AnchorLink href={`/writings/${item.slug}`}>
-                    <ArticleItem
-                      title={item.title}
-                      date={item.publishTime}
-                      tags={item.tags}
-                    />
+                    <ArticleItem componentData={{ ...item }} />
                   </AnchorLink>
                 </motion.li>
               ))}
