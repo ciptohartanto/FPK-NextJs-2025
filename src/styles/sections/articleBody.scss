@@ -19,7 +19,12 @@
     }
 
     &Section {
-      width: 811px;
+      @extend %full-flex, %flex-start-column;
+
+      width: 100%;
+      @include desktop-view {
+        width: 811px;
+      }
     }
 
     &Tags {
@@ -43,6 +48,9 @@
     }
 
     @extend %inline-flex, %flex-start-column;
+
+    position: sticky;
+    top: 80px;
 
     &Item {
       @extend %inline-flex, %flex-start-column;
