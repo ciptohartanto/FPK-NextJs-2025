@@ -6,6 +6,8 @@
 
 body {
   overflow: hidden auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -70,4 +72,9 @@ a:hover {
 ::selection {
   background: $select-highlight-background;
   color: $white;
+}
+
+// locks body when Popup is showing
+.bodyLock {
+  overflow-y: hidden;
 }

@@ -34,8 +34,8 @@ export default function Popup({
   } = componentData
 
   useEffect(() => {
-    if (shouldDisplayPopup) document.body.style.overflowY = 'hidden'
-    else document.body.removeAttribute('style')
+    if (shouldDisplayPopup) document.body.classList.add('bodyLock')
+    else document.body.classList.remove('bodyLock')
   }, [shouldDisplayPopup])
 
   return (
