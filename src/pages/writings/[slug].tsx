@@ -26,7 +26,7 @@ export default function WritingsPage({
 }) {
   return (
     <>
-      <PageHead pageTitle="Writings" />
+      <PageHead pageTitle={articleBodyData.title} />
       <ArticleBody componentData={articleBodyData} />
     </>
   )

@@ -1,6 +1,10 @@
 .articleBody {
   @extend %end-page-wrapper;
 
+  pre {
+    width: 100%; // keep the code container 100%
+  }
+
   &-wrapper {
     @extend %inline-flex, %flex-start-column;
 
