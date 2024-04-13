@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
 const QUERY_HOME = gql`
-  query Homes($id: ID!) {
+  query Home($id: ID!, $orderBy: WritingOrderByInput!) {
     home(where: { id: $id }) {
       sectionAbout {
         title
@@ -37,6 +37,12 @@ const QUERY_HOME = gql`
       sectionWritings {
         title
       }
+    }
+    writings(orderBy: $orderBy) {
+      slug
+      title
+      tags
+      publishTime
     }
   }
 `

@@ -5,7 +5,7 @@ import Tag from '@/elements/Tag'
 interface ArticleItemProps {
   title: string
   date: string
-  tags: { text: string }[]
+  tags: string
 }
 
 export default function ArticleItem({ title, date, tags }: ArticleItemProps) {
@@ -17,9 +17,9 @@ export default function ArticleItem({ title, date, tags }: ArticleItemProps) {
       </h3>
       <span className="articleItem-date">{date}</span>
       <ul className="articleItem-tagList">
-        {tags.map((item) => (
-          <li key={item.text} className="articleItem-tagItem">
-            <Tag text={item.text} />
+        {tags.split(',').map((text) => (
+          <li key={text} className="articleItem-tagItem">
+            <Tag text={text} />
           </li>
         ))}
       </ul>

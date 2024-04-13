@@ -6,8 +6,10 @@ import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
 import {
   Home as HomePageProps,
-  HomesQuery,
+  HomeQuery,
   ProjectItem as ProjectItemProps,
+  Writing,
+  WritingOrderByInput,
 } from '@/gql/graphql'
 import QUERY_HOME from '@/queries/queryHome'
 import AboutTheWebsite from '@/sections/AboutTheWebsite'
@@ -15,7 +17,13 @@ import Hero from '@/sections/Hero'
 import Projects from '@/sections/Projects'
 import Writings from '@/sections/Writings'
 
-export default function HomePage({ home }: { home: HomePageProps }) {
+export default function HomePage({
+  home,
+  writings,
+}: {
+  home: HomePageProps
+  writings: Writing[]
+}) {
   const [isPopupActive, setIsPopupActive] = useState(false)
   const [popupData, setPopupData] = useState<null | ProjectItemProps>(null)
 
@@ -38,7 +46,7 @@ export default function HomePage({ home }: { home: HomePageProps }) {
         }}
         componentData={projectContent}
       />
-      <Writings componentData={writingsContent} />
+      <Writings componentData={writingsContent} articleList={writings} />
       <AboutTheWebsite componentData={aboutContent} />
       {popupData && (
         <Popup
@@ -52,15 +60,19 @@ export default function HomePage({ home }: { home: HomePageProps }) {
 }
 
 export async function getStaticProps(): Promise<
-  GetStaticPropsResult<HomesQuery>
+  GetStaticPropsResult<HomeQuery>
 > {
-  const data = await clientQuery<HomesQuery>({
+  const data = await clientQuery<HomeQuery>({
     query: QUERY_HOME,
-    variableObject: { id: process.env.ID_HOME },
+    variableObject: {
+      id: process.env.ID_HOME,
+      orderBy: WritingOrderByInput.PublishTimeDesc,
+    },
   })
 
-  const { home } = data
+  const { home, writings } = data
+
   return {
-    props: { home },
+    props: { home, writings },
   }
 }

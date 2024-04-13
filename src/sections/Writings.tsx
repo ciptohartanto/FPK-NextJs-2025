@@ -1,82 +1,39 @@
 import { motion } from 'framer-motion'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import AnchorLink from '@/components/AnchorLink'
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
 import { FRAMER } from '@/constants'
 import { LOAD_MORE_MULTIPLIER } from '@/constants/project'
-import { SectionWriting } from '@/gql/graphql'
+import { SectionWriting, Writing } from '@/gql/graphql'
 
-interface WritingDataType {
-  title: string
-  date: string
-  tags: { text: string }[]
-  url: string
-}
+type ArticleListProps = Pick<
+  Writing,
+  'title' | 'publishTime' | 'tags' | 'slug'
+>[]
 
-const DATA: WritingDataType[] = [
-  {
-    title: 'i18n with Next.js on A Static Web Server',
-    date: 'Jan 01, 2024',
-    tags: [{ text: 'Next.js' }, { text: 'i18n' }],
-    url: '/test',
-  },
-  {
-    title: 'Hamburger Nav Menu with Framer Motion',
-    date: 'Dec 12, 2023',
-    tags: [{ text: 'React' }, { text: 'Framer Motion' }],
-    url: '/test',
-  },
-  {
-    title: 'Sweet Carousel effect with Swiper.js and Framer Motion',
-    date: 'Nov 28, 2023',
-    tags: [{ text: 'React' }, { text: 'Framer Motion' }, { text: 'Swiper.js' }],
-    url: '/test',
-  },
-  {
-    title: 'Vertical Snap Scroll Content with Swiper.js',
-    date: 'Jul 03, 2023',
-    tags: [{ text: 'React' }, { text: 'Swiper.js' }],
-    url: '/test',
-  },
-  {
-    title: 'Scroll to Play Video Background With Request Animation Frames',
-    date: 'Feb 18, 2023',
-    tags: [{ text: 'JavaScript' }],
-    url: '/test',
-  },
-  {
-    title: 'Simple Hamburger Menu animation with Framer Motion',
-    date: 'Jan 31, 2023',
-    tags: [{ text: 'React' }, { text: 'Framer Motion' }],
-    url: '/test',
-  },
-
-  {
-    title: 'Loading with React and Framer Motion',
-    date: 'Jan 05, 2023',
-    tags: [{ text: 'React' }, { text: 'Framer Motion' }],
-    url: '/test',
-  },
-]
-
-type WritingsProps = {
+type SectionWritingsProps = {
   componentData: Pick<SectionWriting, 'title'>
+  articleList: ArticleListProps
 }
 
-export default function Writings({ componentData }: WritingsProps) {
+export default function Writings({
+  componentData,
+  articleList,
+}: SectionWritingsProps) {
   const [currentArticleTotal, setCurrentArticleTotal] =
     useState(LOAD_MORE_MULTIPLIER)
   const [searchValue, setSearchValue] = useState<undefined | string>(undefined)
-  const [articleData, setArticleData] = useState<[] | WritingDataType[]>([]) // todo: proper type!
+  const [articleData, setArticleData] = useState<[] | ArticleListProps>([])
 
   const { title } = componentData
 
   // 1. set articleData on first render
   useEffect(() => {
-    const viewableData = DATA.slice(0, currentArticleTotal)
+    const viewableData = articleList.slice(0, currentArticleTotal)
     setArticleData(viewableData)
-  }, [currentArticleTotal])
+  }, [articleList, currentArticleTotal])
 
   // 2. when there's update from search bar, update searchable
   const updatedData = useMemo(() => {
@@ -96,25 +53,25 @@ export default function Writings({ componentData }: WritingsProps) {
 
   const handleClickLoadMore = useCallback(() => {
     const nextTotalArticle = currentArticleTotal + LOAD_MORE_MULTIPLIER
-    const totalArticles = DATA.length
+    const totalArticles = articleList.length
     if (nextTotalArticle >= totalArticles) {
-      setCurrentArticleTotal(DATA.length)
+      setCurrentArticleTotal(articleList.length)
     } else {
       setCurrentArticleTotal(nextTotalArticle)
     }
-  }, [currentArticleTotal])
+  }, [currentArticleTotal, articleList])
 
   const computedSearchData = useMemo(() => {
     let setup = { shouldDisplayLoadMore: false, counterText: '' }
     if (!searchValue) {
-      setup.shouldDisplayLoadMore = updatedData.length !== DATA.length
-      setup.counterText = `${updatedData.length}/${DATA.length}`
+      setup.shouldDisplayLoadMore = updatedData.length !== articleList.length
+      setup.counterText = `${updatedData.length}/${articleList.length}`
     } else {
-      setup.shouldDisplayLoadMore = DATA.length !== currentArticleTotal
+      setup.shouldDisplayLoadMore = articleList.length !== currentArticleTotal
       setup.counterText = `${updatedData.length} / ${updatedData.length}`
     }
     return setup
-  }, [searchValue, updatedData, currentArticleTotal])
+  }, [searchValue, updatedData, currentArticleTotal, articleList])
 
   return (
     <section className="writings" id="writings">
@@ -139,11 +96,13 @@ export default function Writings({ componentData }: WritingsProps) {
               {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
               initial={{ x: 40, opacity: 0 }}
             >
-              <ArticleItem
-                title={item.title}
-                date={item.date}
-                tags={item.tags}
-              />
+              <AnchorLink href={`/writings/${item.slug}`}>
+                <ArticleItem
+                  title={item.title}
+                  date={item.publishTime}
+                  tags={item.tags}
+                />
+              </AnchorLink>
             </motion.li>
           ))}
 
