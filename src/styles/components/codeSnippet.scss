@@ -1,0 +1,19 @@
+.codeSnippet {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  @extend %full-flex;
+
+  pre {
+    width: 100%;
+  }
+
+  &-button {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 10px;
+    color: rgba($white, $opacity-50);
+    cursor: pointer;
+  }
+}

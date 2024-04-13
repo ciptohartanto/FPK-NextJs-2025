@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
@@ -14,17 +16,33 @@ const customStyle = {
 }
 
 export default function CodeSnippet({ content, lang }: CodeSnippetProps) {
+  const [isCopied, setIsCopied] = useState(false)
   return (
-    <div>
-      <SyntaxHighlighter
-        language={lang}
-        style={nightOwl}
-        customStyle={customStyle}
-        showLineNumbers
-        wrapLongLines
-      >
-        {content}
-      </SyntaxHighlighter>
-    </div>
+    <>
+      <div className="codeSnippet">
+        <CopyToClipboard
+          text={content}
+          onCopy={() => {
+            setIsCopied(true)
+            setTimeout(() => {
+              setIsCopied(false)
+            }, 1000)
+          }}
+        >
+          <button className="codeSnippet-button">
+            {isCopied ? 'Copied' : 'Copy'}
+          </button>
+        </CopyToClipboard>
+        <SyntaxHighlighter
+          language={lang}
+          style={nightOwl}
+          customStyle={customStyle}
+          showLineNumbers
+          wrapLongLines
+        >
+          {content}
+        </SyntaxHighlighter>
+      </div>
+    </>
   )
 }
