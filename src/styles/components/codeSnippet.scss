@@ -1,11 +1,25 @@
 .codeSnippet {
+  @extend %full-flex;
+
   position: relative;
   z-index: 2;
-  width: 100%;
-  @extend %full-flex;
+  width: calc(100vw - 36px);
+  overflow: auto;
+
+  @include desktop-view {
+    width: 100%;
+  }
 
   pre {
     width: 100%;
+    @include mobile-view {
+      padding-top: 40px !important;
+
+      code {
+        padding-right: 30px !important;
+        float: left;
+      }
+    }
   }
 
   &-button {

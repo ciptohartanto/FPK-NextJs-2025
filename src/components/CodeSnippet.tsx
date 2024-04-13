@@ -38,7 +38,6 @@ export default function CodeSnippet({ content, lang }: CodeSnippetProps) {
           style={nightOwl}
           customStyle={customStyle}
           showLineNumbers
-          wrapLongLines
         >
           {content}
         </SyntaxHighlighter>
