@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 import IconX, { IconXTypes } from '@/elements/IconX'
 import Tag from '@/elements/Tag'
@@ -31,6 +32,11 @@ export default function Popup({
     content: popupContent,
     projectUrl,
   } = componentData
+
+  useEffect(() => {
+    if (shouldDisplayPopup) document.body.style.overflowY = 'hidden'
+    else document.body.removeAttribute('style')
+  }, [shouldDisplayPopup])
 
   return (
     <AnimatePresence>
