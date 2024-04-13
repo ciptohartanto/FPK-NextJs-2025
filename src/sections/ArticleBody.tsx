@@ -1,5 +1,7 @@
 import classNames from 'classnames'
+import Markdown from 'react-markdown'
 
+import CodeSnippet from '@/components/CodeSnippet'
 import TableOfContentText from '@/elements/TableOfContentText'
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
@@ -40,7 +42,23 @@ export default function ArticleBody({
             'articleBody-section'
           )}
         >
-          {articleContent}
+          <Markdown
+            components={{
+              code(props) {
+                const { children, className, ...rest } = props
+                const lang = className?.split('language-')[1]
+                return (
+                  <CodeSnippet
+                    content={String(children)}
+                    lang={lang}
+                    {...rest}
+                  />
+                )
+              },
+            }}
+          >
+            {articleContent}
+          </Markdown>
         </div>
       </div>
     </div>
