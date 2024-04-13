@@ -9,6 +9,16 @@ const config: CodegenConfig = {
     'src/gql/': {
       preset: 'client',
       plugins: [],
+      config: {
+        withHooks: true,
+        withComponent: false,
+        futureProofEnums: true,
+        avoidOptionals: true,
+        maybeValue: 'T | undefined',
+      },
+      presetConfig: {
+        fragmentMasking: false,
+      },
     },
   },
 }
