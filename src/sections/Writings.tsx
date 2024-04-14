@@ -94,6 +94,10 @@ export default function Writings({
                   className="writings-listItem"
                   {...FRAMER_SUB_SECTION_ANIMATION}
                   initial={{ x: 40, opacity: 0 }}
+                  viewport={{
+                    ...FRAMER_SUB_SECTION_ANIMATION.viewport,
+                    once: false,
+                  }}
                 >
                   <AnchorLink href={`/writings/${item.slug}`}>
                     <ArticleItem componentData={{ ...item }} />

@@ -27,6 +27,7 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
                 delay: 0.2,
               },
             }}
+            viewport={{ ...FRAMER_SUB_SECTION_ANIMATION.viewport, once: false }}
           >
             {subtitle}
           </motion.h2>
@@ -39,6 +40,7 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
                 delay: 0.5,
               },
             }}
+            viewport={{ ...FRAMER_SUB_SECTION_ANIMATION.viewport, once: false }}
           >
             {caption}
           </motion.h3>
@@ -51,6 +53,10 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
                 transition: {
                   delay: 0.7,
                 },
+              }}
+              viewport={{
+                ...FRAMER_SUB_SECTION_ANIMATION.viewport,
+                once: false,
               }}
             >
               Read More
