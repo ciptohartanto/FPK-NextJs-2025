@@ -26,4 +26,16 @@
       min-width: 1440px !important;
     }
   }
+
+  &-curtain {
+    position: fixed;
+    z-index: $z-root-curtain;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background-image: radial-gradient(transparent 1px, $white 0);
+    background-size: 8px 8px;
+  }
 }

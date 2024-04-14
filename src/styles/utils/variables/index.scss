@@ -27,7 +27,8 @@ $gray-1: #d9d9d9;
 $transition-style: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 // z indices
-$z-root-pedestal-background: -1;
+$z-root-pedestal-background: -2;
+$z-root-curtain: 2;
 $z-root-nav: 5;
 $z-root-popup: 6;
 

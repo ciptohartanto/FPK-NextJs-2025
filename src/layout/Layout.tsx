@@ -20,6 +20,21 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <AnimatePresence>
       <motion.div
+        initial="hide"
+        animate="animate"
+        exit="hide"
+        transition={{ type: 'tween' }}
+        variants={{
+          hide: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}
+        className="layout-curtain"
+      />
+      <motion.div
         className="layout-background"
         initial="hide"
         animate="animate"
