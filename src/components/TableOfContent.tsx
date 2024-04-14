@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useEffect, useMemo, useState } from 'react'
 
 import { HEADING3_CSS } from '@/constants/project'
@@ -11,6 +12,8 @@ type Heading3DataProps = {
 export default function TableOfContent() {
   const [heading3Data, setHeading3Data] = useState<[] | Heading3DataProps[]>()
   const [activeId, setActiveId] = useState<undefined | string>(undefined)
+
+  const router = useRouter()
 
   const memoAllHeadings = useMemo(() => {
     return (
@@ -45,9 +48,8 @@ export default function TableOfContent() {
 
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry, idx) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              console.log({ target: entry.target, idx })
               const idWithoutWhiteSpace = idTextWithoutSpace(entry.target)
 
               setActiveId(idWithoutWhiteSpace)
@@ -78,7 +80,7 @@ export default function TableOfContent() {
       // update heading3 data in heading3Data
       setHeading3Data(newArr)
     }
-  }, [])
+  }, [router])
 
   return <div className="tableOfContent">{memoAllHeadings}</div>
 }
