@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import Markdown from 'react-markdown'
 
 import CodeSnippet from '@/components/CodeSnippet'
-import TableOfContentText from '@/elements/TableOfContentText'
+import TableOfContent from '@/components/TableOfContent'
+import { HEADING3_CSS } from '@/constants/project'
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
 
@@ -27,15 +28,9 @@ export default function ArticleBody({
       </div>
 
       <div className="articleBody-wrapperBottom">
-        <ol className="articleBody-tableOfContent">
-          <li className="articleBody-tableOfContentItem">
-            <TableOfContentText text="Heading 1" isActive />
-            <TableOfContentText text="Heading 2" isActive={false} />
-            <TableOfContentText text="Heading 3" isActive={false} />
-            <TableOfContentText text="Heading 4" isActive={false} />
-          </li>
-        </ol>
-
+        <div className="articleBody-toc">
+          <TableOfContent />
+        </div>
         <div
           className={classNames(
             'articleBody-wrapperSection',
@@ -44,6 +39,10 @@ export default function ArticleBody({
         >
           <Markdown
             components={{
+              h3(props) {
+                const { children } = props
+                return <h3 className={HEADING3_CSS}>{children}</h3>
+              },
               code(props) {
                 const { children, className, ...rest } = props
                 const lang = className?.split('language-')[1]

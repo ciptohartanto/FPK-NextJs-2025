@@ -30,3 +30,5 @@ export const NAV_SUB_LINKS = [
     text: 'Résumé',
   },
 ]
+
+export const HEADING3_CSS = 'toc-title'
