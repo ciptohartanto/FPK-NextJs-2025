@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useMemo } from 'react'
 
 import SubSection from '@/components/SubSection'
-import { FRAMER } from '@/constants'
+import { FRAMER_SUB_SECTION_ANIMATION_BOTTOM } from '@/constants/framerAnimations'
 import { SectionAbout } from '@/gql/graphql'
 
 type AboutThisWebsiteProps = {
@@ -41,7 +41,7 @@ export default function AboutTheWebsite({
     <section className="aboutTheWebsite" id="about">
       <motion.h2
         className="aboutTheWebsite-title"
-        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+        {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
       >
         {title}
       </motion.h2>
@@ -52,9 +52,9 @@ export default function AboutTheWebsite({
               <motion.li
                 key={item.id}
                 className="aboutTheWebsite-item"
-                {...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
+                {...FRAMER_SUB_SECTION_ANIMATION_BOTTOM}
                 whileInView={{
-                  ...FRAMER.FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
+                  ...FRAMER_SUB_SECTION_ANIMATION_BOTTOM.whileInView,
                   transition: {
                     delay: 0.05 * (Number(item.id) + 1),
                   },

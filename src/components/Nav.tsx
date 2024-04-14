@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
-import { PROJECT } from '@/constants'
+import { NAV_SUB_LINKS } from '@/constants/project'
 import IconHamburger, { IconHamburgerTypes } from '@/elements/IconHamburger'
 import IconX, { IconXTypes } from '@/elements/IconX'
 
@@ -78,7 +78,7 @@ export default function Nav() {
                 }}
               >
                 <ul className="nav-list">
-                  {PROJECT.NAV_SUB_LINKS.map((item, idx) => (
+                  {NAV_SUB_LINKS.map((item, idx) => (
                     <motion.li
                       key={item.text}
                       className="nav-item"

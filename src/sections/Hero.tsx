@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useRef } from 'react'
 
 import AnchorLink from '@/components/AnchorLink'
-import { FRAMER } from '@/constants'
+import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants/framerAnimations'
 import Trademark from '@/elements/Trademark'
 import { SectionHero } from '@/gql/graphql'
 
@@ -20,9 +20,9 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
           <Trademark />
           <motion.h2
             className="hero-subtitle"
-            {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+            {...FRAMER_SUB_SECTION_ANIMATION}
             whileInView={{
-              ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
               transition: {
                 delay: 0.2,
               },
@@ -32,9 +32,9 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
           </motion.h2>
           <motion.h3
             className="hero-caption"
-            {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+            {...FRAMER_SUB_SECTION_ANIMATION}
             whileInView={{
-              ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
+              ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
               transition: {
                 delay: 0.5,
               },
@@ -45,9 +45,9 @@ export default function Hero({ componentData }: { componentData: HeroProps }) {
           <AnchorLink href="/resume">
             <motion.span
               className="hero-link"
-              {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+              {...FRAMER_SUB_SECTION_ANIMATION}
               whileInView={{
-                ...FRAMER.FRAMER_SUB_SECTION_ANIMATION.whileInView,
+                ...FRAMER_SUB_SECTION_ANIMATION.whileInView,
                 transition: {
                   delay: 0.7,
                 },

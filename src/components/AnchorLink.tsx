@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ReactNode, useMemo } from 'react'
 
-import { PROJECT } from '@/constants'
+import { KEYWORD_HTTP } from '@/constants/project'
 
 interface AnchorLinkProps {
   href: string
@@ -10,7 +10,7 @@ interface AnchorLinkProps {
 
 export default function AnchorLink({ href, children }: AnchorLinkProps) {
   const parsedLinkAttrs = useMemo(() => {
-    if (href.startsWith(PROJECT.KEYWORD_HTTP)) {
+    if (href.startsWith(KEYWORD_HTTP)) {
       return {
         target: '_blank',
         rel: 'noopener noreferrer',

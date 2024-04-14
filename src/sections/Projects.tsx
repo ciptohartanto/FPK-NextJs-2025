@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { FRAMER } from '@/constants'
+import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants/framerAnimations'
 import Tag from '@/elements/Tag'
 import { SectionProject } from '@/gql/graphql'
 
@@ -30,15 +30,12 @@ export default function Projects({
   return (
     <section className="projects" id="projects">
       <div className="projects-wrapper">
-        <motion.h3
-          className="projects-title"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
-        >
+        <motion.h3 className="projects-title" {...FRAMER_SUB_SECTION_ANIMATION}>
           {title}
         </motion.h3>
         <motion.div
           className="projects-swiperWrapper"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER_SUB_SECTION_ANIMATION}
           viewport={{ margin: '-300px 0px 0px 0px' }}
         >
           <Swiper
@@ -96,7 +93,7 @@ export default function Projects({
 
         <motion.div
           className="projects-counter"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER_SUB_SECTION_ANIMATION}
           initial={{ x: 40, opacity: 0 }}
         >
           <span className="projects-counterText">

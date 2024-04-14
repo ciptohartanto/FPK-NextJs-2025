@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import AnchorLink from '@/components/AnchorLink'
 import ArticleItem from '@/components/ArticleItem'
 import SearchBox from '@/components/SearchBox'
-import { FRAMER } from '@/constants'
+import { FRAMER_SUB_SECTION_ANIMATION } from '@/constants/framerAnimations'
 import { LOAD_MORE_MULTIPLIER } from '@/constants/project'
 import { SectionWriting, Writing } from '@/gql/graphql'
 
@@ -75,16 +75,13 @@ export default function Writings({
 
   return (
     <section className="writings" id="writings">
-      <motion.h2
-        className="writings-title"
-        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
-      >
+      <motion.h2 className="writings-title" {...FRAMER_SUB_SECTION_ANIMATION}>
         {title}
       </motion.h2>
       <div className="writings-row">
         <motion.div
           className="writings-searchBoxWrapper"
-          {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+          {...FRAMER_SUB_SECTION_ANIMATION}
         >
           <SearchBox handleUpdate={(e) => setSearchValue(e)} />
         </motion.div>
@@ -95,7 +92,7 @@ export default function Writings({
                 <motion.li
                   key={item.title}
                   className="writings-listItem"
-                  {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+                  {...FRAMER_SUB_SECTION_ANIMATION}
                   initial={{ x: 40, opacity: 0 }}
                 >
                   <AnchorLink href={`/writings/${item.slug}`}>
@@ -108,7 +105,7 @@ export default function Writings({
                 <motion.span
                   className="writings-loadMore"
                   onClick={handleClickLoadMore}
-                  {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+                  {...FRAMER_SUB_SECTION_ANIMATION}
                   initial={{ x: 40, opacity: 0 }}
                 >
                   Load More
@@ -125,7 +122,7 @@ export default function Writings({
       </div>
       <motion.div
         className="writings-counter"
-        {...FRAMER.FRAMER_SUB_SECTION_ANIMATION}
+        {...FRAMER_SUB_SECTION_ANIMATION}
         initial={{ x: 40, opacity: 0 }}
       >
         <span className="writings-counterText">

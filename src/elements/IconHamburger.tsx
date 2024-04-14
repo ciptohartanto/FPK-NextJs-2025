@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { PROJECT } from '@/constants'
+import { UI_ICON_HAMBURGER_LINES } from '@/constants/project'
 
 export enum IconHamburgerTypes {
   LARGE = 'large',
@@ -18,7 +18,7 @@ export default function IconHamburger({ type, isActive }: IconHamburgerProps) {
     <AnimatePresence>
       {isActive && (
         <div className={classNames('iconHamburger', `iconHamburger--${type}`)}>
-          {PROJECT.UI_ICON_HAMBURGER_LINES.map((item) => (
+          {UI_ICON_HAMBURGER_LINES.map((item) => (
             <motion.span
               key={`${item.yHide}${item.yAnimate}`}
               className="iconHamburger-line"
