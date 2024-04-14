@@ -60,7 +60,7 @@
     }
   }
 
-  &-toc {
+  &-wrapperBottomLeft {
     @extend %col-desktop--2;
 
     position: sticky;
@@ -69,5 +69,54 @@
     padding: 20px;
     border-radius: 10px;
     background-color: $white;
+  }
+
+  &-nav {
+    @extend %inline-flex, %flex-start-column;
+
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba($black, $opacity-40);
+
+    &Item {
+      @include items-spacer($mobile: 0, $desktop: 2px, $direction: 'bottom');
+
+      position: relative;
+
+      &--main {
+        &::before {
+          content: '⟲';
+          display: inline-block;
+          position: absolute;
+        }
+      }
+
+      &--next {
+        &::before {
+          content: '⪢';
+          display: inline-block;
+          position: absolute;
+        }
+      }
+
+      &--prev {
+        &::before {
+          content: '⪡';
+          display: inline-block;
+          position: absolute;
+        }
+      }
+    }
+
+    &Link {
+      @extend %inline-flex,
+        %flex-center,
+        %link-hover,
+        %typography-link-description;
+
+      position: relative;
+      margin-left: 18px;
+    }
   }
 }
