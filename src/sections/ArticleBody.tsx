@@ -6,6 +6,7 @@ import TableOfContent from '@/components/TableOfContent'
 import { HEADING3_CSS } from '@/constants/project'
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
+import formatDate from '@/utils/formatDate'
 
 export default function ArticleBody({
   componentData,
@@ -17,7 +18,7 @@ export default function ArticleBody({
     <div className="articleBody">
       <div className="articleBody-wrapperTop">
         <h2 className="articleBody-title">{title}</h2>
-        <span>{publishTime}</span>
+        <span>Published on {formatDate(publishTime)}</span>
         <ul className="articleBody-wrapperTags">
           {tags.split(',').map((text) => (
             <li key={text} className="articleBody-tag">
