@@ -1,10 +1,8 @@
 import classNames from 'classnames'
-import Markdown from 'react-markdown'
 
 import AnchorLink from '@/components/AnchorLink'
-import CodeSnippet from '@/components/CodeSnippet'
+import MarkdownProcessor from '@/components/MarkdownProcessor'
 import TableOfContent from '@/components/TableOfContent'
-import { HEADING3_CSS } from '@/constants/project'
 import Tag from '@/elements/Tag'
 import { Writing } from '@/gql/graphql'
 import formatDate from '@/utils/formatDate'
@@ -26,7 +24,7 @@ export default function ArticleBody({
   componentData: Writing
   articleNav: ArticleNavProps
 }) {
-  const { title, tags, publishTime, articleContent } = componentData
+  const { title, tags, publishTime, articleContent: mdContent } = componentData
   const { prevArticle, nextArticle } = articleNav
 
   return (
@@ -79,27 +77,7 @@ export default function ArticleBody({
               'articleBody-section'
             )}
           >
-            <Markdown
-              components={{
-                h3(props) {
-                  const { children } = props
-                  return <h3 className={HEADING3_CSS}>{children}</h3>
-                },
-                code(props) {
-                  const { children, className, ...rest } = props
-                  const lang = className?.split('language-')[1]
-                  return (
-                    <CodeSnippet
-                      content={String(children)}
-                      lang={lang}
-                      {...rest}
-                    />
-                  )
-                },
-              }}
-            >
-              {articleContent}
-            </Markdown>
+            <MarkdownProcessor mdContent={mdContent} />
           </div>
         </div>
       </div>
