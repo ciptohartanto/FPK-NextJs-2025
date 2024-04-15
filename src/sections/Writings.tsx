@@ -80,12 +80,12 @@ export default function Writings({
       </motion.h2>
       <div className="writings-row">
         <motion.div
-          className="writings-searchBoxWrapper"
+          className="writings-wrapperSearchBox"
           {...FRAMER_SUB_SECTION_ANIMATION}
         >
           <SearchBox handleUpdate={(e) => setSearchValue(e)} />
         </motion.div>
-        <div className="writings-listWrapper">
+        <div className="writings-wrapperList">
           {updatedData.length !== 0 ? (
             <ul className="writings-list">
               {updatedData.map((item) => (

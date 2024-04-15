@@ -19,8 +19,3 @@ export default function TableOfContentText({
     </div>
   )
 }
-
-TableOfContentText.defaultProps = {
-  text: 'missing data',
-  isActive: false,
-}

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useMemo, useState } from 'react'
 
-import { HEADING3_CSS } from '@/constants/project'
+import { HEADING3_CSS, TOC_ROOT_MARGIN } from '@/constants/project'
 import TableOfContentText from '@/elements/TableOfContentText'
 
 type Heading3DataProps = {
@@ -56,7 +56,7 @@ export default function TableOfContent() {
             }
           })
         },
-        { threshold: 0.5, rootMargin: '0px 0px -80% 0px' }
+        { threshold: 0.5, rootMargin: TOC_ROOT_MARGIN }
       )
 
       const newArr: Heading3DataProps[] = []

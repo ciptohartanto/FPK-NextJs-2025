@@ -33,11 +33,13 @@ $css: '.articleItem';
     }
   }
 
-  &-tagList {
-    @extend %inline-flex;
-  }
+  &-tag {
+    &List {
+      @extend %inline-flex;
+    }
 
-  &-tagItem {
-    margin-right: 10px;
+    &Item {
+      margin-right: 10px;
+    }
   }
 }

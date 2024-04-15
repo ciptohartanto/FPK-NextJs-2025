@@ -11,21 +11,23 @@
     text-transform: uppercase;
   }
 
-  &-listWrapper {
-    @extend %grid-wrapper;
+  &-wrapper {
+    &Content {
+      @extend %grid-wrapper;
 
-    margin-bottom: 60px;
-    @include desktop-view {
-      margin-top: 48px;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
+      @include desktop-view {
+        margin-top: 48px;
+        margin-bottom: 80px;
+      }
     }
-  }
 
-  &-itemsWrapper {
-    @extend %col-mobile--6, %col-desktop--4;
+    &List {
+      @extend %col-mobile--6, %col-desktop--4;
 
-    flex-flow: column wrap;
-    @include items-spacer($mobile: 24px, $desktop: 0, $direction: 'bottom');
+      flex-flow: column wrap;
+      @include items-spacer($mobile: 24px, $desktop: 0, $direction: 'bottom');
+    }
   }
 
   &-item {

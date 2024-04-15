@@ -104,7 +104,3 @@ export default function Projects({
     </section>
   )
 }
-
-Projects.defaultProps = {
-  handleClick: () => false,
-}

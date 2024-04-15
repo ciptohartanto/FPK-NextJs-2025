@@ -9,7 +9,3 @@ export default function Tag({ text }: TagProps) {
     </div>
   )
 }
-
-Tag.defaultProps = {
-  text: 'missing data',
-}

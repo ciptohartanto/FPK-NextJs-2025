@@ -50,9 +50,7 @@ export default function ArticleBody({
             <ul className="articleBody-nav">
               <li className="articleBody-navItem  articleBody-navItem--main">
                 <AnchorLink href="../#writings">
-                  <span className="articleBody-navLink">
-                    Check other writings
-                  </span>
+                  <span className="articleBody-navLink">Writings</span>
                 </AnchorLink>
               </li>
               {prevArticle && (

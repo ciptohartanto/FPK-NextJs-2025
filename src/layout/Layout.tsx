@@ -4,6 +4,7 @@ import { Urbanist } from 'next/font/google'
 import { ReactNode } from 'react'
 
 import Nav from '@/components/Nav'
+import { LAYOUT_POLKA_DOT } from '@/constants/project'
 
 const urbanist = Urbanist({
   subsets: ['latin'],
@@ -12,9 +13,6 @@ const urbanist = Urbanist({
   display: 'swap',
   variable: '--font-urbanist',
 })
-
-const BACKGROUND_IMAGE =
-  'radial-gradient(rgba(14,210,230,0.4) 10%, transparent 10%), radial-gradient(rgba(121,39,255,0.3) 10%, transparent 10%)'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -45,7 +43,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             opacity: 0,
             width: '100%',
             y: 0,
-            backgroundImage: BACKGROUND_IMAGE,
+            backgroundImage: LAYOUT_POLKA_DOT,
             transition: { delay: 0.5, duration: 0.5 },
             backgroundPosition: '0 0, 10px 10px',
             backgroundSize: '18px 18px',
@@ -55,7 +53,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             opacity: 1,
             width: 'calc(100% - 189px)',
             y: 72,
-            backgroundImage: BACKGROUND_IMAGE,
+            backgroundImage: LAYOUT_POLKA_DOT,
             backgroundPosition: '0 0, 10px 10px',
             backgroundSize: '10px 10px',
             transition: { delay: 2, duration: 1 },

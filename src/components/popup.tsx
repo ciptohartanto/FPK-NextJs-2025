@@ -85,7 +85,7 @@ export default function Popup({
                 </ul>
                 <div className="popup-wrapperDescription">
                   <span className="popup-description">{date}</span>
-                  <AnchorLink href="https://example.com">
+                  <AnchorLink href={projectUrl}>
                     <span className="popup-externalLink">{projectUrl}</span>
                   </AnchorLink>
                 </div>

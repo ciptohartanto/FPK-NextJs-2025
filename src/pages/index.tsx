@@ -4,6 +4,7 @@ import { useState } from 'react'
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
 import Popup from '@/components/popup'
+import { PAGE_TITLE } from '@/constants/project'
 import {
   Home as HomePageProps,
   HomeQuery,
@@ -27,14 +28,16 @@ export default function HomePage({
   const [isPopupActive, setIsPopupActive] = useState(false)
   const [popupData, setPopupData] = useState<null | ProjectItemProps>(null)
 
-  const heroContent = { ...home.sectionHero }
-  const projectContent = { ...home.sectionProject }
-  const writingsContent = { ...home.sectionWritings }
-  const aboutContent = { ...home.sectionAbout }
+  const {
+    sectionHero: heroContent,
+    sectionProject: projectContent,
+    sectionWritings: writingsContent,
+    sectionAbout: aboutContent,
+  } = home
 
   return (
     <>
-      <PageHead pageTitle="Home" />
+      <PageHead pageTitle={PAGE_TITLE.home} />
       <Hero componentData={heroContent} />
       <Projects
         handleClick={(val) => {

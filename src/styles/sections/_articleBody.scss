@@ -24,6 +24,16 @@
       width: 100%;
     }
 
+    &BottomLeft {
+      @extend %col-desktop--3;
+
+      position: sticky;
+      top: 80px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: $white;
+    }
+
     &Section {
       @extend %full-flex, %flex-start-column, %col-mobile--6, %col-desktop--8;
     }
@@ -60,16 +70,6 @@
 
       margin-bottom: 22px;
     }
-  }
-
-  &-wrapperBottomLeft {
-    @extend %col-desktop--3;
-
-    position: sticky;
-    top: 80px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: $white;
   }
 
   &-nav {

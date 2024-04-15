@@ -3,6 +3,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
+import { CODE_SNIPPET_TEXT } from '@/constants/project'
+
 type CodeSnippetProps = {
   content: string
   lang: string | undefined
@@ -30,7 +32,7 @@ export default function CodeSnippet({ content, lang }: CodeSnippetProps) {
           }}
         >
           <button className="codeSnippet-button">
-            {isCopied ? 'Copied' : 'Copy'}
+            {isCopied ? CODE_SNIPPET_TEXT.copied : CODE_SNIPPET_TEXT.copied}
           </button>
         </CopyToClipboard>
         <SyntaxHighlighter

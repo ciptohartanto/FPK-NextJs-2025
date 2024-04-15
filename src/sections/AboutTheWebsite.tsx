@@ -45,9 +45,9 @@ export default function AboutTheWebsite({
       >
         {title}
       </motion.h2>
-      <div className="aboutTheWebsite-listWrapper">
+      <div className="aboutTheWebsite-wrapperContent">
         {memoIngredients.map((list, idx) => (
-          <ul key={`${idx}${list}`} className="aboutTheWebsite-itemsWrapper">
+          <ul key={`${idx}${list}`} className="aboutTheWebsite-wrapperList">
             {list.map((item) => (
               <motion.li
                 key={item.id}
