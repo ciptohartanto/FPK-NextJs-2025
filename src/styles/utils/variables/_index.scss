@@ -1,6 +1,6 @@
 /*
   *****
-  Visual related config
+  Visual related configs
   *****
 */
 
@@ -13,6 +13,7 @@ $color-background: #f8f8f8;
 $color-text: $black;
 $color-nav-hamburger: #6c5e5e;
 $select-highlight-background: #7927ff;
+$code-background: #011627;
 
 // opacity levels
 $opacity-100: 1;
@@ -54,3 +55,11 @@ $layout-margin-desktop: 80px;
 // breakpoint
 
 $breakpoint-desktop: 850px;
+
+/*
+  *****
+  Special Fonts
+  *****
+*/
+// font-family for <code />
+$code-font-family: consolas, monaco, 'Andale Mono', 'Ubuntu Mono', monospace;

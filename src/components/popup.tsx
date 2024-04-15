@@ -6,7 +6,7 @@ import Tag from '@/elements/Tag'
 import { ProjectItem } from '@/gql/graphql'
 
 import AnchorLink from './AnchorLink'
-import SubSection from './SubSection'
+import MarkdownProcessor from './MarkdownProcessor'
 
 export type PopupContentProp = {
   componentData: Pick<
@@ -91,17 +91,8 @@ export default function Popup({
                     </AnchorLink>
                   </div>
 
-                  <div className="popup-section">
-                    {popupContent.map((item) => (
-                      <SubSection key={item.title} title={item.title}>
-                        <div
-                          className="popup-paragraph"
-                          dangerouslySetInnerHTML={{
-                            __html: item.content.html,
-                          }}
-                        />
-                      </SubSection>
-                    ))}
+                  <div className="popup-story">
+                    <MarkdownProcessor mdContent={popupContent} />
                   </div>
                 </div>
               </div>

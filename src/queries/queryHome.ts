@@ -19,12 +19,7 @@ const QUERY_HOME = gql`
       sectionProject {
         title
         listOfProjects {
-          content {
-            title
-            content {
-              html
-            }
-          }
+          content
           projectUrl
           date
           tags
