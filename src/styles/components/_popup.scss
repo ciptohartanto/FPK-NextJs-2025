@@ -79,9 +79,9 @@
     @extend %cover-background-image, %col-mobile--6, %col-desktop--6;
 
     max-height: 430px;
-    padding-top: 82%;
+    padding-top: 66%;
     @include desktop-view {
-      padding-top: (630/1131 * 100%);
+      padding-top: 33%;
     }
   }
 
@@ -131,6 +131,7 @@
     p {
       @extend %typography-section-description;
 
+      margin-top: 10px;
       margin-bottom: 22px;
     }
   }
