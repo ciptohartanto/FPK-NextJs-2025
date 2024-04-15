@@ -1,3 +1,4 @@
+import AnchorLink from '@/components/AnchorLink'
 import ExperienceItem, {
   ExPerienceItemTypes,
 } from '@/components/ExperienceItem'
@@ -11,6 +12,7 @@ type ResumeBodyProps = {
 
 export default function ResumeBody({ componentData }: ResumeBodyProps) {
   const resumeData = componentData.content
+  const { url: pdfUrl } = componentData.resumeFile
 
   return (
     <div className="resumeBody">
@@ -18,7 +20,9 @@ export default function ResumeBody({ componentData }: ResumeBodyProps) {
         <div className="resumeBody-wrapperTop">
           <Trademark />
           <div className="resumeBody-iconPdf">
-            <span className="resumeBody-iconPdfText">PDF</span>
+            <AnchorLink href={pdfUrl}>
+              <span className="resumeBody-iconPdfText">PDF</span>
+            </AnchorLink>
           </div>
         </div>
         <section className="resumeBody-wrapperSection">
