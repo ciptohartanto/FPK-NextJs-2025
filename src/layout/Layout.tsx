@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Urbanist } from 'next/font/google'
 import { ReactNode } from 'react'
 
@@ -16,7 +16,7 @@ const urbanist = Urbanist({
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <AnimatePresence>
+    <>
       <motion.div
         initial="hide"
         animate="animate"
@@ -84,6 +84,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {children}
       </motion.div>
-    </AnimatePresence>
+    </>
   )
 }
