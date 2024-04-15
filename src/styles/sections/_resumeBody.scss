@@ -77,6 +77,7 @@
 
   &-subsection {
     @include items-spacer($mobile: 32px, $desktop: 32px, $direction: 'bottom');
+    @extend %markdown-list-style;
 
     p {
       @extend %typography-section-description;
@@ -93,48 +94,6 @@
       margin-top: 3px;
       margin-bottom: 3px;
       font-weight: 700;
-    }
-
-    li {
-      position: relative;
-      padding-left: 20px;
-
-      @include desktop-view {
-        padding-left: 35px;
-      }
-
-      &::before {
-        content: '◍';
-        display: inline-block;
-        position: absolute;
-        top: -1px;
-        left: 0;
-        transform: rotate(45deg);
-        font-size: 11px;
-        @include desktop-view {
-          left: 15px;
-        }
-      }
-
-      li {
-        padding-left: 10px;
-        @include desktop-view {
-          padding-left: 20px;
-        }
-
-        &::before {
-          content: '◍';
-          display: inline-block;
-          position: absolute;
-          top: 1px;
-          left: -4px;
-          transform: rotate(90deg);
-          font-size: 9px;
-          @include desktop-view {
-            left: 5px;
-          }
-        }
-      }
     }
   }
 }
