@@ -68,37 +68,41 @@ export default function Popup({
                 },
               }}
             >
-              <div
-                className="popup-background"
-                style={{
-                  backgroundImage: `url(${thumbnail.url})`,
-                }}
-              />
-              <div className="popup-content" data-lenis-prevent>
-                <h3 className="popup-title">{title}</h3>
-                <ul className="popup-wrapperTags">
-                  {tags.split(',').map((text) => (
-                    <li key={text} className="popup-tag">
-                      <Tag text={text} />
-                    </li>
-                  ))}
-                </ul>
-                <div className="popup-wrapperDescription">
-                  <span className="popup-description">{date}</span>
-                  <AnchorLink href={projectUrl}>
-                    <span className="popup-externalLink">{projectUrl}</span>
-                  </AnchorLink>
-                </div>
+              <div className="popup-row">
+                <div
+                  className="popup-background"
+                  style={{
+                    backgroundImage: `url(${thumbnail.url})`,
+                  }}
+                />
+                <div className="popup-content" data-lenis-prevent>
+                  <h3 className="popup-title">{title}</h3>
+                  <ul className="popup-wrapperTags">
+                    {tags.split(',').map((text) => (
+                      <li key={text} className="popup-tag">
+                        <Tag text={text} />
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="popup-wrapperDescription">
+                    <span className="popup-description">{date}</span>
+                    <AnchorLink href={projectUrl}>
+                      <span className="popup-externalLink">{projectUrl}</span>
+                    </AnchorLink>
+                  </div>
 
-                <div className="popup-section">
-                  {popupContent.map((item) => (
-                    <SubSection key={item.title} title={item.title}>
-                      <div
-                        className="popup-paragraph"
-                        dangerouslySetInnerHTML={{ __html: item.content.html }}
-                      />
-                    </SubSection>
-                  ))}
+                  <div className="popup-section">
+                    {popupContent.map((item) => (
+                      <SubSection key={item.title} title={item.title}>
+                        <div
+                          className="popup-paragraph"
+                          dangerouslySetInnerHTML={{
+                            __html: item.content.html,
+                          }}
+                        />
+                      </SubSection>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -59,6 +59,7 @@
     @extend %inline-flex, %flex-start-row;
 
     justify-content: space-between;
+    width: 100%;
     height: calc(100dvh - 24px);
     padding: 60px 0;
     border-radius: 18px;
@@ -66,33 +67,36 @@
     @include desktop-view {
       width: 1199px;
       height: 730px;
-      padding: 81px 19px 60px 163px;
+      padding: 50px;
     }
   }
 
-  &-background {
-    @extend %cover-background-image;
+  &-row {
+    @extend %grid-wrapper;
+  }
 
-    width: 100%;
-    height: 38%;
+  &-background {
+    @extend %cover-background-image, %col-mobile--6, %col-desktop--6;
+
+    max-height: 430px;
+    padding-top: 82%;
     @include desktop-view {
-      width: 320px;
-      height: 320px;
-      padding-top: unset;
+      padding-top: (630/1131 * 100%);
     }
   }
 
   &-content {
-    @extend %inline-flex, %flex-start-row;
+    @extend %col-mobile--6, %col-desktop--6;
 
-    height: (100% - 38%); // 38% is from the height of background
+    flex-direction: row;
+    height: calc(100dvh - 430px);
     margin-top: 20px;
     padding: 0 18px 40px;
     overflow-y: auto;
     @include desktop-view {
       position: relative; // must be explicitly defined so %link-hover can work
-      width: 530px;
-      height: 100%;
+      flex-direction: row;
+      height: 630px;
       margin-top: 0;
       padding: unset;
     }
@@ -111,6 +115,7 @@
   }
 
   &-section {
+    width: 100%;
     margin-top: 8px;
   }
 
