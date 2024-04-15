@@ -21,29 +21,33 @@ export default function CodeSnippet({ content, lang }: CodeSnippetProps) {
   const [isCopied, setIsCopied] = useState(false)
   return (
     <>
-      <div className="codeSnippet">
-        <CopyToClipboard
-          text={content}
-          onCopy={() => {
-            setIsCopied(true)
-            setTimeout(() => {
-              setIsCopied(false)
-            }, 1000)
-          }}
-        >
-          <button className="codeSnippet-button">
-            {isCopied ? CODE_SNIPPET_TEXT.copied : CODE_SNIPPET_TEXT.copied}
-          </button>
-        </CopyToClipboard>
-        <SyntaxHighlighter
-          language={lang}
-          style={nightOwl}
-          customStyle={customStyle}
-          showLineNumbers
-        >
-          {content}
-        </SyntaxHighlighter>
-      </div>
+      {!lang ? (
+        <code className="codeSnippet--inline">{content}</code>
+      ) : (
+        <div className="codeSnippet">
+          <CopyToClipboard
+            text={content}
+            onCopy={() => {
+              setIsCopied(true)
+              setTimeout(() => {
+                setIsCopied(false)
+              }, 1000)
+            }}
+          >
+            <button className="codeSnippet-button">
+              {isCopied ? CODE_SNIPPET_TEXT.copied : CODE_SNIPPET_TEXT.copy}
+            </button>
+          </CopyToClipboard>
+          <SyntaxHighlighter
+            language={lang}
+            style={nightOwl}
+            customStyle={customStyle}
+            showLineNumbers
+          >
+            {content}
+          </SyntaxHighlighter>
+        </div>
+      )}
     </>
   )
 }
