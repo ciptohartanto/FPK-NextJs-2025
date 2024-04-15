@@ -25,17 +25,26 @@
     }
 
     &BottomLeft {
-      @extend %col-desktop--3;
+      @extend %col-mobile--6, %col-desktop--3;
 
-      position: sticky;
-      top: 80px;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: $white;
+      @include mobile-view {
+        order: 2;
+      }
+
+      @include desktop-view {
+        position: sticky;
+        top: 100px;
+        order: 1;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: $white;
+      }
     }
 
     &Section {
       @extend %full-flex, %flex-start-column, %col-mobile--6, %col-desktop--8;
+
+      order: 1;
     }
 
     &Tags {
