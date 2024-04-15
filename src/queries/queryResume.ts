@@ -15,6 +15,8 @@ const QUERY_RESUME = gql`
             title
             experienceItem {
               title
+              position
+              location
               tags
               links {
                 html

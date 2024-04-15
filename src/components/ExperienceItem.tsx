@@ -19,7 +19,8 @@ export default function ExperienceItem({
   isLastItem,
   componentData,
 }: ExperienceItemProps) {
-  const { title, date, tags, content, links, location } = componentData
+  const { title, date, tags, content, links, location, position } =
+    componentData
   return (
     <div
       className={classNames(
@@ -35,16 +36,19 @@ export default function ExperienceItem({
       </div>
       <div className="experienceItem-wrapperRight">
         <h3 className="experienceItem-title">{title}</h3>
+        <span className="experienceItem-position">{position}</span>
         <span className="experienceItem-date">
           {location} | {date}
         </span>
-        <ul className="experienceItem-tagList">
-          {tags.split(',').map((text) => (
-            <li className="experienceItem-tag" key={text}>
-              <Tag text={text} />
-            </li>
-          ))}
-        </ul>
+        {tags && (
+          <ul className="experienceItem-tagList">
+            {tags.split(',').map((text) => (
+              <li className="experienceItem-tag" key={text}>
+                <Tag text={text} />
+              </li>
+            ))}
+          </ul>
+        )}
         <div
           className="experienceItem-content"
           dangerouslySetInnerHTML={{ __html: content.html }}

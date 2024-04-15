@@ -1,6 +1,8 @@
 .resumeBody {
   @extend %end-page-wrapper;
 
+  // background-color: red;
+
   &-wrapper {
     @extend %full-flex, %grid-wrapper;
 
@@ -95,27 +97,27 @@
 
     li {
       position: relative;
-      padding-left: 20px;
+      padding-left: 35px;
 
       &::before {
         content: '◍';
         display: inline-block;
         position: absolute;
         top: -1px;
-        left: 0;
-        margin-right: 10px;
+        left: 15px;
         transform: rotate(45deg);
         font-size: 11px;
       }
 
       li {
+        padding-left: 20px;
+
         &::before {
           content: '◍';
           display: inline-block;
           position: absolute;
           top: 1px;
-          left: 0;
-          margin-right: 10px;
+          left: 5px;
           transform: rotate(90deg);
           font-size: 9px;
         }
