@@ -46,7 +46,7 @@ $name: '.writings';
     position: relative;
     width: auto;
 
-    &-Item {
+    &Item {
       @include items-spacer(
         $mobile: 16px,
         $desktop: 22px,
