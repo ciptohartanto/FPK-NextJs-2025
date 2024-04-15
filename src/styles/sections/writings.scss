@@ -3,6 +3,8 @@ $name: '.writings';
 #{$name} {
   @extend %section-wrapper;
 
+  overflow-x: hidden;
+
   &-row {
     @extend %grid-wrapper;
   }

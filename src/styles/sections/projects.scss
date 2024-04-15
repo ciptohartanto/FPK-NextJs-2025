@@ -5,6 +5,7 @@ $css: '.projects';
     @extend %section-wrapper;
 
     display: block;
+    overflow-x: hidden;
   }
 
   &-title {

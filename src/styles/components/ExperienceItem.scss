@@ -102,7 +102,7 @@ $name: '.experienceItem';
     }
 
     a {
-      @extend %inline-flex, %link-hover, %typography-link-title;
+      @extend %inline-flex, %link-hover, %typography-link-description;
 
       position: relative;
     }
@@ -115,5 +115,11 @@ $name: '.experienceItem';
   &-tag {
     @include items-spacer($mobile: 7px, $desktop: 7px, $direction: 'bottom');
     @include items-spacer($mobile: 5px, $desktop: 5px, $direction: 'right');
+
+    padding-left: 0 !important; // override li styling of .resumeBody
+
+    &::before {
+      display: none !important; // override li::before styling of .resumeBody
+    }
   }
 }

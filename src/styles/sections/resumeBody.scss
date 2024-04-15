@@ -1,11 +1,21 @@
 .resumeBody {
   @extend %end-page-wrapper;
 
-  &-wrapperTop {
-    @extend %inline-flex, %flex-center;
+  &-wrapper {
+    @extend %full-flex, %grid-wrapper;
 
-    justify-content: space-between;
-    width: 100%;
+    &Top {
+      @extend %full-flex, %col-mobile--6, %col-desktop--12;
+
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &Section {
+      @extend %full-flex, %flex-start-column, %col-mobile--6, %col-desktop--8;
+
+      margin-top: 40px;
+    }
   }
 
   &-iconPdf {
@@ -63,21 +73,54 @@
     }
   }
 
-  &-wrapperSection {
-    margin-top: 40px;
-    @include desktop-view {
-      width: 624px;
-    }
-  }
-
   &-subsection {
     @include items-spacer($mobile: 32px, $desktop: 32px, $direction: 'bottom');
-  }
 
-  &-paragraph {
-    @extend %typography-section-description;
+    p {
+      @extend %typography-section-description;
 
-    @include items-spacer($mobile: 24px, $desktop: 20px, $direction: 'bottom');
+      @include items-spacer(
+        $mobile: 24px,
+        $desktop: 20px,
+        $direction: 'bottom'
+      );
+    }
+
+    strong {
+      display: block;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: '◍';
+        display: inline-block;
+        position: absolute;
+        top: -1px;
+        left: 0;
+        margin-right: 10px;
+        transform: rotate(45deg);
+        font-size: 11px;
+      }
+
+      li {
+        &::before {
+          content: '◍';
+          display: inline-block;
+          position: absolute;
+          top: 1px;
+          left: 0;
+          margin-right: 10px;
+          transform: rotate(90deg);
+          font-size: 9px;
+        }
+      }
+    }
   }
 }
 
