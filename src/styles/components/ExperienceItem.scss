@@ -115,6 +115,10 @@ $name: '.experienceItem';
   &-content {
     @extend %typography-card-caption;
 
+    @include mobile-view {
+      margin-top: 10px;
+    }
+
     p:last-of-type {
       margin-bottom: 0 !important;
     }
