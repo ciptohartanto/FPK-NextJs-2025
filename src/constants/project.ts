@@ -1,6 +1,8 @@
 export const KEYWORD_HTTP = 'http'
 export const LOAD_MORE_MULTIPLIER = 10
 
+export const BREAKPOINT_DESKTOP = 850
+
 export const UI_ICON_HAMBURGER_LINES = [
   { yHide: 5, yAnimate: 0 },
   { yHide: 0, yAnimate: 0 },
@@ -44,9 +46,6 @@ export const TRADEMARK_TEXT = {
   firstLine: 'Cipto',
   secondLine: 'Hartanto',
 }
-
-export const LAYOUT_POLKA_DOT =
-  'radial-gradient(rgba(14,210,230,0.4) 10%, transparent 10%), radial-gradient(rgba(121,39,255,0.3) 10%, transparent 10%)'
 
 export const PAGE_TITLE = {
   resume: 'Résumé',

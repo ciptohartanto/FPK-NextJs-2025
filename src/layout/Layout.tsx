@@ -4,7 +4,7 @@ import { Urbanist } from 'next/font/google'
 import { ReactNode } from 'react'
 
 import Nav from '@/components/Nav'
-import { LAYOUT_POLKA_DOT } from '@/constants/project'
+import useWindowWidth from '@/hooks/UseWindowWidth'
 
 const urbanist = Urbanist({
   subsets: ['latin'],
@@ -15,6 +15,10 @@ const urbanist = Urbanist({
 })
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const { isMobile } = useWindowWidth()
+
+  if (isMobile === undefined) return <></>
+
   return (
     <>
       <motion.div
@@ -25,9 +29,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         variants={{
           hide: {
             opacity: 0,
+            y: -10,
+            transition: { delay: 0.3, duration: 0.2 },
           },
           animate: {
             opacity: 1,
+            y: 0,
+            transition: { delay: 1.3, duration: 0.6 },
           },
         }}
         className="layout-curtain"
@@ -40,23 +48,16 @@ export default function Layout({ children }: { children: ReactNode }) {
         transition={{ type: 'tween' }}
         variants={{
           hide: {
-            opacity: 0,
-            width: '100%',
-            y: 0,
-            backgroundImage: LAYOUT_POLKA_DOT,
-            transition: { delay: 0.5, duration: 0.5 },
-            backgroundPosition: '0 0, 10px 10px',
-            backgroundSize: '18px 18px',
+            width: '100vw',
+            x: 0,
+            transition: { delay: 0.3, duration: 0.2 },
           },
 
           animate: {
-            opacity: 1,
-            width: 'calc(100% - 189px)',
-            y: 72,
-            backgroundImage: LAYOUT_POLKA_DOT,
-            backgroundPosition: '0 0, 10px 10px',
-            backgroundSize: '10px 10px',
-            transition: { delay: 2, duration: 1 },
+            x: isMobile ? 10 : 35,
+            width: isMobile ? 'calc(100vw - 20px)' : 'calc(100vw - 70px)',
+
+            transition: { delay: 1, duration: 0.7 },
           },
         }}
       />
@@ -76,7 +77,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           animate: {
             opacity: 1,
             y: 0,
-            transition: { delay: 1, duration: 1 },
+            transition: { delay: 2, duration: 0.8 },
           },
         }}
       >
