@@ -66,8 +66,9 @@
     h3 {
       @extend %typography-section-title-normal;
 
-      margin-top: 60px;
+      margin-top: -20px;
       margin-bottom: 32px;
+      padding-top: 80px;
 
       &:first-of-type {
         margin-top: 0;
