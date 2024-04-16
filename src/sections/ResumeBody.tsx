@@ -18,7 +18,9 @@ export default function ResumeBody({ componentData }: ResumeBodyProps) {
     <div className="resumeBody">
       <div className="resumeBody-wrapper">
         <div className="resumeBody-wrapperTop">
-          <Trademark />
+          <AnchorLink href="../">
+            <Trademark />
+          </AnchorLink>
           <div className="resumeBody-iconPdf">
             <AnchorLink href={pdfUrl}>
               <span className="resumeBody-iconPdfText">PDF</span>
