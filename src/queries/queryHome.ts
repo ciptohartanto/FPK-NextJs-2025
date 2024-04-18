@@ -38,6 +38,7 @@ const QUERY_HOME = gql`
       title
       tags
       publishTime
+      updatedAt
     }
   }
 `
