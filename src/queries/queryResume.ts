@@ -4,6 +4,7 @@ const QUERY_RESUME = gql`
   query Resume($id: ID!) {
     resume(where: { id: $id }) {
       sectionResume {
+        metaDescription
         resumeFile {
           url
         }

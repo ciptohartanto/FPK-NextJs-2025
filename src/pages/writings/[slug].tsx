@@ -55,7 +55,10 @@ export default function WritingsPage({
 
   return (
     <>
-      <PageHead pageTitle={articleBodyData.title} />
+      <PageHead
+        pageTitle={articleBodyData.title}
+        metaDescription={articleBodyData.metaDescription}
+      />
       <ArticleBody
         componentData={articleBodyData}
         articleNav={memoArticleNav[0]}

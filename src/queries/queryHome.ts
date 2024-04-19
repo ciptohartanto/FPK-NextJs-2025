@@ -3,6 +3,7 @@ import { gql } from '@apollo/client'
 const QUERY_HOME = gql`
   query Home($id: ID!, $orderBy: WritingOrderByInput!) {
     home(where: { id: $id }) {
+      metaDescription
       sectionAbout {
         title
         listOfIngredients {

@@ -29,6 +29,7 @@ export default function HomePage({
   const [popupData, setPopupData] = useState<null | ProjectItemProps>(null)
 
   const {
+    metaDescription,
     sectionHero: heroContent,
     sectionProject: projectContent,
     sectionWritings: writingsContent,
@@ -37,7 +38,7 @@ export default function HomePage({
 
   return (
     <>
-      <PageHead pageTitle={PAGE_TITLE.home} />
+      <PageHead pageTitle={PAGE_TITLE.home} metaDescription={metaDescription} />
       <Hero componentData={heroContent} />
       <Projects
         handleClick={(val) => {

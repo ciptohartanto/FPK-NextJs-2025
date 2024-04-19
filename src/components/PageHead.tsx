@@ -5,9 +5,13 @@ import { TRADEMARK_TEXT } from '@/constants/project'
 
 interface PageHeadProps {
   pageTitle: string
+  metaDescription: string
 }
 
-export default function PageHead({ pageTitle }: PageHeadProps) {
+export default function PageHead({
+  pageTitle,
+  metaDescription,
+}: PageHeadProps) {
   const [currentTitle, setCurrentTitle] = useState('')
 
   useEffect(() => {
@@ -32,8 +36,7 @@ export default function PageHead({ pageTitle }: PageHeadProps) {
       <title>{currentTitle}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <meta name="description" content="description" />
-      <meta name="keywords" content="keywords" />
+      <meta name="description" content={metaDescription} />
     </Head>
   )
 }

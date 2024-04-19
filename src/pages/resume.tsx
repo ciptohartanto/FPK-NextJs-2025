@@ -12,7 +12,10 @@ export default function ResumePage({ resume }: { resume: ResumePageProps }) {
 
   return (
     <>
-      <PageHead pageTitle={PAGE_TITLE.resume} />
+      <PageHead
+        pageTitle={PAGE_TITLE.resume}
+        metaDescription={resumeBodyData.metaDescription}
+      />
       <ResumeBody componentData={resumeBodyData} />
     </>
   )
