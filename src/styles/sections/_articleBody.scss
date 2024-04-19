@@ -63,6 +63,8 @@
   }
 
   &-section {
+    @extend %markdown-list-style;
+
     h3 {
       @extend %typography-section-title-normal;
 
@@ -72,7 +74,19 @@
 
       &:first-of-type {
         margin-top: 0;
+        padding-top: 0;
       }
+    }
+
+    h4 {
+      @extend %typography-card-title;
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      @extend %link-hover, %typography-link-description;
     }
 
     p {
