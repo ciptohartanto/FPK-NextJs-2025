@@ -93,6 +93,28 @@ const Aktitivas = ({ content }) => {
               allowFullScreen
             ></iframe>
           </div>
+          <div className="gridImage-item">
+            <iframe
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/iZfN9zEJAcg?si=ss_c6NKz5YApDlS1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="gridImage-item">
+            <iframe
+              width="100%"
+              height="auto"
+              src="https://www.youtube.com/embed/kdQJxBRhhBE?si=vzGdgH65Jscrb0v0"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
