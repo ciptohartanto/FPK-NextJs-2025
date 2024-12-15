@@ -97,7 +97,7 @@ const Aktitivas = ({ content }) => {
             <iframe
               width="100%"
               height="auto"
-              src="https://www.youtube.com/embed/iZfN9zEJAcg?si=ss_c6NKz5YApDlS1"
+              src="https://www.youtube.com/embed/iZfN9zEJAcg"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -108,7 +108,7 @@ const Aktitivas = ({ content }) => {
             <iframe
               width="100%"
               height="auto"
-              src="https://www.youtube.com/embed/kdQJxBRhhBE?si=vzGdgH65Jscrb0v0"
+              src="https://www.youtube.com/embed/kdQJxBRhhBE"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
