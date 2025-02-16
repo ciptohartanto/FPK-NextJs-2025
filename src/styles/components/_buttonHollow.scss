@@ -1,0 +1,58 @@
+.buttonHollow {
+  width: 100%;
+  border-style: solid;
+  color: $color-text-light;
+  cursor: pointer;
+  @extend %full-flex, %flex-center-column;
+  @include mobile-view {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-width: 2px;
+  }
+  @include desktop-view {
+    height: 170px;
+    border-width: 3px;
+  }
+
+  &-title {
+    @include desktop-view {
+      margin-top: 0;
+      transition: 0.3s ease-in-out margin-top;
+
+      .buttonHollow:hover & {
+        margin-top: -10px;
+        transition: 0.3s ease-in-out margin-top;
+      }
+    }
+  }
+
+  &-description {
+    opacity: 0;
+
+    @include desktop-view {
+      margin-top: -18px;
+      transition: 0.3s ease-in-out;
+      transition-property: margin-top, opacity;
+      opacity: 0;
+
+      .buttonHollow:hover & {
+        margin-top: -5px;
+        transition: 0.3s ease-in-out;
+        transition-property: margin-top, opacity;
+        opacity: 1;
+      }
+    }
+  }
+
+  &--one {
+    border-color: $bg-button-murid;
+  }
+
+  &--two {
+    border-color: $bg-button-donatur;
+  }
+
+  &--three {
+    border-color: $bg-button-voluntir;
+  }
+}
