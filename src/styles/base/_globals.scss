@@ -37,45 +37,12 @@ button {
   box-shadow: none;
 }
 
-// CSS scrollbars
-
-/* Firefox */
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: $black $white;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-  background: $white;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba($black, $opacity-50);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: $black;
-}
-
 a,
 a:focus,
 a:visited,
 a:hover {
   color: inherit;
   text-decoration: unset;
-}
-
-// selections
-
-::selection {
-  background: $select-highlight-background;
-  color: $white;
 }
 
 // locks body when Popup is showing
