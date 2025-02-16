@@ -1,0 +1,103 @@
+.typography {
+  &-title {
+    font-weight: lighter;
+    @include mobile-view {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+    @include desktop-view {
+      font-size: 24px;
+    }
+
+    &-small {
+      font-weight: bold;
+      @include mobile-view {
+        font-size: 14px;
+      }
+      @include desktop-view {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &-paragraph {
+    @include mobile-view {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    @include desktop-view {
+      font-size: 16px;
+    }
+  }
+
+  &-jumbo {
+    font-weight: bold;
+    @include mobile-view {
+      font-size: 20px;
+    }
+    @include desktop-view {
+      font-size: 35px;
+    }
+  }
+
+  &-quote {
+    font-family: cursive; // FIXME: change later
+    @include mobile-view {
+      font-size: 32px;
+      line-height: 1.3;
+    }
+    @include desktop-view {
+      font-size: 48px;
+      line-height: 1.25;
+    }
+  }
+
+  &-footer-link {
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  &-caption {
+    @include mobile-view {
+      font-size: 16px;
+    }
+    @include desktop-view {
+      font-size: 24px;
+    }
+  }
+
+  &-cta {
+    font-weight: lighter;
+    @include mobile-view {
+      font-size: 22px;
+    }
+    @include desktop-view {
+      font-size: 34px;
+    }
+  }
+
+  &-footer-copyright {
+    font-size: 12px;
+    font-weight: lighter;
+  }
+
+  &-footer-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &-footer-content {
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  &-footer-title-1em {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &-description {
+    font-size: 14px;
+    font-weight: lighter;
+  }
+}

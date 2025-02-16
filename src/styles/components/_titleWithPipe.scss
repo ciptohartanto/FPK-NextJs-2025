@@ -1,0 +1,29 @@
+.titleWithPipe {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: $bg-pipe;
+  }
+
+  @include mobile-view {
+    padding-left: 14px;
+  }
+
+  @include desktop-view {
+    padding-left: 24px;
+  }
+
+  &--onLightBackground {
+    color: $color-title;
+  }
+
+  &--onDarkBackground {
+    color: $color-text-light;
+  }
+}
