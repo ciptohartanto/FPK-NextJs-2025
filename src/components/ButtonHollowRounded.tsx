@@ -4,7 +4,7 @@ type ButtonHollowRoundedProps = {
 
 const CSS_CLASS_BASE = {
   self: 'buttonHollowRounded',
-  typography: 'typography-cta',
+  typography: 'typography-title-small',
 }
 
 export default function ButtonHollowRounded({
