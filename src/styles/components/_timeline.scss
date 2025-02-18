@@ -1,0 +1,24 @@
+.timeline {
+  @extend %flex-center-column;
+
+  position: relative;
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $bg-bullet-default;
+  }
+
+  &-title {
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+}
