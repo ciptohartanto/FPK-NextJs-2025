@@ -5,6 +5,7 @@ import ButtonHollowRounded from '@/components/ButtonHollowRounded'
 import Sns from '@/components/Sns'
 import Timeline from '@/components/Timeline'
 import TitleWithPipe from '@/components/TitleWithPipe'
+import YouTubeVid from '@/components/YouTubeVid'
 
 export default function HomePage() {
   return (
@@ -26,6 +27,12 @@ export default function HomePage() {
       <div style={{ backgroundColor: 'pink' }}>
         <ButtonHollowRounded buttonText="Button Text" />
       </div>
+
+      <YouTubeVid
+        videoUrl="https://www.youtube.com/watch?v=123"
+        thumbnailUrl="/dummy-thumbnail.jpg"
+        title="Test"
+      />
     </>
   )
 }
