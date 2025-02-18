@@ -1,0 +1,60 @@
+.swiper-pagination {
+  @extend %full-flex, %flex-center;
+
+  position: relative !important;
+  top: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+  left: unset !important;
+  margin-top: 20px !important;
+
+  @include desktop-view {
+    justify-content: flex-end;
+  }
+
+  &-bullet {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    transition: 0.2s ease-in-out;
+    transition-property: width, height, margin-left, margin-right;
+    border-radius: 100%;
+    opacity: 1 !important;
+    background-color: $bg-bullet-default !important;
+    @include mobile-view {
+      width: 15px !important;
+      height: 15px !important;
+    }
+    @include desktop-view {
+      width: 12px !important;
+      height: 12px !important;
+    }
+
+    &:first-of-type {
+      margin-left: 0 !important;
+    }
+
+    &:last-of-type {
+      margin-right: 0 !important;
+    }
+
+    &-active {
+      margin-right: 8.5px !important;
+      margin-left: 8.5px !important;
+      transition: 0.2s ease-in-out;
+      transition-property: width, height, margin-left, margin-right;
+      background-color: $color-default-text !important;
+      @include mobile-view {
+        width: 18px !important;
+        height: 18px !important;
+      }
+      @include desktop-view {
+        width: 15px !important;
+        height: 15px !important;
+      }
+    }
+  }
+}
+
+.swiper-slide {
+  height: auto !important;
+}
