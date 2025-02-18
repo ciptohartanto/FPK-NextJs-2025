@@ -36,3 +36,9 @@
 
   flex-direction: column;
 }
+
+%flex-center-row {
+  @extend %flex-center;
+
+  flex-direction: row;
+}
