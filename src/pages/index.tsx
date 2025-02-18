@@ -1,4 +1,5 @@
 import IconPhone from '@/assets/icons/sns-phone.svg'
+import Album from '@/components/Album'
 import Bullet from '@/components/Bullet'
 import ButtonHollow from '@/components/ButtonHollow'
 import ButtonHollowRounded from '@/components/ButtonHollowRounded'
@@ -33,6 +34,7 @@ export default function HomePage() {
         thumbnailUrl="/dummy-thumbnail.jpg"
         title="Test"
       />
+      <Album />
     </>
   )
 }
