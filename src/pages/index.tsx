@@ -1,4 +1,5 @@
 import IconPhone from '@/assets/icons/sns-phone.svg'
+import Bullet from '@/components/Bullet'
 import ButtonHollow from '@/components/ButtonHollow'
 import Sns from '@/components/Sns'
 import TitleWithPipe from '@/components/TitleWithPipe'
@@ -13,6 +14,8 @@ export default function HomePage() {
         buttonDescription="this is description"
       />
       <Sns svgLogo={<IconPhone />} svgText="telp" />
+      <Bullet isActive={false} />
+      <Bullet isActive={true} />
     </>
   )
 }
