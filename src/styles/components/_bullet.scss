@@ -1,0 +1,28 @@
+.bullet {
+  transition: 0.2s ease-in-out;
+  transition-property: width, height;
+  border-radius: 100%;
+  background-color: $bg-bullet-default;
+  @include mobile-view {
+    width: 15px;
+    height: 15px;
+  }
+  @include desktop-view {
+    width: 12px;
+    height: 12px;
+  }
+
+  &--active {
+    transition: 0.2s ease-in-out;
+    transition-property: width, height;
+    background-color: $color-default-text;
+    @include mobile-view {
+      width: 18px;
+      height: 18px;
+    }
+    @include desktop-view {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
