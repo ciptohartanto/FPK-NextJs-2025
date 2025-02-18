@@ -1,6 +1,7 @@
 import IconPhone from '@/assets/icons/sns-phone.svg'
 import Bullet from '@/components/Bullet'
 import ButtonHollow from '@/components/ButtonHollow'
+import ButtonHollowRounded from '@/components/ButtonHollowRounded'
 import Sns from '@/components/Sns'
 import Timeline from '@/components/Timeline'
 import TitleWithPipe from '@/components/TitleWithPipe'
@@ -22,6 +23,9 @@ export default function HomePage() {
         title="This is the title"
         description="Content of this Timeline"
       />
+      <div style={{ backgroundColor: 'pink' }}>
+        <ButtonHollowRounded buttonText="Button Text" />
+      </div>
     </>
   )
 }
