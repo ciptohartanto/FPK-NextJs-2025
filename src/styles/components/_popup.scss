@@ -1,0 +1,132 @@
+.popup {
+  @extend %full-flex, %flex-center;
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &-background {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-popup-layer;
+  }
+
+  &-body {
+    position: relative;
+    z-index: 1;
+    background-color: $bg-section-highlight;
+    color: $color-text-light;
+
+    @include mobile-view {
+      width: 300px;
+      height: 89vh;
+      max-height: 560px;
+      padding: 100px 18px 50px;
+    }
+    @include desktop-view {
+      width: 996px;
+      height: 660px;
+      padding: 100px;
+    }
+  }
+
+  &-iconClose {
+    position: absolute;
+
+    @include mobile-view {
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+    }
+    @include desktop-view {
+      top: 38px;
+      right: 38px;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+    }
+  }
+
+  &-wrapper {
+    @extend %full-flex, %flex-center-row;
+
+    margin-top: 25px;
+  }
+
+  &-buttonList {
+    @extend %full-flex;
+
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    justify-content: center;
+    width: 100%;
+    @include mobile-view {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 18px;
+    }
+    @include desktop-view {
+      flex-direction: row;
+      align-items: center;
+      padding: unset;
+    }
+  }
+
+  &-buttonItem {
+    @include mobile-view {
+      margin-bottom: 8px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    @include desktop-view {
+      margin-right: 22px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-content {
+    &--50-50 {
+      width: 50%;
+    }
+
+    &--30-70 {
+      &:first-of-type {
+        width: 30%;
+      }
+
+      &:last-of-type {
+        width: 70%;
+      }
+    }
+
+    &--60-40 {
+      &:first-of-type {
+        width: 60%;
+      }
+
+      &:last-of-type {
+        width: 40%;
+      }
+    }
+
+    &--100-0 {
+      width: 100%;
+    }
+  }
+}
