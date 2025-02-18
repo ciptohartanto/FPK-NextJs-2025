@@ -1,4 +1,6 @@
+import IconPhone from '@/assets/icons/sns-phone.svg'
 import ButtonHollow from '@/components/ButtonHollow'
+import Sns from '@/components/Sns'
 import TitleWithPipe from '@/components/TitleWithPipe'
 
 export default function HomePage() {
@@ -10,6 +12,7 @@ export default function HomePage() {
         buttonText="Button Text"
         buttonDescription="this is description"
       />
+      <Sns svgLogo={<IconPhone />} svgText="telp" />
     </>
   )
 }
