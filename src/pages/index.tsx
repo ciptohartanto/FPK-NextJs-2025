@@ -8,6 +8,7 @@ import Sns from '@/components/Sns'
 import Timeline from '@/components/Timeline'
 import TitleWithPipe from '@/components/TitleWithPipe'
 import YouTubeVid from '@/components/YouTubeVid'
+import Jumbotron from '@/sections/Jumbotron'
 
 export default function HomePage() {
   return (
@@ -42,6 +43,8 @@ export default function HomePage() {
         contentBodyType="60-40"
         content={[<div key={1}>xxx</div>, <span key={2}>aaaa</span>]}
       />
+
+      <Jumbotron />
     </>
   )
 }
