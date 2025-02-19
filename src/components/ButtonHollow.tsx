@@ -6,7 +6,7 @@ type ButtonHollowProps = {
   buttonDescription: string
 }
 
-const CSS_CLASS_BASE = {
+const CSS_BASE_CLASS = {
   self: 'buttonHollow',
   typographyTitle: 'typography-cta',
   typographyDescription: 'typography-description',
@@ -20,14 +20,14 @@ export default function ButtonHollow({
   return (
     <div
       className={classNames(
-        CSS_CLASS_BASE.self,
-        `${CSS_CLASS_BASE.self}--${style}`
+        CSS_BASE_CLASS.self,
+        `${CSS_BASE_CLASS.self}--${style}`
       )}
     >
       <h3
         className={classNames(
-          CSS_CLASS_BASE.typographyTitle,
-          `${CSS_CLASS_BASE.self}-title`
+          CSS_BASE_CLASS.typographyTitle,
+          `${CSS_BASE_CLASS.self}-title`
         )}
       >
         {buttonText}
@@ -35,8 +35,8 @@ export default function ButtonHollow({
 
       <span
         className={classNames(
-          CSS_CLASS_BASE.typographyDescription,
-          `${CSS_CLASS_BASE.self}-description`
+          CSS_BASE_CLASS.typographyDescription,
+          `${CSS_BASE_CLASS.self}-description`
         )}
       >
         {buttonDescription}

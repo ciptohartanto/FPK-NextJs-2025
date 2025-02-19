@@ -5,7 +5,7 @@ type TitleWithPipeProps = {
   style: 'onDarkBackground' | 'onLightBackground'
 }
 
-const CSS_CLASS_BASE = {
+const CSS_BASE_CLASS = {
   self: 'titleWithPipe',
   typography: 'typography-title',
 }
@@ -17,11 +17,11 @@ export default function TitleWithPipe({
   return (
     <h1
       className={classNames(
-        CSS_CLASS_BASE.self,
-        CSS_CLASS_BASE.typography,
+        CSS_BASE_CLASS.self,
+        CSS_BASE_CLASS.typography,
         style === 'onDarkBackground'
-          ? `${CSS_CLASS_BASE.self}--onDarkBackground`
-          : `${CSS_CLASS_BASE.self}--onLightBackground`
+          ? `${CSS_BASE_CLASS.self}--onDarkBackground`
+          : `${CSS_BASE_CLASS.self}--onLightBackground`
       )}
     >
       {titleText}

@@ -5,7 +5,7 @@ type SnsProps = {
   svgText: string
 }
 
-const CSS_CLASS_BASE = {
+const CSS_BASE_CLASS = {
   self: 'sns',
   svg: 'sns-svg',
   typography: 'typography-footer-title-1em',
@@ -14,9 +14,9 @@ const CSS_CLASS_BASE = {
 export default function Sns({ svgLogo, svgText }: SnsProps) {
   console.log(svgLogo)
   return (
-    <div className={CSS_CLASS_BASE.self}>
-      <span className={CSS_CLASS_BASE.svg}>{svgLogo}</span>
-      <span className={CSS_CLASS_BASE.typography}>{svgText}</span>
+    <div className={CSS_BASE_CLASS.self}>
+      <span className={CSS_BASE_CLASS.svg}>{svgLogo}</span>
+      <span className={CSS_BASE_CLASS.typography}>{svgText}</span>
     </div>
   )
 }
