@@ -1,0 +1,57 @@
+.jumbotron {
+  @extend %full-flex, %flex-center-column;
+
+  position: relative;
+  width: 100%;
+  @include mobile-view {
+    height: 365px;
+  }
+  @include desktop-view {
+    height: 718px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background: linear-gradient(
+      180deg,
+      rgb(69 69 69 / 0%) 0%,
+      rgb(54 9 9 / 100%) 42%
+    );
+  }
+
+  &-image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-contentWrapper {
+    @extend %full-flex, %flex-center-column;
+
+    position: relative;
+    z-index: 2;
+    color: $color-text-light;
+  }
+
+  &-jumbo {
+    margin: auto 6px;
+  }
+
+  &-button {
+    margin-top: 10px;
+  }
+}
