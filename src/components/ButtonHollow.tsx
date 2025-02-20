@@ -1,7 +1,9 @@
 import classNames from 'classnames'
 
+export type ButtonHollowStyle = 'one' | 'two' | 'three'
+
 type ButtonHollowProps = {
-  style: 'one' | 'two' | 'three'
+  style: ButtonHollowStyle
   buttonText: string
   buttonDescription: string
 }

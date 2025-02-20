@@ -1,4 +1,5 @@
 .buttonHollow {
+  position: relative;
   width: 100%;
   border-style: solid;
   color: $color-text-light;
@@ -16,29 +17,39 @@
 
   &-title {
     @include desktop-view {
-      margin-top: 0;
-      transition: 0.3s ease-in-out margin-top;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s ease-in-out top;
 
       .buttonHollow:hover & {
-        margin-top: -10px;
-        transition: 0.3s ease-in-out margin-top;
+        top: 30%;
+        transition: 0.3s ease-in-out top;
       }
     }
   }
 
   &-description {
     opacity: 0;
+    @include mobile-view {
+      display: none;
+      visibility: hidden;
+    }
 
     @include desktop-view {
-      margin-top: -18px;
+      position: absolute;
+      top: 60%;
+      transform: translateY(-50%);
       transition: 0.3s ease-in-out;
-      transition-property: margin-top, opacity;
+      transition-property: top, opacity;
       opacity: 0;
+      text-align: center;
 
       .buttonHollow:hover & {
-        margin-top: -5px;
+        top: 55%;
         transition: 0.3s ease-in-out;
-        transition-property: margin-top, opacity;
+        transition-property: top, opacity;
         opacity: 1;
       }
     }
@@ -46,13 +57,28 @@
 
   &--one {
     border-color: $bg-button-murid;
+
+    &:hover {
+      background-color: $bg-button-murid;
+      color: $color-default-text;
+    }
   }
 
   &--two {
     border-color: $bg-button-donatur;
+
+    &:hover {
+      background-color: $bg-button-donatur;
+      color: $color-default-text;
+    }
   }
 
   &--three {
     border-color: $bg-button-voluntir;
+
+    &:hover {
+      background-color: $bg-button-voluntir;
+      color: $color-default-text;
+    }
   }
 }
