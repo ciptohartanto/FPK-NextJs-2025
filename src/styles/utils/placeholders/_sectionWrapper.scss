@@ -6,7 +6,7 @@
   @include mobile-view {
     max-width: 1000px;
     margin: 0 $gutter-mobile/-2;
-    padding: 48px 18px;
+    padding: 48px 8px; // 18px - 10px
   }
 
   @include desktop-view {
