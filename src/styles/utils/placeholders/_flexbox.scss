@@ -31,6 +31,11 @@
   flex-direction: row;
 }
 
+%flex-x-right-y-center-row {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 %flex-center-column {
   @extend %flex-center;
 

@@ -1,0 +1,83 @@
+.mitraKami {
+  @extend %full-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  &-wrapper {
+    align-items: center;
+
+    @extend %section-wrapper;
+  }
+
+  &-wrapperLeft {
+    @extend %col-mobile--6;
+    @extend %col-desktop--6;
+
+    @include mobile-view {
+      order: 2;
+    }
+
+    @include desktop-view {
+      justify-content: flex-end;
+    }
+  }
+
+  &-wrapperRight {
+    @extend %col-mobile--6;
+    @extend %col-desktop--6;
+    @include mobile-view {
+      order: 1;
+    }
+  }
+
+  &-list {
+    @extend %full-flex, %flex-x-right-y-center-row;
+
+    align-items: center;
+
+    @include mobile-view {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &-item {
+    @include mobile-view {
+      margin-right: 14px;
+    }
+    @include desktop-view {
+      margin-right: 30px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &-mitraBg {
+    @extend %cover-background-image;
+
+    @include mobile-view {
+      width: 75px;
+      height: 75px;
+    }
+    @include desktop-view {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  &-mitraText {
+    display: block;
+    text-align: center;
+    @include mobile-view {
+      width: 94px;
+      letter-spacing: 0.001em;
+    }
+    @include desktop-view {
+      width: 150px;
+      letter-spacing: 0.02em;
+    }
+  }
+}
