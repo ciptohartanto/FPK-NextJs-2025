@@ -9,6 +9,7 @@ import Timeline from '@/components/Timeline'
 import TitleWithPipe from '@/components/TitleWithPipe'
 import YouTubeVid from '@/components/YouTubeVid'
 import Jumbotron from '@/sections/Jumbotron'
+import Prestasi from '@/sections/Prestasi'
 import Quote from '@/sections/Quote'
 import SiapaKami from '@/sections/SiapaKami'
 
@@ -57,6 +58,10 @@ Kami percaya bahwa sesuatu yang luar biasa akan terjadi ketika kami membulatkan 
       <Quote
         title="Karena masa depan sungguh ada, dan harapanmu tidak akan hilang"
         background="/dummy-wallpaper.jpg"
+      />
+      <Prestasi
+        title="Prestasi"
+        content="Kegigihan dan komitmen yang serius dari para mahasiswa-mahasiswi di Yayasan Flores Penuh Kasih membuahkan hasil yang tidak hanya berdampak pada diri mereka, tetapi juga di hotel tempat mereka bekerja."
       />
     </>
   )
