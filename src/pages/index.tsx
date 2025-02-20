@@ -9,6 +9,7 @@ import Timeline from '@/components/Timeline'
 import TitleWithPipe from '@/components/TitleWithPipe'
 import YouTubeVid from '@/components/YouTubeVid'
 import Jumbotron from '@/sections/Jumbotron'
+import SiapaKami from '@/sections/SiapaKami'
 
 export default function HomePage() {
   return (
@@ -45,6 +46,13 @@ export default function HomePage() {
       />
 
       <Jumbotron />
+      <SiapaKami
+        title="Siapa Kami"
+        content="Di Yayasan Flores Penuh Kasih, kita semua adalah insan-insan bertalenta Labuan Bajo yang bertekad untuk membuka peluang, mengasah diri, dan membuktikan keunikan yang ada dalam setiap kami.
+
+Kami percaya bahwa sesuatu yang luar biasa akan terjadi ketika kami membulatkan hati untuk maju demi menggapai cita-cita kami."
+        background="/dummy-wallpaper.jpg"
+      />
     </>
   )
 }
