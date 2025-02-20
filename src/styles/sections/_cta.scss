@@ -1,0 +1,39 @@
+.cta {
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-section-highlight;
+  @extend %full-flex;
+
+  &-wrapper {
+    @extend %section-wrapper;
+
+    flex-direction: column;
+  }
+
+  &-buttonList {
+    @extend %flex-center-column;
+  }
+
+  &-title {
+    margin-bottom: 37px;
+    color: $color-text-light;
+    text-align: center;
+  }
+
+  &-buttonItem {
+    @extend %col-mobile--6;
+    @extend %col-desktop--4;
+    @include mobile-view {
+      margin-bottom: 12px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-link {
+    width: 100%;
+    @extend %full-flex;
+  }
+}
