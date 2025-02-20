@@ -1,0 +1,53 @@
+.siapaKami {
+  @extend %full-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  &-wrapper {
+    @extend %section-wrapper;
+
+    @include desktop-view {
+      align-items: center;
+    }
+  }
+
+  &-wrapperLeft {
+    @extend %col-mobile--6;
+    @extend %col-desktop--5;
+  }
+
+  &-wrapperRight {
+    @extend %col-mobile--6;
+    @extend %col-desktop--7;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &-thumbnail {
+    width: calc(100% - 12px);
+    margin-left: auto;
+    @extend %cover-background-image;
+    @include mobile-view {
+      height: 146px;
+      margin-bottom: 14px;
+      border-radius: 18px 0 0 18px;
+    }
+    @include desktop-view {
+      height: 320px;
+      border-radius: 0 18px 18px 0;
+    }
+  }
+
+  &-paragraph {
+    text-align: justify;
+    @include mobile-view {
+      margin-top: 4px;
+      padding-left: 12px;
+    }
+    @include desktop-view {
+      margin-top: 20px;
+    }
+  }
+}

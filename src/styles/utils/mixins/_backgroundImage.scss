@@ -1,9 +1,7 @@
 @mixin background-image($file) {
   @if $file and $file != '' {
     background-image: url('#{$file}');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    @extend %cover-background-image;
   } @else {
     @error '$file: `#{$file}` should have a value';
   }
