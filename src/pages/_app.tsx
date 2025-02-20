@@ -1,26 +1,13 @@
 import '../styles/index.scss'
 
-import classNames from 'classnames'
-import type { AppProps } from 'next/app'
-import { Niconne, Nokora } from 'next/font/google'
+import { AppProps } from 'next/app'
 
-const nokora = Nokora({
-  variable: '--font-nokora',
-  subsets: ['latin'],
-  weight: ['300', '400', '700'],
-  display: 'swap',
-})
-const niconne = Niconne({
-  variable: '--font-niconne',
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-})
+import Layout from '@/layout'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={classNames(nokora.variable, niconne.variable)}>
+    <Layout>
       <Component {...pageProps} />
-    </main>
+    </Layout>
   )
 }
