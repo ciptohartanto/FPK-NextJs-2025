@@ -7,14 +7,4 @@
       ', Roboto, Oxygen, Ubuntu, Cantarell, ' Open Sans ', ' Helvetica Neue
       ', sans-serif'
   );
-
-  @include mobile-view {
-    max-width: 1000px;
-    padding: 0 18px;
-  }
-  @include desktop-view {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-  }
 }

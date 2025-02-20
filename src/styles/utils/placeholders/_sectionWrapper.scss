@@ -1,13 +1,18 @@
 %section-wrapper {
   @extend %inline-flex;
 
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  min-height: 100vh;
-  padding: 36px 0;
+  @include mobile-view {
+    max-width: 1000px;
+    margin: 0 $gutter-mobile/-2;
+    padding: 48px 18px;
+  }
 
   @include desktop-view {
-    padding: 72px 0;
+    width: 1200px;
+    margin: 0 $gutter-desktop/-2;
+    padding: 100px 0;
   }
 }
 
