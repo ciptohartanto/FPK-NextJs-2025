@@ -11,12 +11,12 @@ export default function Album() {
     <Swiper
       modules={[Pagination]}
       breakpoints={{
-        320: { slidesPerView: 1, spaceBetween: 0 },
+        320: { slidesPerView: 1, spaceBetween: 18 },
         850: { slidesPerView: 2, spaceBetween: 20 },
       }}
-      slidesPerView={1}
       pagination={{ clickable: true }}
-      tag="ul"
+      tag="div"
+      wrapperTag="ul"
     >
       <SwiperSlide tag="li">
         <Image
