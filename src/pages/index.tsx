@@ -1,5 +1,6 @@
 import Cta from '@/sections/Cta'
 import Jumbotron from '@/sections/Jumbotron'
+import MitraKami from '@/sections/MitraKami'
 import Prestasi from '@/sections/Prestasi'
 import Quote from '@/sections/Quote'
 import SiapaKami from '@/sections/SiapaKami'
@@ -50,6 +51,14 @@ Kami percaya bahwa sesuatu yang luar biasa akan terjadi ketika kami membulatkan 
 
             style: 'three',
           },
+        ]}
+      />
+      <MitraKami
+        title="Mitra Kami"
+        mitras={[
+          { namaMitra: 'Pavilla Labuan Bajo' },
+          { namaMitra: 'Katamaran', background: '/dummy-wallpaper.jpg' },
+          { namaMitra: 'Loccal', background: '/dummy-wallpaper.jpg' },
         ]}
       />
     </>
