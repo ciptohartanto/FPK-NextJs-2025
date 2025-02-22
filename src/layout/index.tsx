@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import { Niconne, Nokora } from 'next/font/google'
 import { ReactNode } from 'react'
 
+import Footer from '@/components/Footer'
+
 const nokora = Nokora({
   variable: '--font-nokora',
   subsets: ['latin'],
@@ -32,6 +34,7 @@ export default function Layout({ children }: LayoutProps) {
       )}
     >
       {children}
+      <Footer />
     </div>
   )
 }
