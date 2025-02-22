@@ -1,0 +1,106 @@
+.footer {
+  @extend %full-flex;
+
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    -48deg,
+    rgb(111 23 23 / 100%) 0%,
+    rgb(213 95 44 / 100%) 113%
+  );
+  color: $color-text-light;
+
+  &-wrapper {
+    @extend %section-wrapper;
+
+    position: relative;
+    @include desktop-view {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 50px 0 50px 307px;
+    }
+  }
+
+  &-topWrapper {
+    @extend %full-flex;
+
+    position: relative;
+    @include desktop-view {
+      width: calc(100% + $gutter-desktop);
+      margin-right: -$gutter-desktop / 2;
+      margin-left: -$gutter-desktop / 2;
+    }
+  }
+
+  &-subSection {
+    position: relative;
+    @extend %col-mobile--6;
+    @extend %col-desktop--3;
+
+    @include mobile-view {
+      margin-top: 20px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        padding-left: 94px;
+      }
+    }
+
+    &--logo {
+      position: absolute;
+      @include desktop-view {
+        top: 0;
+        bottom: 0;
+        width: 219px;
+      }
+    }
+  }
+
+  &-logoWrapper {
+    background-color: $color-text-light;
+    @extend %full-flex, %flex-center;
+    @include mobile-view {
+      position: absolute;
+      bottom: 90px;
+      left: 18px;
+      width: 80px;
+      height: 80px;
+    }
+    @include desktop-view {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 219px;
+      height: 100%;
+    }
+  }
+
+  &-logo {
+    @include background-image('/logo-flores-penuh-kasih.jpg');
+
+    display: block;
+    @include mobile-view {
+      width: 79px;
+      height: 67px;
+    }
+    @include desktop-view {
+      width: 189px;
+      height: 158px;
+    }
+  }
+
+  &-bottomWrapper {
+    @include mobile-view {
+      margin-top: 19px;
+      padding-left: 10px;
+    }
+    @include desktop-view {
+      margin-top: 60px;
+    }
+  }
+}
