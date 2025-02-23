@@ -8,16 +8,16 @@ type YouTubesProps = {
 }
 
 const CSS_BASE_CLASS = {
-  self: 'youtubes',
-  wrapper: 'youtubes-wrapper',
+  self: 'youTubes',
+  wrapper: 'youTubes-wrapper',
 
-  title: 'youtubes-title',
+  title: 'youTubes-title',
   typographyTitle: 'typography-title',
-  list: 'youtubes-list',
-  item: 'youtubes-item',
+  list: 'youTubes-list',
+  item: 'youTubes-item',
 }
 
-export default function Youtubes({ title, youtubeVids }: YouTubesProps) {
+export default function YouTubes({ title, youtubeVids }: YouTubesProps) {
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
