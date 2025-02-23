@@ -15,6 +15,11 @@
   &-wrapperLeft {
     @extend %col-mobile--6;
     @extend %col-desktop--5;
+
+    position: relative;
+    @include desktop-view {
+      height: 320px;
+    }
   }
 
   &-wrapperRight {
@@ -26,7 +31,8 @@
   }
 
   &-thumbnail {
-    width: calc(100% - 12px);
+    width: 42vw;
+    max-width: 750px;
     margin-left: auto;
     @extend %cover-background-image;
     @include mobile-view {
@@ -35,7 +41,11 @@
       border-radius: 18px 0 0 18px;
     }
     @include desktop-view {
-      height: 320px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
       border-radius: 0 18px 18px 0;
     }
   }
