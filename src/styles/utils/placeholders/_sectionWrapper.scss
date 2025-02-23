@@ -2,15 +2,16 @@
   @extend %inline-flex;
 
   flex-direction: row;
-  width: 100%;
+
   @include mobile-view {
-    max-width: 1000px;
+    width: 100%;
+    max-width: $max-width-mobile;
     margin: 0 $gutter-mobile/-2;
     padding: 48px 8px; // 18px - 10px
   }
 
   @include desktop-view {
-    width: 1200px;
+    width: calc($wrapper-width-desktop + $gutter-desktop);
     margin: 0 $gutter-desktop/-2;
     padding: 100px 0;
   }
