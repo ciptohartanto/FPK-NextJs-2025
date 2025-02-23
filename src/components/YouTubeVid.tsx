@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import IconYoutube from '@/assets/icons/icon-youtube.svg'
 
-type YouTubeVidProps = {
+export type YouTubeVidProps = {
   videoUrl: string
   thumbnailUrl: string
   title: string
