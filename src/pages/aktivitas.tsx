@@ -1,10 +1,10 @@
-// import YouTubes from '@/sections/'
+import YouTubes from '@/sections/YouTubes'
 
 export default function AktivitasHome() {
   return (
     <div style={{ width: '100%' }}>
       <h1>Aktivitas</h1>
-      {/* <YouTubes
+      <YouTubes
         title="Yayasan Flores Penuh Kasih on Youtube"
         youtubeVids={[
           {
@@ -28,7 +28,7 @@ export default function AktivitasHome() {
             title: 'Kunjungan ke Loccal Collection',
           },
         ]}
-      /> */}
+      />
     </div>
   )
 }
