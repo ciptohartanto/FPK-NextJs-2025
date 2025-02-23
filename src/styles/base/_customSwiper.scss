@@ -1,3 +1,16 @@
+.swiper--withNumbers {
+  margin: 0 auto;
+  @include mobile-view {
+    width: calc(100% - $gutter-mobile);
+    height: 529px;
+  }
+
+  @include desktop-view {
+    width: calc(100% - $gutter-desktop);
+    height: 676px;
+  }
+}
+
 .swiper-pagination {
   @extend %full-flex, %flex-center;
 
@@ -52,6 +65,10 @@
         height: 15px !important;
       }
     }
+  }
+
+  .swiper--withNumbers & {
+    display: none !important;
   }
 }
 

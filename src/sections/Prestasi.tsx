@@ -34,7 +34,15 @@ export default function Prestasi({ title, content }: PrestasiProps) {
         </div>
         <div className={CSS_BASE_CLASS.wrapperRight}>
           <div className={CSS_BASE_CLASS.album}>
-            <Album />
+            <Album
+              type="default"
+              images={[
+                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
+                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
+                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
+                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
+              ]}
+            />
           </div>
         </div>
       </div>
