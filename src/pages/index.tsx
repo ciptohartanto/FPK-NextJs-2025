@@ -11,43 +11,32 @@ export default function HomePage() {
       <Jumbotron />
       <SiapaKami
         title="Siapa Kami"
-        content="Di Yayasan Flores Penuh Kasih, kita semua adalah insan-insan bertalenta Labuan Bajo yang bertekad untuk membuka peluang, mengasah diri, dan membuktikan keunikan yang ada dalam setiap kami.
-
-Kami percaya bahwa sesuatu yang luar biasa akan terjadi ketika kami membulatkan hati untuk maju demi menggapai cita-cita kami."
+        content="content"
         background="/dummy-wallpaper.jpg"
       />
-      <Quote
-        title="Karena masa depan sungguh ada, dan harapanmu tidak akan hilang"
-        background="/dummy-wallpaper.jpg"
-      />
-      <Prestasi
-        title="Prestasi"
-        content="Kegigihan dan komitmen yang serius dari para mahasiswa-mahasiswi di Yayasan Flores Penuh Kasih membuahkan hasil yang tidak hanya berdampak pada diri mereka, tetapi juga di hotel tempat mereka bekerja."
-      />
+      <Quote title="content" background="/dummy-wallpaper.jpg" />
+      <Prestasi title="Prestasi" content="content" />
       <Cta
         title="Bergabung Bersama Kami"
         buttons={[
           {
             url: 'https://example.com',
             buttonText: 'Sebagai Murid',
-            buttonDescription:
-              'Tantangannya sangat sulit, tetapi dengan keyakinan yang teguh kita pasti bisa.',
+            buttonDescription: 'content',
 
             style: 'one',
           },
           {
             url: 'https://example.com',
             buttonText: 'Sebagai Murid',
-            buttonDescription:
-              'Tantangannya sangat sulit, tetapi dengan keyakinan yang teguh kita pasti bisa.',
+            buttonDescription: 'content',
 
             style: 'two',
           },
           {
             url: 'https://example.com',
             buttonText: 'Sebagai Murid',
-            buttonDescription:
-              'Tantangannya sangat sulit, tetapi dengan keyakinan yang teguh kita pasti bisa.',
+            buttonDescription: 'content',
 
             style: 'three',
           },
@@ -56,7 +45,7 @@ Kami percaya bahwa sesuatu yang luar biasa akan terjadi ketika kami membulatkan 
       <MitraKami
         title="Mitra Kami"
         mitras={[
-          { namaMitra: 'Pavilla Labuan Bajo' },
+          { namaMitra: 'Pavilliun Labuan Bajo' },
           { namaMitra: 'Katamaran', background: '/dummy-wallpaper.jpg' },
           { namaMitra: 'Loccal', background: '/dummy-wallpaper.jpg' },
         ]}

@@ -1,4 +1,4 @@
-// import YouTubes from '@/sections/Youtubes'
+// import YouTubes from '@/sections/'
 
 export default function AktivitasHome() {
   return (

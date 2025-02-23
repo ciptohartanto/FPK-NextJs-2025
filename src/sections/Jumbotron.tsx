@@ -24,7 +24,7 @@ export default function Jumbotron() {
         alt="dummy"
       />
       <div className={CSS_BASE_CLASS.contentWrapper}>
-        <h3 className={CSS_BASE_CLASS.typographyCaption}>Selamat Datang di</h3>
+        <h3 className={CSS_BASE_CLASS.typographyCaption}>context</h3>
         <h1
           className={classNames(
             CSS_BASE_CLASS.typographyJumbo,
@@ -33,11 +33,9 @@ export default function Jumbotron() {
         >
           Yayasan Flores Penuh Kasih
         </h1>
-        <h2 className={CSS_BASE_CLASS.typographyCaption}>
-          Karena masa depan sungguh ada
-        </h2>
+        <h2 className={CSS_BASE_CLASS.typographyCaption}>context</h2>
         <div className={CSS_BASE_CLASS.button}>
-          <ButtonHollowRounded buttonText="Lihat Semua Kegiatan Kami" />
+          <ButtonHollowRounded buttonText="check it out" />
         </div>
       </div>
     </div>
