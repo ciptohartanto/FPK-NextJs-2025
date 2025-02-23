@@ -1,0 +1,46 @@
+.youtubes {
+  @extend %full-flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-section-highlight;
+  color: $color-text-light;
+
+  &-wrapper {
+    @extend %section-wrapper;
+
+    background-color: $bg-section-highlight;
+    @include desktop-view {
+      flex-direction: column;
+    }
+  }
+
+  &-list {
+    @extend %inline-flex;
+
+    flex-direction: row;
+  }
+
+  &-title {
+    @extend %col-mobile--6;
+    @extend %col-desktop--12;
+
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &-item {
+    @extend %col-mobile--6;
+    @extend %col-desktop--4;
+    @include mobile-view {
+      margin-bottom: 28px;
+    }
+    @include desktop-view {
+      margin-bottom: 43px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
