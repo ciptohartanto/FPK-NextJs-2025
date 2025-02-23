@@ -17,6 +17,8 @@
   &-wrapperLeft {
     @extend %col-mobile--6;
     @extend %col-desktop--5;
+
+    flex-direction: column;
   }
 
   &-wrapperRight {
