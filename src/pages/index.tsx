@@ -1,3 +1,6 @@
+import { gql } from '@apollo/client'
+
+import clientQuery from '@/api/clientQuery'
 import Cta from '@/sections/Cta'
 import Jumbotron from '@/sections/Jumbotron'
 import MitraKami from '@/sections/MitraKami'
@@ -52,4 +55,26 @@ export default function HomePage() {
       />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const data = await clientQuery({
+    query: gql`
+      query Home($id: ID!) {
+        homePage(where: { id: $id }) {
+          sectionQuote {
+            title
+          }
+        }
+      }
+    `,
+    variableObject: {
+      id: process.env.HYGRAPH_HOME_ID,
+    },
+  })
+
+  console.log(data)
+  return {
+    props: { data: '' },
+  }
 }
