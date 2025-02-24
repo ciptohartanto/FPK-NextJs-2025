@@ -12,7 +12,6 @@ const CSS_BASE_CLASS = {
 }
 
 export default function Sns({ svgLogo, svgText }: SnsProps) {
-  console.log(svgLogo)
   return (
     <div className={CSS_BASE_CLASS.self}>
       <span className={CSS_BASE_CLASS.svg}>{svgLogo}</span>
