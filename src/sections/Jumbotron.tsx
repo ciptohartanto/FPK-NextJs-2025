@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import ButtonHollowRounded from '@/components/ButtonHollowRounded'
 import { Jumbotron as SectionJumbotronProps } from '@/gql/graphql'
@@ -43,9 +44,9 @@ export default function Jumbotron({ data }: JumbotronProps) {
           {title}
         </h1>
         <h2 className={CSS_BASE_CLASS.typographyCaption}>{secondCaption}</h2>
-        <div className={CSS_BASE_CLASS.button}>
+        <Link href="/aktivitas" className={CSS_BASE_CLASS.button}>
           <ButtonHollowRounded buttonText={buttonText} />
-        </div>
+        </Link>
       </div>
     </div>
   )
