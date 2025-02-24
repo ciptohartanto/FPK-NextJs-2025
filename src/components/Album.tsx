@@ -12,7 +12,7 @@ import { ItemAlbum } from '@/gql/graphql'
 
 type AlbumProps = {
   type: 'default' | 'withNumbers'
-  imagesOnAlbum: ItemAlbum[]
+  imagesOnAlbum: Pick<ItemAlbum, 'fileGambar' | 'id' | 'judul'>[]
 }
 
 const CSS_BASE_CLASS = {
