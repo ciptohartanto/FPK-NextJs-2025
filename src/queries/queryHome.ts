@@ -15,6 +15,16 @@ const QUERY_HOME = gql`
           }
         }
       }
+      sectionSiapaKami {
+        title
+        description
+        gambar {
+          judul
+          fileGambar {
+            url
+          }
+        }
+      }
       sectionQuote {
         title
         gambar {
