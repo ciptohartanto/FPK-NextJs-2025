@@ -38,8 +38,9 @@
     @extend %col-mobile--6;
     @extend %col-desktop--4;
 
+    flex-direction: column;
+
     @include mobile-view {
-      flex-direction: column;
       margin-top: 20px;
 
       &:first-of-type {
