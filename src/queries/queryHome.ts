@@ -5,6 +5,12 @@ const QUERY_HOME = gql`
     homePage(where: { id: $id }) {
       sectionQuote {
         title
+        gambar {
+          judul
+          fileGambar {
+            url
+          }
+        }
       }
     }
   }
