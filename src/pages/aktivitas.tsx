@@ -1,18 +1,21 @@
+import { GetStaticPropsResult } from 'next'
+
+import clientQuery from '@/api/clientQuery'
 import Album from '@/components/Album'
+import { AktivitasPage, AktivitasPageQuery, FooterQuery } from '@/gql/graphql'
+import QUERY_AKTIVITAS from '@/queries/queryAktivitas'
+import QUERY_FOOTER from '@/queries/queryFooter'
 import YouTubes from '@/sections/YouTubes'
 
-export default function AktivitasHome() {
+type AktivitasPageProps = {
+  aktivitasPage: AktivitasPage
+}
+
+export default function AktivitasHome({ aktivitasPage }: AktivitasPageProps) {
+  const { albums } = aktivitasPage
   return (
     <div style={{ width: '100%' }}>
-      <Album
-        type="withNumbers"
-        images={[
-          { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-          { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-          { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-          { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-        ]}
-      />
+      <Album type="withNumbers" imagesOnAlbum={albums} />
       <YouTubes
         title="Yayasan Flores Penuh Kasih on Youtube"
         youtubeVids={[
@@ -40,4 +43,34 @@ export default function AktivitasHome() {
       />
     </div>
   )
+}
+
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<AktivitasPageQuery & FooterQuery>
+> {
+  const aktivitasData = await clientQuery<AktivitasPageQuery>({
+    query: QUERY_AKTIVITAS,
+    variableObject: {
+      id: process.env.HYGRAPH_AKTIVITAS_PAGE_ID,
+    },
+  })
+
+  const footerData = await clientQuery<FooterQuery>({
+    query: QUERY_FOOTER,
+    variableObject: {
+      id: process.env.HYGRAPH_THE_FOOTER_ID,
+    },
+  })
+
+  const { theFooter } = footerData
+  const { aktivitasPage } = aktivitasData
+
+  console.log({ aktivitasData, footerData })
+
+  return {
+    props: {
+      aktivitasPage,
+      theFooter,
+    },
+  }
 }
