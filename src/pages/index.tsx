@@ -48,14 +48,14 @@ export async function getStaticProps(): Promise<
   const homeData = await clientQuery<HomeQuery>({
     query: QUERY_HOME,
     variableObject: {
-      id: process.env.HYGRAPH_HOME_ID,
+      id: process.env.HYGRAPH_HOME_PAGE_ID,
     },
   })
 
   const footerData = await clientQuery<FooterQuery>({
     query: QUERY_FOOTER,
     variableObject: {
-      id: process.env.HYGRAPH_FOOTER_ID,
+      id: process.env.HYGRAPH_THE_FOOTER_ID,
     },
   })
 
