@@ -55,6 +55,16 @@ const QUERY_HOME = gql`
           }
         }
       }
+      sectionCta {
+        title
+        ctaButtons {
+          buttonText
+          buttonDescription
+          style
+          popupContentLeft
+          popupContentRight
+        }
+      }
     }
   }
 `
