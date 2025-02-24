@@ -29,7 +29,6 @@ const CSS_BASE_CLASS = {
 export default function Layout({ children, pageProps }: LayoutProps) {
   const { theFooter } = pageProps
 
-  console.log(pageProps)
   return (
     <div
       className={classNames(

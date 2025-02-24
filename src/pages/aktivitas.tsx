@@ -65,8 +65,6 @@ export async function getStaticProps(): Promise<
   const { theFooter } = footerData
   const { aktivitasPage } = aktivitasData
 
-  console.log({ aktivitasData, footerData })
-
   return {
     props: {
       aktivitasPage,
