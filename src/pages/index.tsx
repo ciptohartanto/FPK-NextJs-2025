@@ -15,16 +15,16 @@ type HomePageProps = {
 }
 
 export default function HomePage({ homePage }: HomePageProps) {
-  console.log(homePage)
+  const { sectionQuote, sectionJumbotron } = homePage
   return (
     <>
-      <Jumbotron />
+      <Jumbotron data={sectionJumbotron} />
       <SiapaKami
         title="Siapa Kami"
         content="content"
         background="/dummy-wallpaper.jpg"
       />
-      <Quote data={homePage.sectionQuote} />
+      <Quote data={sectionQuote} />
       <Prestasi title="Prestasi" content="content" />
       <Cta
         title="Bergabung Bersama Kami"
