@@ -3,6 +3,7 @@ import { Niconne, Nokora } from 'next/font/google'
 import { ReactNode } from 'react'
 
 import Footer from '@/components/Footer'
+import { FooterQuery, HomeQuery } from '@/gql/graphql'
 
 const nokora = Nokora({
   variable: '--font-nokora',
@@ -18,13 +19,17 @@ const niconne = Niconne({
 })
 type LayoutProps = {
   children: ReactNode
+  pageProps: HomeQuery & FooterQuery
 }
 
 const CSS_BASE_CLASS = {
   self: 'layout',
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, pageProps }: LayoutProps) {
+  const { theFooter } = pageProps
+
+  console.log(pageProps)
   return (
     <div
       className={classNames(
@@ -34,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
       )}
     >
       {children}
-      <Footer />
+      <Footer theFooter={theFooter} />
     </div>
   )
 }
