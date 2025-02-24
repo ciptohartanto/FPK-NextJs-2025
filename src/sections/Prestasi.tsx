@@ -2,10 +2,10 @@ import classNames from 'classnames'
 
 import Album from '@/components/Album'
 import TitleWithPipe from '@/components/TitleWithPipe'
+import { Prestasi as PrestasiGraphProps } from '@/gql/graphql'
 
 type PrestasiProps = {
-  title: string
-  content: string
+  data: PrestasiGraphProps
 }
 
 const CSS_BASE_CLASS = {
@@ -17,7 +17,8 @@ const CSS_BASE_CLASS = {
   wrapperLeft: 'prestasi-wrapperLeft',
   wrapperRight: 'prestasi-wrapperRight',
 }
-export default function Prestasi({ title, content }: PrestasiProps) {
+export default function Prestasi({ data }: PrestasiProps) {
+  const { title, description, albums } = data
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -29,20 +30,12 @@ export default function Prestasi({ title, content }: PrestasiProps) {
               CSS_BASE_CLASS.paragraph
             )}
           >
-            {content}
+            {description}
           </h3>
         </div>
         <div className={CSS_BASE_CLASS.wrapperRight}>
           <div className={CSS_BASE_CLASS.album}>
-            <Album
-              type="default"
-              images={[
-                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-                { url: '/dummy-wallpaper.jpg', alt: 'dummy' },
-              ]}
-            />
+            <Album type="default" imagesOnAlbum={albums} />
           </div>
         </div>
       </div>
