@@ -1,16 +1,10 @@
 import classNames from 'classnames'
-import Link from 'next/link'
 
-import ButtonHollow, { ButtonHollowStyle } from '@/components/ButtonHollow'
+import ButtonHollow from '@/components/ButtonHollow'
+import { Cta as CtaGraphProps } from '@/gql/graphql'
 
 type CtaProps = {
-  title: string
-  buttons: {
-    url: string
-    buttonText: string
-    buttonDescription: string
-    style: ButtonHollowStyle
-  }[]
+  data: CtaGraphProps
 }
 
 const CSS_BASE_CLASS = {
@@ -23,7 +17,8 @@ const CSS_BASE_CLASS = {
   link: 'cta-link',
 }
 
-export default function Cta({ title, buttons }: CtaProps) {
+export default function Cta({ data }: CtaProps) {
+  const { title, ctaButtons } = data
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -36,15 +31,13 @@ export default function Cta({ title, buttons }: CtaProps) {
           {title}
         </h3>
         <ul className={CSS_BASE_CLASS.buttonList}>
-          {buttons.map((button) => (
-            <li key={button.url} className={CSS_BASE_CLASS.buttonItem}>
-              <Link className={CSS_BASE_CLASS.link} href={button.url}>
-                <ButtonHollow
-                  buttonText={button.buttonText}
-                  buttonDescription={button.buttonDescription}
-                  style={button.style}
-                />
-              </Link>
+          {ctaButtons.map((button) => (
+            <li key={button.id} className={CSS_BASE_CLASS.buttonItem}>
+              <ButtonHollow
+                buttonText={button.buttonText}
+                buttonDescription={button.buttonDescription}
+                style={button.style}
+              />
             </li>
           ))}
         </ul>
