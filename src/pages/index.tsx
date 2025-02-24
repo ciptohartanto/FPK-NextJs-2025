@@ -1,7 +1,7 @@
 import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
-import { HomeQuery } from '@/gql/graphql'
+import { HomePage as HomePageQueryProps, HomeQuery } from '@/gql/graphql'
 import QUERY_HOME from '@/queries/queryHome'
 import Cta from '@/sections/Cta'
 import Jumbotron from '@/sections/Jumbotron'
@@ -10,9 +10,12 @@ import Prestasi from '@/sections/Prestasi'
 import Quote from '@/sections/Quote'
 import SiapaKami from '@/sections/SiapaKami'
 
-export default function HomePage({ homePage }: HomeQuery) {
-  const { sectionQuote } = homePage!
-  const { title: quoteTitle } = sectionQuote
+type HomePageProps = {
+  homePage: HomePageQueryProps
+}
+
+export default function HomePage({ homePage }: HomePageProps) {
+  console.log(homePage)
   return (
     <>
       <Jumbotron />
@@ -21,7 +24,7 @@ export default function HomePage({ homePage }: HomeQuery) {
         content="content"
         background="/dummy-wallpaper.jpg"
       />
-      <Quote title={quoteTitle} background="/dummy-wallpaper.jpg" />
+      <Quote data={homePage.sectionQuote} />
       <Prestasi title="Prestasi" content="content" />
       <Cta
         title="Bergabung Bersama Kami"
@@ -72,6 +75,7 @@ export async function getStaticProps(): Promise<
   })
 
   const { homePage } = data
+
   return {
     props: { homePage },
   }
