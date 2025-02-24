@@ -41,6 +41,8 @@ const QUERY_HOME = gql`
         title
         description
         albums {
+          id
+          judul
           fileGambar {
             url
           }
@@ -58,6 +60,7 @@ const QUERY_HOME = gql`
       sectionCta {
         title
         ctaButtons {
+          id
           buttonText
           buttonDescription
           style
