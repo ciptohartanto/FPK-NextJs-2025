@@ -46,6 +46,15 @@ const QUERY_HOME = gql`
           }
         }
       }
+      sectionMitraKami {
+        title
+        mitras {
+          namaMitra
+          logoFile {
+            url
+          }
+        }
+      }
     }
   }
 `
