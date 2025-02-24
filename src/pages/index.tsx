@@ -1,7 +1,13 @@
 import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
-import { HomePage as HomePageQueryProps, HomeQuery } from '@/gql/graphql'
+import {
+  FooterQuery,
+  HomePage as HomePageQueryProps,
+  HomeQuery,
+  TheFooter as FooterQueryProps,
+} from '@/gql/graphql'
+import QUERY_FOOTER from '@/queries/queryFooter'
 import QUERY_HOME from '@/queries/queryHome'
 import Cta from '@/sections/Cta'
 import Jumbotron from '@/sections/Jumbotron'
@@ -12,6 +18,7 @@ import SiapaKami from '@/sections/SiapaKami'
 
 type HomePageProps = {
   homePage: HomePageQueryProps
+  footerData: FooterQueryProps
 }
 
 export default function HomePage({ homePage }: HomePageProps) {
@@ -36,18 +43,26 @@ export default function HomePage({ homePage }: HomePageProps) {
 }
 
 export async function getStaticProps(): Promise<
-  GetStaticPropsResult<HomeQuery>
+  GetStaticPropsResult<HomeQuery & FooterQuery>
 > {
-  const data = await clientQuery<HomeQuery>({
+  const homeData = await clientQuery<HomeQuery>({
     query: QUERY_HOME,
     variableObject: {
       id: process.env.HYGRAPH_HOME_ID,
     },
   })
 
-  const { homePage } = data
+  const footerData = await clientQuery<FooterQuery>({
+    query: QUERY_FOOTER,
+    variableObject: {
+      id: process.env.HYGRAPH_FOOTER_ID,
+    },
+  })
+
+  const { homePage } = homeData
+  const { theFooter } = footerData
 
   return {
-    props: { homePage },
+    props: { homePage, theFooter },
   }
 }
