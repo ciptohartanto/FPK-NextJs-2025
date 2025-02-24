@@ -8,13 +8,11 @@ import { useState } from 'react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-type AlbumImageProps = {
-  url: string
-  alt: string
-}
+import { ItemAlbum } from '@/gql/graphql'
+
 type AlbumProps = {
   type: 'default' | 'withNumbers'
-  images: AlbumImageProps[]
+  imagesOnAlbum: ItemAlbum[]
 }
 
 const CSS_BASE_CLASS = {
@@ -27,7 +25,7 @@ const CSS_BASE_CLASS = {
   albumCounterText: 'album-counterText',
 }
 
-export default function Album({ type = 'default', images }: AlbumProps) {
+export default function Album({ type = 'default', imagesOnAlbum }: AlbumProps) {
   const [realIndex, setRealIndex] = useState<undefined | number>(undefined)
   return (
     <Swiper
@@ -56,16 +54,16 @@ export default function Album({ type = 'default', images }: AlbumProps) {
         CSS_BASE_CLASS.self
       )}
     >
-      {images.map((item) => (
-        <SwiperSlide tag="li" key={item.url}>
+      {imagesOnAlbum.map((item) => (
+        <SwiperSlide tag="li" key={item.id}>
           <Image
             className={classNames(CSS_BASE_CLASS.albumImage, {
               [CSS_BASE_CLASS.albumImageWithNumbers]: type === 'withNumbers',
             })}
-            src={item.url}
+            src={item.fileGambar.url}
             width={300}
             height={300}
-            alt={item.alt}
+            alt={item.judul}
           />
         </SwiperSlide>
       ))}
@@ -73,7 +71,7 @@ export default function Album({ type = 'default', images }: AlbumProps) {
       {type === 'withNumbers' && realIndex !== undefined && (
         <div className={CSS_BASE_CLASS.albumCounter}>
           <span className={CSS_BASE_CLASS.albumCounterText}>
-            {realIndex + 1} / {images.length}
+            {realIndex + 1} / {imagesOnAlbum.length}
           </span>
         </div>
       )}
