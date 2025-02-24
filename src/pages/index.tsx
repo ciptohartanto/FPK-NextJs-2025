@@ -1,6 +1,8 @@
-import { gql } from '@apollo/client'
+import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
+import { HomeQuery } from '@/gql/graphql'
+import QUERY_HOME from '@/queries/queryHome'
 import Cta from '@/sections/Cta'
 import Jumbotron from '@/sections/Jumbotron'
 import MitraKami from '@/sections/MitraKami'
@@ -8,7 +10,9 @@ import Prestasi from '@/sections/Prestasi'
 import Quote from '@/sections/Quote'
 import SiapaKami from '@/sections/SiapaKami'
 
-export default function HomePage() {
+export default function HomePage({ homePage }: HomeQuery) {
+  const { sectionQuote } = homePage!
+  const { title: quoteTitle } = sectionQuote
   return (
     <>
       <Jumbotron />
@@ -17,7 +21,7 @@ export default function HomePage() {
         content="content"
         background="/dummy-wallpaper.jpg"
       />
-      <Quote title="content" background="/dummy-wallpaper.jpg" />
+      <Quote title={quoteTitle} background="/dummy-wallpaper.jpg" />
       <Prestasi title="Prestasi" content="content" />
       <Cta
         title="Bergabung Bersama Kami"
@@ -57,24 +61,18 @@ export default function HomePage() {
   )
 }
 
-export async function getStaticProps() {
-  const data = await clientQuery({
-    query: gql`
-      query Home($id: ID!) {
-        homePage(where: { id: $id }) {
-          sectionQuote {
-            title
-          }
-        }
-      }
-    `,
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<HomeQuery>
+> {
+  const data = await clientQuery<HomeQuery>({
+    query: QUERY_HOME,
     variableObject: {
       id: process.env.HYGRAPH_HOME_ID,
     },
   })
 
-  console.log(data)
+  const { homePage } = data
   return {
-    props: { data: '' },
+    props: { homePage },
   }
 }
