@@ -21,6 +21,7 @@ export default function HomePage({ homePage }: HomePageProps) {
     sectionQuote,
     sectionPrestasi,
     sectionMitraKami,
+    sectionCta,
   } = homePage
   return (
     <>
@@ -28,32 +29,7 @@ export default function HomePage({ homePage }: HomePageProps) {
       <SiapaKami data={sectionSiapaKami} />
       <Quote data={sectionQuote} />
       <Prestasi data={sectionPrestasi} />
-      <Cta
-        title="Bergabung Bersama Kami"
-        buttons={[
-          {
-            url: 'https://example.com',
-            buttonText: 'Sebagai Murid',
-            buttonDescription: 'content',
-
-            style: 'one',
-          },
-          {
-            url: 'https://example.com',
-            buttonText: 'Sebagai Murid',
-            buttonDescription: 'content',
-
-            style: 'two',
-          },
-          {
-            url: 'https://example.com',
-            buttonText: 'Sebagai Murid',
-            buttonDescription: 'content',
-
-            style: 'three',
-          },
-        ]}
-      />
+      <Cta data={sectionCta!} />
       <MitraKami data={sectionMitraKami!} />
     </>
   )
