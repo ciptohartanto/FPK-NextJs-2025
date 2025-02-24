@@ -1,8 +1,9 @@
 import classNames from 'classnames'
 
-type QuoteProps = {
-  title: string
-  background: string
+import { Quote as QuoteQueryProps } from '@/gql/graphql'
+
+export type QuoteProps = {
+  data: QuoteQueryProps
 }
 
 const CSS_BASE_CLASS = {
@@ -12,11 +13,12 @@ const CSS_BASE_CLASS = {
   typography: 'typography-quote',
 }
 
-export default function Quote({ title, background }: QuoteProps) {
+export default function Quote({ data }: QuoteProps) {
+  const { title, gambar } = data
   return (
     <div
       className={CSS_BASE_CLASS.self}
-      style={{ backgroundImage: `url(${background})` }}
+      style={{ backgroundImage: `url(${gambar.fileGambar.url})` }}
     >
       <div className={CSS_BASE_CLASS.wrapper}>
         <h2
@@ -24,6 +26,7 @@ export default function Quote({ title, background }: QuoteProps) {
             CSS_BASE_CLASS.typography,
             CSS_BASE_CLASS.title
           )}
+          aria-label={gambar.judul}
         >
           {title}
         </h2>
