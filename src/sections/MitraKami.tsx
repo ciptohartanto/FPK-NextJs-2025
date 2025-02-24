@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 
 import TitleWithPipe from '@/components/TitleWithPipe'
+import { MitraKami as MitraKamiGraphProps } from '@/gql/graphql'
 
 type MitraKamiProps = {
-  title: string
-  mitras: { background?: string; namaMitra: string }[]
+  data: MitraKamiGraphProps
 }
 
 const CSS_BASE_CLASS = {
@@ -18,7 +18,8 @@ const CSS_BASE_CLASS = {
   mitraText: 'mitraKami-mitraText',
   typographyMitra: 'typography-caption',
 }
-export default function MitraKami({ title, mitras }: MitraKamiProps) {
+export default function MitraKami({ data }: MitraKamiProps) {
+  const { title, mitras } = data
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -26,10 +27,10 @@ export default function MitraKami({ title, mitras }: MitraKamiProps) {
           <ul className={CSS_BASE_CLASS.list}>
             {mitras.map((mitra) => (
               <li key={mitra.namaMitra} className={CSS_BASE_CLASS.item}>
-                {mitra.background ? (
+                {mitra.logoFile ? (
                   <div
                     className={CSS_BASE_CLASS.mitraBg}
-                    style={{ backgroundImage: `url(${mitra.background})` }}
+                    style={{ backgroundImage: `url(${mitra.logoFile.url})` }}
                   />
                 ) : (
                   <span
