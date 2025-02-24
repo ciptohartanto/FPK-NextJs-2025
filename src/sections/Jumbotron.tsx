@@ -20,7 +20,7 @@ type JumbotronProps = {
 
 export default function Jumbotron({ data }: JumbotronProps) {
   const { title, firstCaption, secondCaption, buttonText, gambar } = data
-  console.log(data)
+
   return (
     <div className={CSS_BASE_CLASS.self}>
       <Image
