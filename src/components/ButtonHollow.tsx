@@ -1,12 +1,11 @@
 import classNames from 'classnames'
 
-export type ButtonHollowStyle = 'one' | 'two' | 'three'
+import { ItemCta as ItemCtaGraphProps } from '@/gql/graphql'
 
-type ButtonHollowProps = {
-  style: ButtonHollowStyle
-  buttonText: string
-  buttonDescription: string
-}
+type ButtonHollowProps = Pick<
+  ItemCtaGraphProps,
+  'buttonText' | 'buttonDescription' | 'style'
+>
 
 const CSS_BASE_CLASS = {
   self: 'buttonHollow',
@@ -15,9 +14,9 @@ const CSS_BASE_CLASS = {
 }
 
 export default function ButtonHollow({
-  style = 'one',
   buttonText,
   buttonDescription,
+  style,
 }: ButtonHollowProps) {
   return (
     <div
