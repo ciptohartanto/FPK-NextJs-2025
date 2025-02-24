@@ -36,9 +36,10 @@
   &-subSection {
     position: relative;
     @extend %col-mobile--6;
-    @extend %col-desktop--3;
+    @extend %col-desktop--4;
 
     @include mobile-view {
+      flex-direction: column;
       margin-top: 20px;
 
       &:first-of-type {
@@ -101,6 +102,26 @@
     }
     @include desktop-view {
       margin-top: 60px;
+    }
+  }
+
+  &-content {
+    margin-top: 10px;
+    overflow: hidden;
+
+    ul {
+      position: relative;
+    }
+
+    li {
+      margin-bottom: 10px;
+      overflow: hidden;
+      font-weight: 700;
+      line-height: 1;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }
