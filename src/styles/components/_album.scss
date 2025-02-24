@@ -8,6 +8,7 @@
     width: auto;
     height: $default-album-height;
     transform: translateX(-50%) translateY(-50%);
+    box-shadow: 2px 2px 20px 10px rgb(0 0 0 / 15%);
 
     &--withNumbers {
       border-radius: 0;

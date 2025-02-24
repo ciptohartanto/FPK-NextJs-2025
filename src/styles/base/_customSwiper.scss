@@ -76,6 +76,10 @@
   height: auto !important;
   overflow: hidden !important;
   border-radius: $d-var-photo-cornered;
+
+  .swiper--withNumbers & {
+    border-radius: 0;
+  }
 }
 
 .swiper-wrapper {
@@ -83,11 +87,11 @@
 
   .swiper--withNumbers & {
     @include mobile-view {
-      height: $with-numbers-album-height-mobile;
+      height: $with-numbers-album-height-mobile !important;
     }
 
     @include desktop-view {
-      height: $with-numbers-album-height-desktop;
+      height: $with-numbers-album-height-desktop !important;
     }
   }
 }
