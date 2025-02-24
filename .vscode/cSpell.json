@@ -44,6 +44,10 @@
     "katamaran",
     "gambar",
     "judul",
-    "graphassets"
+    "graphassets",
+    "timeFormat",
+    "representationof",
+    "YYYYMMDDTHHMMSSZ",
+    "typenames"
   ]
 }
