@@ -5,7 +5,6 @@ import {
   FooterQuery,
   HomePage as HomePageQueryProps,
   HomeQuery,
-  TheFooter as FooterQueryProps,
 } from '@/gql/graphql'
 import QUERY_FOOTER from '@/queries/queryFooter'
 import QUERY_HOME from '@/queries/queryHome'
@@ -18,7 +17,6 @@ import SiapaKami from '@/sections/SiapaKami'
 
 type HomePageProps = {
   homePage: HomePageQueryProps
-  footerData: FooterQueryProps
 }
 
 export default function HomePage({ homePage }: HomePageProps) {
