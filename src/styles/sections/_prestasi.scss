@@ -41,13 +41,12 @@
   }
 
   &-album {
+    width: 100%;
     @include mobile-view {
-      width: 100%;
       margin-top: 37px;
     }
     @include desktop-view {
       width: calc(100% + 50px);
-      height: 100%;
     }
   }
 }

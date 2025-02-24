@@ -74,4 +74,20 @@
 
 .swiper-slide {
   height: auto !important;
+  overflow: hidden !important;
+  border-radius: $d-var-photo-cornered;
+}
+
+.swiper-wrapper {
+  height: $default-album-height !important;
+
+  .swiper--withNumbers & {
+    @include mobile-view {
+      height: $with-numbers-album-height-mobile;
+    }
+
+    @include desktop-view {
+      height: $with-numbers-album-height-desktop;
+    }
+  }
 }
