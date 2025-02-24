@@ -1,5 +1,9 @@
 import classNames from 'classnames'
 
+import { FooterQuery } from '@/gql/graphql'
+
+type FooterProps = Pick<FooterQuery, 'theFooter'>
+
 const CSS_BASE_CLASS = {
   self: 'footer',
   wrapper: 'footer-wrapper',
@@ -13,9 +17,13 @@ const CSS_BASE_CLASS = {
   subSectionLogo: 'footer-subSection--logo',
   typographyFooterLink: 'typography-footer-link',
   typographyFooterCopyright: 'typography-footer-copyright',
+  typographyFooterTitle: 'typography-footer-title',
+  typographyFooterContent: 'typography-footer-content',
+  content: 'footer-content',
 }
 
-export default function Footer() {
+export default function Footer({ theFooter }: FooterProps) {
+  const { footerSection, copyrightText } = theFooter!
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -41,20 +49,20 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className={CSS_BASE_CLASS.subSection}>
-            <div>alamat</div>
-          </div>
-          <div className={CSS_BASE_CLASS.subSection}>
-            <div>kontak kami</div>
-            <br />
-            <div>kontak kami</div>
-            <br />
-            <div>kontak kami</div>
-            <br />
-            <div>kontak kami</div>
-            <br />
-            <div>kontak kami</div>
-          </div>
+          {footerSection.map((item) => (
+            <div key={item.id} className={CSS_BASE_CLASS.subSection}>
+              <div className={CSS_BASE_CLASS.typographyFooterTitle}>
+                {item.title}
+              </div>
+              <div
+                className={classNames(
+                  CSS_BASE_CLASS.content,
+                  CSS_BASE_CLASS.typographyFooterContent
+                )}
+                dangerouslySetInnerHTML={{ __html: item.content.html }}
+              />
+            </div>
+          ))}
         </div>
         <div
           className={classNames(
@@ -62,7 +70,7 @@ export default function Footer() {
             CSS_BASE_CLASS.typographyFooterCopyright
           )}
         >
-          Yayasan Flores Penuh kasih - 2025
+          {copyrightText}
         </div>
       </div>
     </div>
