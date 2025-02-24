@@ -15,8 +15,13 @@ type HomePageProps = {
 }
 
 export default function HomePage({ homePage }: HomePageProps) {
-  const { sectionJumbotron, sectionSiapaKami, sectionQuote, sectionPrestasi } =
-    homePage
+  const {
+    sectionJumbotron,
+    sectionSiapaKami,
+    sectionQuote,
+    sectionPrestasi,
+    sectionMitraKami,
+  } = homePage
   return (
     <>
       <Jumbotron data={sectionJumbotron} />
@@ -49,14 +54,7 @@ export default function HomePage({ homePage }: HomePageProps) {
           },
         ]}
       />
-      <MitraKami
-        title="Mitra Kami"
-        mitras={[
-          { namaMitra: 'Pavilliun Labuan Bajo' },
-          { namaMitra: 'Katamaran', background: '/dummy-wallpaper.jpg' },
-          { namaMitra: 'Loccal', background: '/dummy-wallpaper.jpg' },
-        ]}
-      />
+      <MitraKami data={sectionMitraKami!} />
     </>
   )
 }
