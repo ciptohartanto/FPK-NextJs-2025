@@ -4,17 +4,18 @@
   &-image {
     width: 100%;
     height: 100%;
+    height: 320px;
     border-radius: 18px;
-    @include mobile-view {
-      height: 529px;
-    }
-
-    @include desktop-view {
-      height: 676px;
-    }
 
     &--withNumbers {
       border-radius: 0;
+      @include mobile-view {
+        height: 529px;
+      }
+
+      @include desktop-view {
+        height: 676px;
+      }
     }
   }
 
