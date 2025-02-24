@@ -28,7 +28,19 @@ const QUERY_HOME = gql`
       sectionQuote {
         title
         gambar {
+          id
           judul
+          fileGambar {
+            url
+            id
+            stage
+          }
+        }
+      }
+      sectionPrestasi {
+        title
+        description
+        albums {
           fileGambar {
             url
           }
