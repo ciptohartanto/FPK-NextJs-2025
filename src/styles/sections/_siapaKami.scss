@@ -53,6 +53,7 @@
 
   &-paragraph {
     text-align: justify;
+    white-space: preserve-breaks;
     @include mobile-view {
       margin-top: 4px;
       padding-left: 12px;

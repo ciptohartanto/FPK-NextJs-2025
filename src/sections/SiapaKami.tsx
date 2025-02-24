@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 
 import TitleWithPipe from '@/components/TitleWithPipe'
+import { SiapaKami as SiapaKamiGraphProps } from '@/gql/graphql'
 
 type SiapaKamiProps = {
-  title: string
-  content: string
-  background: string
+  data: SiapaKamiGraphProps
 }
 
 const CSS_BASE_CLASS = {
@@ -18,18 +17,16 @@ const CSS_BASE_CLASS = {
   wrapperRight: 'siapaKami-wrapperRight',
 }
 
-export default function SiapaKami({
-  title,
-  content,
-  background,
-}: SiapaKamiProps) {
+export default function SiapaKami({ data }: SiapaKamiProps) {
+  const { title, description, gambar } = data
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
         <div className={CSS_BASE_CLASS.wrapperLeft}>
           <div
             className={CSS_BASE_CLASS.thumbnail}
-            style={{ backgroundImage: `url(${background})` }}
+            style={{ backgroundImage: `url(${gambar.fileGambar.url})` }}
+            aria-label={gambar.judul}
           />
         </div>
         <div className={CSS_BASE_CLASS.wrapperRight}>
@@ -40,7 +37,7 @@ export default function SiapaKami({
               CSS_BASE_CLASS.paragraph
             )}
           >
-            {content}
+            {description}
           </h3>
         </div>
       </div>
