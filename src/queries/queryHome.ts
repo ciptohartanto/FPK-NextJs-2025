@@ -64,8 +64,12 @@ const QUERY_HOME = gql`
           buttonText
           buttonDescription
           style
-          popupContentLeft
-          popupContentRight
+          popupLeftContent {
+            html
+          }
+          popupRightContent {
+            html
+          }
         }
       }
     }
