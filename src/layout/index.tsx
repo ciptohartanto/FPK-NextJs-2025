@@ -3,6 +3,8 @@ import { Niconne, Nokora } from 'next/font/google'
 import { ReactNode } from 'react'
 
 import Footer from '@/components/Footer'
+import Popup from '@/components/Popup'
+import { useFpkContext } from '@/context'
 import { FooterQuery, HomeQuery } from '@/gql/graphql'
 
 const nokora = Nokora({
@@ -28,6 +30,7 @@ const CSS_BASE_CLASS = {
 
 export default function Layout({ children, pageProps }: LayoutProps) {
   const { theFooter } = pageProps
+  const { popupContent } = useFpkContext()
 
   return (
     <div
@@ -38,6 +41,8 @@ export default function Layout({ children, pageProps }: LayoutProps) {
       )}
     >
       {children}
+      {popupContent && <Popup data={popupContent} />}
+
       <Footer theFooter={theFooter} />
     </div>
   )
