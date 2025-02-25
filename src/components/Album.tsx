@@ -46,7 +46,7 @@ export default function Album({ type = 'default', imagesOnAlbum }: AlbumProps) {
       wrapperTag="ul"
       onInit={(swiper) => setRealIndex(swiper.realIndex)}
       onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
-      autoplay={type === 'withNumbers'}
+      autoplay={type === 'withNumbers' && { delay: 6000 }}
       loop={type === 'withNumbers'}
       className={classNames(
         CSS_BASE_CLASS.swiper,

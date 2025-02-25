@@ -29,9 +29,21 @@
     left: 50%;
     transform: translateX(-50%);
     color: $color-text-light;
+    @include mobile-view {
+      bottom: 14px;
+    }
+    @include desktop-view {
+      bottom: 34px;
+      color: $color-default-text;
+    }
   }
 
   &-counterText {
-    text-shadow: 0 4px 4px #000;
+    @include mobile-view {
+      text-shadow: 0 4px 4px #000;
+    }
+    @include desktop-view {
+      text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+    }
   }
 }

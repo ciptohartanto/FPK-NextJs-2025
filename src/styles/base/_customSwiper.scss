@@ -7,7 +7,7 @@
 
   @include desktop-view {
     width: calc(100% - $gutter-desktop);
-    height: 676px;
+    height: 80vh;
   }
 }
 
@@ -91,7 +91,7 @@
     }
 
     @include desktop-view {
-      height: $with-numbers-album-height-desktop !important;
+      height: 100% !important;
     }
   }
 }
