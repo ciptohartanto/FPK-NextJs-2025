@@ -61,9 +61,10 @@ export default function Album({ type = 'default', imagesOnAlbum }: AlbumProps) {
               [CSS_BASE_CLASS.albumImageWithNumbers]: type === 'withNumbers',
             })}
             src={item.fileGambar.url}
-            width={300}
-            height={300}
+            width={700}
+            height={500}
             alt={item.judul}
+            quality={60}
           />
         </SwiperSlide>
       ))}
