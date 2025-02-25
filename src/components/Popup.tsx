@@ -38,7 +38,10 @@ export default function Popup({ data }: PopupProps) {
 
   return (
     <div className={CSS_BASE_CLASS.self}>
-      <div className={CSS_BASE_CLASS.background} />
+      <div
+        className={CSS_BASE_CLASS.background}
+        onClick={() => handlePopupContent(undefined)}
+      />
       <div className={CSS_BASE_CLASS.body}>
         <span
           className={CSS_BASE_CLASS.iconClose}
