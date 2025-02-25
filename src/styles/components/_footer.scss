@@ -106,6 +106,10 @@
     }
   }
 
+  &-linkItem {
+    cursor: pointer;
+  }
+
   &-content {
     margin-top: 10px;
     overflow: hidden;

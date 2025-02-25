@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 
+import { useFpkContext } from '@/context'
 import { FooterQuery } from '@/gql/graphql'
 
 type FooterProps = Pick<FooterQuery, 'theFooter'>
@@ -23,7 +24,9 @@ const CSS_BASE_CLASS = {
 }
 
 export default function Footer({ theFooter }: FooterProps) {
-  const { footerSection, copyrightText } = theFooter!
+  const { footerSection, linksWithPopup, copyrightText } = theFooter!
+  const { handlePopupContent } = useFpkContext()
+
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -38,15 +41,25 @@ export default function Footer({ theFooter }: FooterProps) {
                 CSS_BASE_CLASS.typographyFooterLink
               )}
             >
-              <li className={classNames(CSS_BASE_CLASS.linkItem)}>
-                <a>Visi dan Misi</a>
-              </li>
-              <li className={classNames(CSS_BASE_CLASS.linkItem)}>
-                <a>Bergabung Bersama Kami</a>
-              </li>
-              <li className={classNames(CSS_BASE_CLASS.linkItem)}>
-                <a>Tentang Founder</a>
-              </li>
+              {linksWithPopup.map((link) => (
+                <li
+                  key={link.id}
+                  className={classNames(CSS_BASE_CLASS.linkItem)}
+                  onClick={() => {
+                    handlePopupContent({
+                      popupTitle: link.buttonText,
+                      isWithButtons: link.isWithButtons,
+                      contentBodyType: link.contentBodyType,
+                      content: [
+                        link.popupLeftContent.html,
+                        link.popupRightContent.html,
+                      ],
+                    })
+                  }}
+                >
+                  <span>{link.buttonText}</span>
+                </li>
+              ))}
             </ul>
           </div>
           {footerSection.map((item) => (

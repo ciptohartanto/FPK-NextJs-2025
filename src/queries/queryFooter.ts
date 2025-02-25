@@ -11,6 +11,18 @@ const QUERY_FOOTER = gql`
           html
         }
       }
+      linksWithPopup {
+        id
+        buttonText
+        isWithButtons
+        contentBodyType
+        popupLeftContent {
+          html
+        }
+        popupRightContent {
+          html
+        }
+      }
     }
   }
 `
