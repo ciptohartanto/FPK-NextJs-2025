@@ -61,22 +61,27 @@
     @extend %full-flex, %flex-center-row;
 
     align-items: flex-start;
+    overflow-y: auto;
 
     @include mobile-view {
       width: calc(100% + $gutter-mobile);
       height: calc(100% - 80px);
       margin: 25px $gutter-mobile/-2 0;
-      overflow-y: scroll;
     }
 
     @include desktop-view {
       width: calc(100% + $gutter-desktop);
+      height: auto;
+      max-height: calc(100% - 35px);
       margin: 25px $gutter-desktop/-2 0;
     }
 
     &--isWithButtons {
       @include mobile-view {
         height: 55%;
+      }
+      @include desktop-view {
+        max-height: calc(100% - 65px);
       }
     }
 
@@ -104,6 +109,15 @@
       display: block;
       width: 100%;
       height: auto;
+    }
+
+    ol {
+      @include mobile-view {
+        padding-left: 20px;
+      }
+      @include desktop-view {
+        padding-left: 15px;
+      }
     }
 
     li {
@@ -177,9 +191,7 @@
       @extend %col-desktop--6;
 
       &:last-of-type {
-        @include mobile-view {
-          margin-top: 1.6em;
-        }
+        @extend %margin-top-last-of-type-mobile;
       }
     }
 
@@ -192,9 +204,7 @@
       &:last-of-type {
         @extend %col-mobile--6;
         @extend %col-desktop--8;
-        @include mobile-view {
-          margin-top: 1.6em;
-        }
+        @extend %margin-top-last-of-type-mobile;
       }
     }
 
@@ -207,9 +217,7 @@
       &:last-of-type {
         @extend %col-mobile--6;
         @extend %col-desktop--5;
-        @include mobile-view {
-          margin-top: 1.6em;
-        }
+        @extend %margin-top-last-of-type-mobile;
       }
     }
 
@@ -218,10 +226,14 @@
       @extend %col-desktop--12;
 
       &:last-of-type {
-        @include mobile-view {
-          margin-top: 1.6em;
-        }
+        margin-top: 1.6em;
       }
     }
+  }
+}
+
+%margin-top-last-of-type-mobile {
+  @include mobile-view {
+    margin-top: 1.6em;
   }
 }
