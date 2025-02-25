@@ -1,10 +1,9 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import IconYoutube from '@/assets/icons/icon-youtube.svg'
 
-export type YouTubeVidProps = {
+type YouTubeVidProps = {
   videoUrl: string
   thumbnailUrl: string
   title: string
@@ -25,7 +24,12 @@ export default function YouTubeVid({
   thumbnailUrl,
 }: YouTubeVidProps) {
   return (
-    <Link className={CSS_BASE_CLASS.self} href={videoUrl}>
+    <a
+      className={CSS_BASE_CLASS.self}
+      href={videoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className={CSS_BASE_CLASS.topWrapper}>
         <Image
           className={CSS_BASE_CLASS.image}
@@ -42,6 +46,6 @@ export default function YouTubeVid({
       >
         {title}
       </h4>
-    </Link>
+    </a>
   )
 }
