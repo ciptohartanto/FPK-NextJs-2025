@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { Niconne, Nokora } from 'next/font/google'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 import Footer from '@/components/Footer'
 import Popup from '@/components/Popup'
@@ -31,6 +31,14 @@ const CSS_BASE_CLASS = {
 export default function Layout({ children, pageProps }: LayoutProps) {
   const { theFooter } = pageProps
   const { popupContent } = useFpkContext()
+
+  useEffect(() => {
+    if (popupContent !== undefined) {
+      document.body.classList.add('bodyLock')
+    } else {
+      document.body.classList.remove('bodyLock')
+    }
+  }, [popupContent])
 
   return (
     <div
