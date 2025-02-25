@@ -64,6 +64,8 @@ const QUERY_HOME = gql`
           buttonText
           buttonDescription
           style
+          isWithButtons
+          contentBodyType
           popupLeftContent {
             html
           }

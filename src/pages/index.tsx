@@ -1,6 +1,8 @@
 import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
+import Popup from '@/components/Popup'
+import { useFpkContext } from '@/context'
 import {
   FooterQuery,
   HomePage as HomePageQueryProps,
@@ -28,6 +30,9 @@ export default function HomePage({ homePage }: HomePageProps) {
     sectionMitraKami,
     sectionCta,
   } = homePage
+
+  const { popupContent } = useFpkContext()
+
   return (
     <>
       <Jumbotron data={sectionJumbotron} />
@@ -36,6 +41,7 @@ export default function HomePage({ homePage }: HomePageProps) {
       <Prestasi data={sectionPrestasi} />
       <Cta data={sectionCta!} />
       <MitraKami data={sectionMitraKami!} />
+      {popupContent && <Popup data={popupContent} />}
     </>
   )
 }

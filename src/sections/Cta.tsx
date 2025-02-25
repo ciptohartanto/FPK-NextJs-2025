@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 
 import ButtonHollow from '@/components/ButtonHollow'
+import { useFpkContext } from '@/context'
 import { Cta as CtaGraphProps } from '@/gql/graphql'
 
 type CtaProps = {
@@ -19,6 +20,7 @@ const CSS_BASE_CLASS = {
 
 export default function Cta({ data }: CtaProps) {
   const { title, ctaButtons } = data
+  const { handlePopupContent } = useFpkContext()
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -32,7 +34,21 @@ export default function Cta({ data }: CtaProps) {
         </h3>
         <ul className={CSS_BASE_CLASS.buttonList}>
           {ctaButtons.map((button) => (
-            <li key={button.id} className={CSS_BASE_CLASS.buttonItem}>
+            <li
+              key={button.id}
+              className={CSS_BASE_CLASS.buttonItem}
+              onClick={() => {
+                handlePopupContent({
+                  popupTitle: `Bergabung ${button.buttonText}`,
+                  isWithButtons: button.isWithButtons,
+                  contentBodyType: button.contentBodyType,
+                  content: [
+                    button.popupLeftContent.html,
+                    button.popupRightContent.html,
+                  ],
+                })
+              }}
+            >
               <ButtonHollow
                 buttonText={button.buttonText}
                 buttonDescription={button.buttonDescription}

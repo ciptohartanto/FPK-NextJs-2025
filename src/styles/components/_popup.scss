@@ -60,7 +60,72 @@
   &-wrapper {
     @extend %full-flex, %flex-center-row;
 
-    margin-top: 25px;
+    align-items: flex-start;
+
+    @include mobile-view {
+      width: calc(100% + $gutter-mobile);
+      height: calc(100% - 80px);
+      margin: 25px $gutter-mobile/-2 0;
+      overflow-y: scroll;
+    }
+
+    @include desktop-view {
+      width: calc(100% + $gutter-desktop);
+      margin: 25px $gutter-desktop/-2 0;
+    }
+
+    &--isWithButtons {
+      @include mobile-view {
+        height: 55%;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      white-space: preserve;
+    }
+
+    strong {
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-weight: 400;
+      @include mobile-view {
+        font-size: 16px;
+      }
+      @include desktop-view {
+        font-size: 24px;
+      }
+    }
+
+    li {
+      div {
+        @extend %flex-center-column;
+
+        position: relative;
+        margin: 0;
+        padding-left: 20px;
+        list-style-type: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 7px;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border-radius: 100%;
+          background-color: $bg-bullet-default;
+        }
+      }
+
+      strong {
+        margin-bottom: 3px;
+        line-height: 1;
+      }
+    }
   }
 
   &-buttonList {
@@ -101,32 +166,56 @@
   }
 
   &-content {
-    &--50-50 {
-      width: 50%;
+    &--fiftyFifty {
+      @extend %col-mobile--6;
+      @extend %col-desktop--6;
+
+      &:last-of-type {
+        @include mobile-view {
+          margin-top: 1.6em;
+        }
+      }
     }
 
-    &--30-70 {
+    &--thirtySeventy {
       &:first-of-type {
-        width: 30%;
+        @extend %col-mobile--6;
+        @extend %col-desktop--4;
       }
 
       &:last-of-type {
-        width: 70%;
+        @extend %col-mobile--6;
+        @extend %col-desktop--8;
+        @include mobile-view {
+          margin-top: 1.6em;
+        }
       }
     }
 
-    &--60-40 {
+    &--sixtyForty {
       &:first-of-type {
-        width: 60%;
+        @extend %col-mobile--6;
+        @extend %col-desktop--7;
       }
 
       &:last-of-type {
-        width: 40%;
+        @extend %col-mobile--6;
+        @extend %col-desktop--5;
+        @include mobile-view {
+          margin-top: 1.6em;
+        }
       }
     }
 
-    &--100-0 {
-      width: 100%;
+    &--hundredZero {
+      @extend %col-mobile--6;
+      @extend %col-desktop--12;
+
+      &:last-of-type {
+        @include mobile-view {
+          margin-top: 1.6em;
+        }
+      }
     }
   }
 }

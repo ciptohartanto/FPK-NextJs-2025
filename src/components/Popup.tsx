@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 
 import IconClose from '@/assets/icons/icon-close.svg'
+import { useFpkContext } from '@/context'
+import { ItemCta } from '@/gql/graphql'
 
 import ButtonHollowRounded from './ButtonHollowRounded'
 import TitleWithPipe from './TitleWithPipe'
 
 export type PopupDataProps = {
   popupTitle: string
-  isWithButtons: boolean
-  contentBodyType: '50-50' | '30-70' | '60-40' | '100-0'
   content: string[]
-}
+} & Pick<ItemCta, 'isWithButtons' | 'contentBodyType'>
 
 type PopupProps = {
   data: PopupDataProps
@@ -34,15 +34,24 @@ const CONTACT_INFO = {
 
 export default function Popup({ data }: PopupProps) {
   const { popupTitle, isWithButtons, contentBodyType, content } = data
+  const { handlePopupContent } = useFpkContext()
+
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.background} />
       <div className={CSS_BASE_CLASS.body}>
-        <span className={CSS_BASE_CLASS.iconClose}>
+        <span
+          className={CSS_BASE_CLASS.iconClose}
+          onClick={() => handlePopupContent(undefined)}
+        >
           <IconClose />
         </span>
         <TitleWithPipe titleText={popupTitle} style="onDarkBackground" />
-        <div className={CSS_BASE_CLASS.wrapper}>
+        <div
+          className={classNames(CSS_BASE_CLASS.wrapper, {
+            [`${CSS_BASE_CLASS.wrapper}--isWithButtons`]: isWithButtons,
+          })}
+        >
           {content.map((item, index) => {
             return (
               <div
