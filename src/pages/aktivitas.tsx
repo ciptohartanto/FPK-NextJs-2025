@@ -53,5 +53,6 @@ export async function getStaticProps(): Promise<
       aktivitasPage,
       theFooter,
     },
+    revalidate: 10,
   }
 }

@@ -68,5 +68,6 @@ export async function getStaticProps(): Promise<
 
   return {
     props: { homePage, theFooter },
+    revalidate: 10,
   }
 }
