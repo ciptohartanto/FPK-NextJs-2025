@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Popup from '@/components/Popup'
 import { useFpkContext } from '@/context'
-import { FooterQuery, HomeQuery } from '@/gql/graphql'
+import { FooterQuery } from '@/gql/graphql'
 
 const nokora = Nokora({
   variable: '--font-nokora',
@@ -21,15 +21,13 @@ const niconne = Niconne({
 })
 type LayoutProps = {
   children: ReactNode
-  pageProps: HomeQuery & FooterQuery
-}
+} & FooterQuery
 
 const CSS_BASE_CLASS = {
   self: 'layout',
 }
 
-export default function Layout({ children, pageProps }: LayoutProps) {
-  const { theFooter } = pageProps
+export default function Layout({ children, theFooter }: LayoutProps) {
   const { popupContent } = useFpkContext()
 
   useEffect(() => {
@@ -51,7 +49,7 @@ export default function Layout({ children, pageProps }: LayoutProps) {
       {children}
       {popupContent && <Popup data={popupContent} />}
 
-      <Footer theFooter={theFooter} />
+      {theFooter && <Footer theFooter={theFooter} />}
     </div>
   )
 }
