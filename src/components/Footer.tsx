@@ -31,7 +31,7 @@ export default function Footer({ theFooter }: FooterProps) {
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
         <div className={CSS_BASE_CLASS.logoWrapper}>
-          <span className={CSS_BASE_CLASS.logo} />
+          <a href="./" className={CSS_BASE_CLASS.logo} />
         </div>
         <div className={CSS_BASE_CLASS.topWrapper}>
           <div className={CSS_BASE_CLASS.subSection}>
