@@ -1,6 +1,7 @@
 import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
+import PageHead from '@/components/PageHead'
 import {
   FooterQuery,
   HomePage as HomePageQueryProps,
@@ -19,6 +20,9 @@ type HomePageProps = {
   homePage: HomePageQueryProps
 }
 
+const PAGE_TITLE = 'Home | Yayasan Flores Penuh Kasih Official'
+const PAGE_META_DESC = 'Kenali kami dan kejar cita-cita setinggi langit!'
+
 export default function HomePage({ homePage }: HomePageProps) {
   const {
     sectionJumbotron,
@@ -31,6 +35,7 @@ export default function HomePage({ homePage }: HomePageProps) {
 
   return (
     <>
+      <PageHead pageTitle={PAGE_TITLE} metaDescription={PAGE_META_DESC} />
       <Jumbotron data={sectionJumbotron} />
       <SiapaKami data={sectionSiapaKami} />
       <Quote data={sectionQuote} />
