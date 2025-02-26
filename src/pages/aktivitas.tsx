@@ -2,6 +2,7 @@ import { GetStaticPropsResult } from 'next'
 
 import clientQuery from '@/api/clientQuery'
 import Album from '@/components/Album'
+import PageHead from '@/components/PageHead'
 import { AktivitasPage, AktivitasPageQuery, FooterQuery } from '@/gql/graphql'
 import QUERY_AKTIVITAS from '@/queries/queryAktivitas'
 import QUERY_FOOTER from '@/queries/queryFooter'
@@ -11,13 +12,19 @@ type AktivitasPageProps = {
   aktivitasPage: AktivitasPage
 }
 
+const PAGE_TITLE = 'Aktivitas | Yayasan Flores Penuh Kasih Official'
+const PAGE_META_DESC = 'Kegiatan di Yayasan Flores Penuh Kasih'
+
 export default function AktivitasHome({ aktivitasPage }: AktivitasPageProps) {
   const { albums } = aktivitasPage
   return (
-    <div style={{ width: '100%' }}>
-      <Album type="withNumbers" imagesOnAlbum={albums} />
-      <YouTubes title="Yayasan Flores Penuh Kasih on Youtube" />
-    </div>
+    <>
+      <PageHead pageTitle={PAGE_TITLE} metaDescription={PAGE_META_DESC} />
+      <div style={{ width: '100%' }}>
+        <Album type="withNumbers" imagesOnAlbum={albums} />
+        <YouTubes title="Yayasan Flores Penuh Kasih on Youtube" />
+      </div>
+    </>
   )
 }
 
@@ -46,5 +53,6 @@ export async function getStaticProps(): Promise<
       aktivitasPage,
       theFooter,
     },
+    revalidate: 10,
   }
 }
