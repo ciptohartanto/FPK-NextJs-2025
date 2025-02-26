@@ -8,7 +8,7 @@ import Layout from '@/layout'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <FpkProvider>
-      <Layout pageProps={pageProps}>
+      <Layout theFooter={pageProps.theFooter}>
         <Component {...pageProps} />
       </Layout>
     </FpkProvider>
