@@ -1,10 +1,10 @@
 import classNames from 'classnames'
+import { useEffect, useState } from 'react'
 
-import YouTubeVid, { YouTubeVidProps } from '@/components/YouTubeVid'
+import YouTubeVid from '@/components/YouTubeVid'
 
 type YouTubesProps = {
   title: string
-  youtubeVids: YouTubeVidProps[]
 }
 
 const CSS_BASE_CLASS = {
@@ -17,7 +17,25 @@ const CSS_BASE_CLASS = {
   item: 'youTubes-item',
 }
 
-export default function YouTubes({ title, youtubeVids }: YouTubesProps) {
+export default function YouTubes({ title }: YouTubesProps) {
+  const [youTubeVidData, setYouTubeVidData] = useState<undefined | any>(
+    undefined
+  )
+  useEffect(() => {
+    const getVideos = async () => {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_PROJECT_URL}/api/videoData`)
+          .then((data) => data.json())
+          .then((data) => {
+            setYouTubeVidData(data.youtubeVideoList)
+          })
+      } catch (e) {
+        throw Error('internal YouTube API error')
+      }
+    }
+    getVideos()
+  }, [])
+
   return (
     <div className={CSS_BASE_CLASS.self}>
       <div className={CSS_BASE_CLASS.wrapper}>
@@ -30,17 +48,24 @@ export default function YouTubes({ title, youtubeVids }: YouTubesProps) {
           {title}
         </h1>
 
-        <ul className={CSS_BASE_CLASS.list}>
-          {youtubeVids.map((item) => (
-            <li className={CSS_BASE_CLASS.item} key={item.videoUrl}>
-              <YouTubeVid
-                videoUrl={item.videoUrl}
-                thumbnailUrl={item.thumbnailUrl}
-                title={item.title}
-              />
-            </li>
-          ))}
-        </ul>
+        {!youTubeVidData ? (
+          <div>loading</div>
+        ) : (
+          <ul className={CSS_BASE_CLASS.list}>
+            {youTubeVidData.map((item: any) => (
+              <li
+                className={CSS_BASE_CLASS.item}
+                key={`${item.contentDetails.videoId}`}
+              >
+                <YouTubeVid
+                  videoUrl={`https://youtube.com/watch/${item.contentDetails.videoId}`}
+                  thumbnailUrl={item.snippet.thumbnails.high.url}
+                  title={item.snippet.title}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   )
