@@ -1,5 +1,3 @@
-'use client'
-
 import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useState } from 'react'
