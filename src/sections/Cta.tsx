@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { motion } from 'motion/react'
 
 import ButtonHollow from '@/components/ButtonHollow'
 import { useFpkContext } from '@/context'
@@ -18,6 +19,20 @@ const CSS_BASE_CLASS = {
   link: 'cta-link',
 }
 
+const fadeInVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.2,
+    },
+  }),
+}
+
 export default function Cta({ data }: CtaProps) {
   const { title, ctaButtons } = data
   const { handlePopupContent } = useFpkContext()
@@ -33,10 +48,14 @@ export default function Cta({ data }: CtaProps) {
           {title}
         </h3>
         <ul className={CSS_BASE_CLASS.buttonList}>
-          {ctaButtons.map((button) => (
-            <li
+          {ctaButtons.map((button, index) => (
+            <motion.li
               key={button.id}
               className={CSS_BASE_CLASS.buttonItem}
+              variants={fadeInVariants}
+              whileInView="animate"
+              initial="initial"
+              custom={index}
               onClick={() => {
                 handlePopupContent({
                   popupTitle: `Bergabung ${button.buttonText}`,
@@ -54,7 +73,7 @@ export default function Cta({ data }: CtaProps) {
                 buttonDescription={button.buttonDescription}
                 style={button.style}
               />
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
