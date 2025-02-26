@@ -41,7 +41,7 @@ export default function YouTubes({ title }: YouTubesProps) {
   useEffect(() => {
     const getVideos = async () => {
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_PROJECT_URL}/api/videoData`)
+        await fetch('/api/videoData')
           .then((data) => data.json())
           .then((data) => {
             setYouTubeVidData(data.youtubeVideoList)
