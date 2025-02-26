@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
 
+import IconLoading from '@/assets/icons/icon-loading.svg'
 import YouTubeVid from '@/components/YouTubeVid'
 
 type YouTubesProps = {
@@ -10,11 +11,13 @@ type YouTubesProps = {
 const CSS_BASE_CLASS = {
   self: 'youTubes',
   wrapper: 'youTubes-wrapper',
-
   title: 'youTubes-title',
   typographyTitle: 'typography-title',
   list: 'youTubes-list',
   item: 'youTubes-item',
+  loadingWrapper: 'youTubes-loadingWrapper',
+  loadingText: 'youTubes-loadingText',
+  loadingIcon: 'youTubes-loadingIcon',
 }
 
 export default function YouTubes({ title }: YouTubesProps) {
@@ -49,7 +52,10 @@ export default function YouTubes({ title }: YouTubesProps) {
         </h1>
 
         {!youTubeVidData ? (
-          <div>loading</div>
+          <div className={CSS_BASE_CLASS.loadingWrapper}>
+            <IconLoading className={CSS_BASE_CLASS.loadingIcon} />
+            <span className={CSS_BASE_CLASS.loadingText}>loading</span>
+          </div>
         ) : (
           <ul className={CSS_BASE_CLASS.list}>
             {youTubeVidData.map((item: any) => (
