@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    youTubeApiKey: process.env.YOUTUBE_API_KEY,
+    youTubePlaylistId: process.env.YOUTUBE_PLAYLIST_ID,
+  },
   images: {
     remotePatterns: [
       {
