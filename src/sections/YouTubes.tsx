@@ -21,20 +21,18 @@ const CSS_BASE_CLASS = {
   loadingIcon: 'youTubes-loadingIcon',
 }
 
-const variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.08,
-      staggerChildren: 0.1,
-    },
+const fadeInVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
   },
-}
-
-const childVariants = {
-  hidden: { opacity: 0, x: 5, y: -5 },
-  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.1 } },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.05,
+    },
+  }),
 }
 export default function YouTubes({ title }: YouTubesProps) {
   const [youTubeVidData, setYouTubeVidData] = useState<undefined | any>(
@@ -73,18 +71,16 @@ export default function YouTubes({ title }: YouTubesProps) {
             <span className={CSS_BASE_CLASS.loadingText}>loading</span>
           </div>
         ) : (
-          <motion.ul
-            className={CSS_BASE_CLASS.list}
-            key="youtubeVideoWrapper"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-          >
-            {youTubeVidData.map((item: any) => (
+          <ul className={CSS_BASE_CLASS.list} key="youtubeVideoWrapper">
+            {youTubeVidData.map((item: any, index: number) => (
               <motion.li
                 className={CSS_BASE_CLASS.item}
-                key={`${item.contentDetails.videoId}`}
-                variants={childVariants}
+                key={`${item.contentDetails.videoId}${index}`}
+                variants={fadeInVariants}
+                whileInView="animate"
+                initial="initial"
+                custom={index}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <YouTubeVid
                   videoUrl={`https://youtube.com/watch/${item.contentDetails.videoId}`}
@@ -93,7 +89,7 @@ export default function YouTubes({ title }: YouTubesProps) {
                 />
               </motion.li>
             ))}
-          </motion.ul>
+          </ul>
         )}
       </div>
     </div>
