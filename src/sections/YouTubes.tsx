@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 import IconLoading from '@/assets/icons/icon-loading.svg'
@@ -20,6 +21,21 @@ const CSS_BASE_CLASS = {
   loadingIcon: 'youTubes-loadingIcon',
 }
 
+const variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.08,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const childVariants = {
+  hidden: { opacity: 0, x: 5, y: -5 },
+  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.1 } },
+}
 export default function YouTubes({ title }: YouTubesProps) {
   const [youTubeVidData, setYouTubeVidData] = useState<undefined | any>(
     undefined
@@ -57,20 +73,27 @@ export default function YouTubes({ title }: YouTubesProps) {
             <span className={CSS_BASE_CLASS.loadingText}>loading</span>
           </div>
         ) : (
-          <ul className={CSS_BASE_CLASS.list}>
+          <motion.ul
+            className={CSS_BASE_CLASS.list}
+            key="youtubeVideoWrapper"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+          >
             {youTubeVidData.map((item: any) => (
-              <li
+              <motion.li
                 className={CSS_BASE_CLASS.item}
                 key={`${item.contentDetails.videoId}`}
+                variants={childVariants}
               >
                 <YouTubeVid
                   videoUrl={`https://youtube.com/watch/${item.contentDetails.videoId}`}
                   thumbnailUrl={item.snippet.thumbnails.high.url}
                   title={item.snippet.title}
                 />
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         )}
       </div>
     </div>
