@@ -1,4 +1,6 @@
 import { GetStaticPropsResult } from 'next'
+import { useEffect } from 'react'
+import ReactGA from 'react-ga4'
 
 import clientQuery from '@/api/clientQuery'
 import Album from '@/components/Album'
@@ -17,6 +19,14 @@ const PAGE_META_DESC = 'Kegiatan di Yayasan Flores Penuh Kasih'
 
 export default function AktivitasHome({ aktivitasPage }: AktivitasPageProps) {
   const { albums } = aktivitasPage
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: 'pageview',
+      page: '/',
+      title: 'Aktivitas Page',
+    })
+  }, [])
   return (
     <>
       <PageHead pageTitle={PAGE_TITLE} metaDescription={PAGE_META_DESC} />
