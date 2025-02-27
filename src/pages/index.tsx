@@ -32,10 +32,12 @@ export default function HomePage({ homePage }: HomePageProps) {
     ReactGA.initialize(GA_MEASUREMENT_ID, {
       gaOptions: {
         debug_mode: true,
+        cookie_flags: 'Secure;SameSite=None',
+        cookieDomain: 'none',
       },
     })
 
-    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' })
+    ReactGA.send({ hitType: 'pageview', page: '/', title: 'HELL JEAH!!' })
   }, [])
 
   const {
