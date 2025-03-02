@@ -56,7 +56,7 @@ export default function Jumbotron({ data }: JumbotronProps) {
           onClick={() => {
             sendGTMEvent({
               event: 'clicked_button',
-              event_button_value: buttonText,
+              button_title: buttonText,
             })
           }}
         >
