@@ -2,6 +2,7 @@ import classNames from 'classnames'
 
 import { useFpkContext } from '@/context'
 import { FooterQuery } from '@/gql/graphql'
+import gtmClickButton from '@/utils/gtm-clickButton'
 
 type FooterProps = Pick<FooterQuery, 'theFooter'>
 
@@ -55,6 +56,7 @@ export default function Footer({ theFooter }: FooterProps) {
                         link.popupRightContent.html,
                       ],
                     })
+                    gtmClickButton(link.buttonText)
                   }}
                 >
                   <span>{link.buttonText}</span>

@@ -1,10 +1,10 @@
-import { sendGTMEvent } from '@next/third-parties/google'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import ButtonHollowRounded from '@/components/ButtonHollowRounded'
 import { Jumbotron as SectionJumbotronProps } from '@/gql/graphql'
+import gtmClickButton from '@/utils/gtm-clickButton'
 
 const CSS_BASE_CLASS = {
   self: 'jumbotron',
@@ -54,10 +54,7 @@ export default function Jumbotron({ data }: JumbotronProps) {
           className={CSS_BASE_CLASS.button}
           id={ID_FOR_TRACKING.button}
           onClick={() => {
-            sendGTMEvent({
-              event: 'clicked_button',
-              button_title: buttonText,
-            })
+            gtmClickButton(buttonText)
           }}
         >
           <ButtonHollowRounded buttonText={buttonText} />
