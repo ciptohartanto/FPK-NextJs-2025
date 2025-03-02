@@ -1,6 +1,4 @@
 import { GetStaticPropsResult } from 'next'
-import { useEffect } from 'react'
-import ReactGA from 'react-ga4'
 
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
@@ -26,14 +24,6 @@ const PAGE_TITLE = 'Home | Yayasan Flores Penuh Kasih Official'
 const PAGE_META_DESC = 'Kenali kami dan kejar cita-cita setinggi langit!'
 
 export default function HomePage({ homePage }: HomePageProps) {
-  useEffect(() => {
-    ReactGA.send({
-      hitType: 'pageview',
-      page: '/',
-      title: 'Home Page',
-    })
-  }, [])
-
   const {
     sectionJumbotron,
     sectionSiapaKami,
