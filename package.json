@@ -1,6 +1,6 @@
 {
   "name": "fpk-2025-nextjs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "dev": "graphql-codegen --config codegen.ts --require dotenv/config && next dev",
