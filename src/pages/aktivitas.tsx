@@ -17,6 +17,7 @@ const PAGE_META_DESC = 'Kegiatan di Yayasan Flores Penuh Kasih'
 
 export default function AktivitasHome({ aktivitasPage }: AktivitasPageProps) {
   const { albums } = aktivitasPage
+
   return (
     <>
       <PageHead pageTitle={PAGE_TITLE} metaDescription={PAGE_META_DESC} />

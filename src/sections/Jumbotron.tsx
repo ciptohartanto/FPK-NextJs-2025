@@ -1,3 +1,4 @@
+import { sendGAEvent, sendGTMEvent } from '@next/third-parties/google'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,6 +18,10 @@ const CSS_BASE_CLASS = {
 
 type JumbotronProps = {
   data: SectionJumbotronProps
+}
+
+const ID_FOR_TRACKING = {
+  button: 'cta-aktivitas',
 }
 
 export default function Jumbotron({ data }: JumbotronProps) {
@@ -44,7 +49,20 @@ export default function Jumbotron({ data }: JumbotronProps) {
           {title}
         </h1>
         <h2 className={CSS_BASE_CLASS.typographyCaption}>{secondCaption}</h2>
-        <Link href="/aktivitas" className={CSS_BASE_CLASS.button}>
+        <Link
+          href="/aktivitas"
+          className={CSS_BASE_CLASS.button}
+          id={ID_FOR_TRACKING.button}
+          onClick={() => {
+            sendGAEvent('event', 'event_button_click', {
+              content_type: 'event-button-value xyz',
+            })
+            sendGTMEvent({
+              event: 'event_button_click',
+              content_type: 'event-button-value ccc',
+            })
+          }}
+        >
           <ButtonHollowRounded buttonText={buttonText} />
         </Link>
       </div>

@@ -1,6 +1,4 @@
 import { GetStaticPropsResult } from 'next'
-import { useEffect } from 'react'
-import ReactGA from 'react-ga4'
 
 import clientQuery from '@/api/clientQuery'
 import PageHead from '@/components/PageHead'
@@ -22,24 +20,10 @@ type HomePageProps = {
   homePage: HomePageQueryProps
 }
 
-const GA_MEASUREMENT_ID = 'G-D7NPB7J4XW'
-
 const PAGE_TITLE = 'Home | Yayasan Flores Penuh Kasih Official'
 const PAGE_META_DESC = 'Kenali kami dan kejar cita-cita setinggi langit!'
 
 export default function HomePage({ homePage }: HomePageProps) {
-  useEffect(() => {
-    ReactGA.initialize(GA_MEASUREMENT_ID, {
-      gaOptions: {
-        debug_mode: true,
-        cookie_flags: 'Secure;SameSite=None',
-        cookieDomain: 'none',
-      },
-    })
-
-    ReactGA.send({ hitType: 'pageview', page: '/', title: 'HELL JEAH!!' })
-  }, [])
-
   const {
     sectionJumbotron,
     sectionSiapaKami,
