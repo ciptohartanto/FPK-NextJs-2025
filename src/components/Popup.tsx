@@ -1,3 +1,4 @@
+import { sendGTMEvent } from '@next/third-parties/google'
 import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useState } from 'react'
@@ -5,7 +6,6 @@ import { useCallback, useState } from 'react'
 import IconClose from '@/assets/icons/icon-close.svg'
 import { useFpkContext } from '@/context'
 import { ItemCta } from '@/gql/graphql'
-import gtmClickButton from '@/utils/gtm-clickButton'
 
 import ButtonHollowRounded from './ButtonHollowRounded'
 import TitleWithPipe from './TitleWithPipe'
@@ -24,6 +24,7 @@ const CSS_BASE_CLASS = {
   background: 'popup-background',
   body: 'popup-body',
   wrapper: 'popup-wrapper',
+  wrapperIsWithNumbers: 'popup-wrapper--isWithButtons',
   content: 'popup-content',
   iconClose: 'popup-iconClose',
   buttonList: 'popup-buttonList',
@@ -51,6 +52,8 @@ const ANIMATION_BG = {
 }
 
 const DELAY = 450
+const TEXT_CONTACT_VIA_EMAIL = 'Kontak via email'
+const TEXT_CONTACT_VIA_TELEPHONE = 'Kontak via telepon'
 
 export default function Popup({ data }: PopupProps) {
   const { popupTitle, isWithButtons, contentBodyType, content } = data
@@ -93,7 +96,7 @@ export default function Popup({ data }: PopupProps) {
             <TitleWithPipe titleText={popupTitle} style="onDarkBackground" />
             <div
               className={classNames(CSS_BASE_CLASS.wrapper, {
-                [`${CSS_BASE_CLASS.wrapper}--isWithButtons`]: isWithButtons,
+                [CSS_BASE_CLASS.wrapperIsWithNumbers]: isWithButtons,
               })}
             >
               {content.map((item, index) => {
@@ -113,17 +116,29 @@ export default function Popup({ data }: PopupProps) {
                 <li className={CSS_BASE_CLASS.buttonItem}>
                   <a
                     href={CONTACT_INFO.email}
-                    onClick={() => gtmClickButton(`${popupTitle}-email`)}
+                    onClick={() =>
+                      sendGTMEvent({
+                        event: 'click_popup_cta_button',
+                        popup_button_title: `${popupTitle} - ${TEXT_CONTACT_VIA_EMAIL}`,
+                      })
+                    }
                   >
-                    <ButtonHollowRounded buttonText="Kontak via email" />
+                    <ButtonHollowRounded buttonText={TEXT_CONTACT_VIA_EMAIL} />
                   </a>
                 </li>
                 <li className={CSS_BASE_CLASS.buttonItem}>
                   <a
                     href={CONTACT_INFO.tel}
-                    onClick={() => gtmClickButton(`${popupTitle}-telepon`)}
+                    onClick={() =>
+                      sendGTMEvent({
+                        event: 'click_popup_cta_button',
+                        popup_button_title: `${popupTitle} - ${TEXT_CONTACT_VIA_TELEPHONE}`,
+                      })
+                    }
                   >
-                    <ButtonHollowRounded buttonText="Kontak via telepon" />
+                    <ButtonHollowRounded
+                      buttonText={TEXT_CONTACT_VIA_TELEPHONE}
+                    />
                   </a>
                 </li>
               </ul>
