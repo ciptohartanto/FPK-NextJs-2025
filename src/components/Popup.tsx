@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react'
 import IconClose from '@/assets/icons/icon-close.svg'
 import { useFpkContext } from '@/context'
 import { ItemCta } from '@/gql/graphql'
+import gtmClickButton from '@/utils/gtm-clickButton'
 
 import ButtonHollowRounded from './ButtonHollowRounded'
 import TitleWithPipe from './TitleWithPipe'
@@ -110,12 +111,18 @@ export default function Popup({ data }: PopupProps) {
             {isWithButtons && (
               <ul className={CSS_BASE_CLASS.buttonList}>
                 <li className={CSS_BASE_CLASS.buttonItem}>
-                  <a href={CONTACT_INFO.email}>
+                  <a
+                    href={CONTACT_INFO.email}
+                    onClick={() => gtmClickButton(`${popupTitle}-email`)}
+                  >
                     <ButtonHollowRounded buttonText="Kontak via email" />
                   </a>
                 </li>
                 <li className={CSS_BASE_CLASS.buttonItem}>
-                  <a href={CONTACT_INFO.tel}>
+                  <a
+                    href={CONTACT_INFO.tel}
+                    onClick={() => gtmClickButton(`${popupTitle}-telepon`)}
+                  >
                     <ButtonHollowRounded buttonText="Kontak via telepon" />
                   </a>
                 </li>

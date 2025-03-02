@@ -1,3 +1,4 @@
+import { sendGTMEvent } from '@next/third-parties/google'
 import classNames from 'classnames'
 import Image from 'next/image'
 
@@ -29,6 +30,12 @@ export default function YouTubeVid({
       href={videoUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        sendGTMEvent({
+          event: 'click_youtube_video_item',
+          video_title: title,
+        })
+      }}
     >
       <div className={CSS_BASE_CLASS.topWrapper}>
         <Image

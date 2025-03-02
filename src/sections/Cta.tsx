@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import ButtonHollow from '@/components/ButtonHollow'
 import { useFpkContext } from '@/context'
 import { Cta as CtaGraphProps } from '@/gql/graphql'
+import gtmClickButton from '@/utils/gtm-clickButton'
 
 type CtaProps = {
   data: CtaGraphProps
@@ -66,6 +67,8 @@ export default function Cta({ data }: CtaProps) {
                     button.popupRightContent.html,
                   ],
                 })
+
+                gtmClickButton(button.buttonText)
               }}
             >
               <ButtonHollow
