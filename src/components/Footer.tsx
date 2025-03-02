@@ -56,7 +56,7 @@ export default function Footer({ theFooter }: FooterProps) {
                         link.popupRightContent.html,
                       ],
                     })
-                    gtmClickButton(link.buttonText)
+                    gtmClickButton(`footer-${link.buttonText}`)
                   }}
                 >
                   <span>{link.buttonText}</span>
