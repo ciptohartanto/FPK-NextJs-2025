@@ -23,7 +23,7 @@ export default function AktivitasHome({ aktivitasPage }: AktivitasPageProps) {
       <PageHead pageTitle={PAGE_TITLE} metaDescription={PAGE_META_DESC} />
       <div style={{ width: '100%' }}>
         <Album type="withNumbers" imagesOnAlbum={albums} />
-        <YouTubes title="Yayasan Flores Penuh Kasih on Youtube" />
+        <YouTubes title="Yayasan Flores Penuh Kasih on YouTube" />
       </div>
     </>
   )

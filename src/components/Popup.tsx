@@ -33,7 +33,7 @@ const CSS_BASE_CLASS = {
 
 const CONTACT_INFO = {
   tel: 'tel:+6281268317567',
-  email: 'mailto:yayasanflorespenuhkasih@hotmail.com',
+  email: 'mailto:yayasan.flores.penuh.kasih@gmail.com',
 }
 
 const ANIMATION_BODY = {
